@@ -8,7 +8,7 @@
 import UIKit
 import Mapbox
 
-class ViewController: UIViewController {
+class MapController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +18,9 @@ class ViewController: UIViewController {
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.setCenter(CLLocationCoordinate2D(latitude: -20.90180283795172, longitude: 55.48438641154759), zoomLevel: 15, animated: false)
         view.addSubview(mapView)
-
     }
+    
+    //Ceci est un test !
     
 }
 
