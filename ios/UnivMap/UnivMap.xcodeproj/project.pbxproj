@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		61B5B46080E7F33D126F995F /* Pods_UnivMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C322E01DA3FDE125BB5D5F /* Pods_UnivMap.framework */; };
 		6D90927C2617731700D6E9C3 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90927B2617731700D6E9C3 /* CalendarController.swift */; };
 		6DDE55952616F9EA0008322F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDE55942616F9EA0008322F /* AppDelegate.swift */; };
 		6DDE55972616F9EA0008322F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDE55962616F9EA0008322F /* SceneDelegate.swift */; };
@@ -21,6 +20,7 @@
 		6DDE55C42616FB990008322F /* MapboxMobileEvents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDE55BD2616FB950008322F /* MapboxMobileEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6DE2F910261F216400C46ADA /* Planning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2F90F261F216400C46ADA /* Planning.swift */; };
 		6DE2F912261F2F3100C46ADA /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2F911261F2F3100C46ADA /* CustomCell.swift */; };
+		6DEE6809261F7695000FC1A5 /* Pods_UnivMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C322E01DA3FDE125BB5D5F /* Pods_UnivMap.framework */; };
 		6DF5D8A2261759AB0041E99C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DF5D8A1261759AB0041E99C /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -64,9 +64,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DEE6809261F7695000FC1A5 /* Pods_UnivMap.framework in Frameworks */,
 				6DDE55C32616FB990008322F /* MapboxMobileEvents.framework in Frameworks */,
 				6DDE55C12616FB970008322F /* Mapbox.framework in Frameworks */,
-				61B5B46080E7F33D126F995F /* Pods_UnivMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
