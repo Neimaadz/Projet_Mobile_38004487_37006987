@@ -8,8 +8,9 @@
 import UIKit
 import Mapbox
 
-class MapController: UIViewController {
 
+class MapController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

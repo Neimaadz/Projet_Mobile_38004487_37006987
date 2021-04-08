@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61B5B46080E7F33D126F995F /* Pods_UnivMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C322E01DA3FDE125BB5D5F /* Pods_UnivMap.framework */; };
+		6D90927C2617731700D6E9C3 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90927B2617731700D6E9C3 /* CalendarController.swift */; };
 		6DDE55952616F9EA0008322F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDE55942616F9EA0008322F /* AppDelegate.swift */; };
 		6DDE55972616F9EA0008322F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDE55962616F9EA0008322F /* SceneDelegate.swift */; };
 		6DDE55992616F9EA0008322F /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDE55982616F9EA0008322F /* MapController.swift */; };
@@ -17,7 +19,9 @@
 		6DDE55C22616FB970008322F /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDE55BE2616FB950008322F /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6DDE55C32616FB990008322F /* MapboxMobileEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDE55BD2616FB950008322F /* MapboxMobileEvents.framework */; };
 		6DDE55C42616FB990008322F /* MapboxMobileEvents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDE55BD2616FB950008322F /* MapboxMobileEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6DDE55C62616FDC40008322F /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDE55C52616FDC40008322F /* test.swift */; };
+		6DE2F910261F216400C46ADA /* Planning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2F90F261F216400C46ADA /* Planning.swift */; };
+		6DE2F912261F2F3100C46ADA /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2F911261F2F3100C46ADA /* CustomCell.swift */; };
+		6DF5D8A2261759AB0041E99C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DF5D8A1261759AB0041E99C /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +40,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6D90927B2617731700D6E9C3 /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
 		6DDE55912616F9EA0008322F /* UnivMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnivMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DDE55942616F9EA0008322F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6DDE55962616F9EA0008322F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +51,12 @@
 		6DDE55A22616F9EB0008322F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DDE55BD2616FB950008322F /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapboxMobileEvents.framework; sourceTree = "<group>"; };
 		6DDE55BE2616FB950008322F /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
-		6DDE55C52616FDC40008322F /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		6DE2F90F261F216400C46ADA /* Planning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planning.swift; sourceTree = "<group>"; };
+		6DE2F911261F2F3100C46ADA /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		6DF5D8A1261759AB0041E99C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7B6366710282BFCED4293E91 /* Pods-UnivMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivMap.release.xcconfig"; path = "Target Support Files/Pods-UnivMap/Pods-UnivMap.release.xcconfig"; sourceTree = "<group>"; };
+		95C322E01DA3FDE125BB5D5F /* Pods_UnivMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B810A4FBB4278383B0BA758A /* Pods-UnivMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivMap.debug.xcconfig"; path = "Target Support Files/Pods-UnivMap/Pods-UnivMap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,7 @@
 			files = (
 				6DDE55C32616FB990008322F /* MapboxMobileEvents.framework in Frameworks */,
 				6DDE55C12616FB970008322F /* Mapbox.framework in Frameworks */,
+				61B5B46080E7F33D126F995F /* Pods_UnivMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +78,8 @@
 			children = (
 				6DDE55932616F9EA0008322F /* UnivMap */,
 				6DDE55922616F9EA0008322F /* Products */,
+				BFD12898D4FF08B9CA57A279 /* Pods */,
+				E0E5444A8C490B45015ED870 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +101,7 @@
 				6DDE55B42616FA970008322F /* Controller */,
 				6DDE55B62616FABA0008322F /* Others */,
 				6DDE55A22616F9EB0008322F /* Info.plist */,
+				6DF5D8A1261759AB0041E99C /* GoogleService-Info.plist */,
 			);
 			path = UnivMap;
 			sourceTree = "<group>";
@@ -95,7 +109,8 @@
 		6DDE55B22616FA880008322F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6DDE55C52616FDC40008322F /* test.swift */,
+				6DE2F90F261F216400C46ADA /* Planning.swift */,
+				6DE2F911261F2F3100C46ADA /* CustomCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -113,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				6DDE55982616F9EA0008322F /* MapController.swift */,
+				6D90927B2617731700D6E9C3 /* CalendarController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -127,6 +143,23 @@
 			path = Others;
 			sourceTree = "<group>";
 		};
+		BFD12898D4FF08B9CA57A279 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B810A4FBB4278383B0BA758A /* Pods-UnivMap.debug.xcconfig */,
+				7B6366710282BFCED4293E91 /* Pods-UnivMap.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E0E5444A8C490B45015ED870 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95C322E01DA3FDE125BB5D5F /* Pods_UnivMap.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,10 +167,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6DDE55A52616F9EB0008322F /* Build configuration list for PBXNativeTarget "UnivMap" */;
 			buildPhases = (
+				0F22AC402D949552E431CF6A /* [CP] Check Pods Manifest.lock */,
 				6DDE558D2616F9EA0008322F /* Sources */,
 				6DDE558E2616F9EA0008322F /* Frameworks */,
 				6DDE558F2616F9EA0008322F /* Resources */,
 				6DDE55AF2616F9F90008322F /* Embed Frameworks */,
+				2D7B48F75E2B1E4061EA41C9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -186,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DDE55A12616F9EB0008322F /* LaunchScreen.storyboard in Resources */,
+				6DF5D8A2261759AB0041E99C /* GoogleService-Info.plist in Resources */,
 				6DDE559E2616F9EB0008322F /* Assets.xcassets in Resources */,
 				6DDE559C2616F9EA0008322F /* Main.storyboard in Resources */,
 			);
@@ -193,15 +229,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0F22AC402D949552E431CF6A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UnivMap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2D7B48F75E2B1E4061EA41C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UnivMap/Pods-UnivMap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UnivMap/Pods-UnivMap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UnivMap/Pods-UnivMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6DDE558D2616F9EA0008322F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				6DDE55992616F9EA0008322F /* MapController.swift in Sources */,
-				6DDE55C62616FDC40008322F /* test.swift in Sources */,
+				6D90927C2617731700D6E9C3 /* CalendarController.swift in Sources */,
 				6DDE55952616F9EA0008322F /* AppDelegate.swift in Sources */,
 				6DDE55972616F9EA0008322F /* SceneDelegate.swift in Sources */,
+				6DE2F912261F2F3100C46ADA /* CustomCell.swift in Sources */,
+				6DE2F910261F216400C46ADA /* Planning.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +425,7 @@
 		};
 		6DDE55A62616F9EB0008322F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B810A4FBB4278383B0BA758A /* Pods-UnivMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -369,6 +450,7 @@
 		};
 		6DDE55A72616F9EB0008322F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B6366710282BFCED4293E91 /* Pods-UnivMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
