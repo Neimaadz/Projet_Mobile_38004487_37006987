@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33D1048A102E5CF351EB84CC /* Pods_UnivMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352D53F62F3BAC6CB4E29A5E /* Pods_UnivMap.framework */; };
+		6D1344FE262E2E1100D18306 /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1344FD262E2E1100D18306 /* CustomCalloutView.swift */; };
+		6D134500262E2EFD00D18306 /* CustomUserLocationAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1344FF262E2EFD00D18306 /* CustomUserLocationAnnotationView.swift */; };
 		6D90927C2617731700D6E9C3 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90927B2617731700D6E9C3 /* CalendarController.swift */; };
 		6DDE55952616F9EA0008322F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDE55942616F9EA0008322F /* AppDelegate.swift */; };
 		6DDE55972616F9EA0008322F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDE55962616F9EA0008322F /* SceneDelegate.swift */; };
@@ -20,7 +23,6 @@
 		6DDE55C42616FB990008322F /* MapboxMobileEvents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDE55BD2616FB950008322F /* MapboxMobileEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6DE2F910261F216400C46ADA /* Planning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2F90F261F216400C46ADA /* Planning.swift */; };
 		6DE2F912261F2F3100C46ADA /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2F911261F2F3100C46ADA /* CustomCell.swift */; };
-		6DEE6809261F7695000FC1A5 /* Pods_UnivMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C322E01DA3FDE125BB5D5F /* Pods_UnivMap.framework */; };
 		6DF5D8A2261759AB0041E99C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DF5D8A1261759AB0041E99C /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1579913F49C7FA30947DBBB4 /* Pods-UnivMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivMap.release.xcconfig"; path = "Target Support Files/Pods-UnivMap/Pods-UnivMap.release.xcconfig"; sourceTree = "<group>"; };
+		352D53F62F3BAC6CB4E29A5E /* Pods_UnivMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B29B36977175876AA5F23D7 /* Pods-UnivMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivMap.debug.xcconfig"; path = "Target Support Files/Pods-UnivMap/Pods-UnivMap.debug.xcconfig"; sourceTree = "<group>"; };
+		6D1344FD262E2E1100D18306 /* CustomCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
+		6D1344FF262E2EFD00D18306 /* CustomUserLocationAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUserLocationAnnotationView.swift; sourceTree = "<group>"; };
 		6D90927B2617731700D6E9C3 /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
 		6DDE55912616F9EA0008322F /* UnivMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnivMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DDE55942616F9EA0008322F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,9 +61,6 @@
 		6DE2F90F261F216400C46ADA /* Planning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planning.swift; sourceTree = "<group>"; };
 		6DE2F911261F2F3100C46ADA /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		6DF5D8A1261759AB0041E99C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7B6366710282BFCED4293E91 /* Pods-UnivMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivMap.release.xcconfig"; path = "Target Support Files/Pods-UnivMap/Pods-UnivMap.release.xcconfig"; sourceTree = "<group>"; };
-		95C322E01DA3FDE125BB5D5F /* Pods_UnivMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B810A4FBB4278383B0BA758A /* Pods-UnivMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivMap.debug.xcconfig"; path = "Target Support Files/Pods-UnivMap/Pods-UnivMap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,9 +68,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DEE6809261F7695000FC1A5 /* Pods_UnivMap.framework in Frameworks */,
 				6DDE55C32616FB990008322F /* MapboxMobileEvents.framework in Frameworks */,
 				6DDE55C12616FB970008322F /* Mapbox.framework in Frameworks */,
+				33D1048A102E5CF351EB84CC /* Pods_UnivMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +83,7 @@
 				6DDE55932616F9EA0008322F /* UnivMap */,
 				6DDE55922616F9EA0008322F /* Products */,
 				BFD12898D4FF08B9CA57A279 /* Pods */,
-				E0E5444A8C490B45015ED870 /* Frameworks */,
+				9AB4E1F021A86B898511DF43 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +115,8 @@
 			children = (
 				6DE2F90F261F216400C46ADA /* Planning.swift */,
 				6DE2F911261F2F3100C46ADA /* CustomCell.swift */,
+				6D1344FD262E2E1100D18306 /* CustomCalloutView.swift */,
+				6D1344FF262E2EFD00D18306 /* CustomUserLocationAnnotationView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -143,21 +149,21 @@
 			path = Others;
 			sourceTree = "<group>";
 		};
+		9AB4E1F021A86B898511DF43 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				352D53F62F3BAC6CB4E29A5E /* Pods_UnivMap.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BFD12898D4FF08B9CA57A279 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B810A4FBB4278383B0BA758A /* Pods-UnivMap.debug.xcconfig */,
-				7B6366710282BFCED4293E91 /* Pods-UnivMap.release.xcconfig */,
+				5B29B36977175876AA5F23D7 /* Pods-UnivMap.debug.xcconfig */,
+				1579913F49C7FA30947DBBB4 /* Pods-UnivMap.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		E0E5444A8C490B45015ED870 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				95C322E01DA3FDE125BB5D5F /* Pods_UnivMap.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,12 +173,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6DDE55A52616F9EB0008322F /* Build configuration list for PBXNativeTarget "UnivMap" */;
 			buildPhases = (
-				0F22AC402D949552E431CF6A /* [CP] Check Pods Manifest.lock */,
+				ADD5AD0372C80CF7E66F9544 /* [CP] Check Pods Manifest.lock */,
 				6DDE558D2616F9EA0008322F /* Sources */,
 				6DDE558E2616F9EA0008322F /* Frameworks */,
 				6DDE558F2616F9EA0008322F /* Resources */,
 				6DDE55AF2616F9F90008322F /* Embed Frameworks */,
-				2D7B48F75E2B1E4061EA41C9 /* [CP] Embed Pods Frameworks */,
+				F5844AD39C09490C3EBA4947 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -230,7 +236,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0F22AC402D949552E431CF6A /* [CP] Check Pods Manifest.lock */ = {
+		ADD5AD0372C80CF7E66F9544 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -252,7 +258,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2D7B48F75E2B1E4061EA41C9 /* [CP] Embed Pods Frameworks */ = {
+		F5844AD39C09490C3EBA4947 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -278,6 +284,8 @@
 			files = (
 				6DDE55992616F9EA0008322F /* MapController.swift in Sources */,
 				6D90927C2617731700D6E9C3 /* CalendarController.swift in Sources */,
+				6D134500262E2EFD00D18306 /* CustomUserLocationAnnotationView.swift in Sources */,
+				6D1344FE262E2E1100D18306 /* CustomCalloutView.swift in Sources */,
 				6DDE55952616F9EA0008322F /* AppDelegate.swift in Sources */,
 				6DDE55972616F9EA0008322F /* SceneDelegate.swift in Sources */,
 				6DE2F912261F2F3100C46ADA /* CustomCell.swift in Sources */,
@@ -425,7 +433,7 @@
 		};
 		6DDE55A62616F9EB0008322F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B810A4FBB4278383B0BA758A /* Pods-UnivMap.debug.xcconfig */;
+			baseConfigurationReference = 5B29B36977175876AA5F23D7 /* Pods-UnivMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -450,7 +458,7 @@
 		};
 		6DDE55A72616F9EB0008322F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B6366710282BFCED4293E91 /* Pods-UnivMap.release.xcconfig */;
+			baseConfigurationReference = 1579913F49C7FA30947DBBB4 /* Pods-UnivMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

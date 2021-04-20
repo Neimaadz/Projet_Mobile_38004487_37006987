@@ -10,7 +10,7 @@ import Mapbox
 import FirebaseCore
 import FirebaseFirestore
 
-class CalendarController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CalendarController: UIViewController, UITableViewDelegate, UITableViewDataSource, MGLMapViewDelegate {
     
     var db: Firestore!
     @IBOutlet weak var tableView: UITableView!
@@ -24,6 +24,7 @@ class CalendarController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
+        
         
         db = Firestore.firestore()
         
@@ -70,6 +71,10 @@ class CalendarController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
+    
+    
+    // ================================================================================================
+    
     // Affiche le point de repere sur la carte si on appuie sur une cellue table view
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //tabBarController?.selectedIndex = 0   retourne sur la carte de la tabBarController
@@ -87,14 +92,79 @@ class CalendarController: UIViewController, UITableViewDelegate, UITableViewData
         otherMap.view.addSubview(mapView)
         show(otherMap, sender: true)
         
+        // Enable heading tracking mode so that the arrow will appear.
+        //mapView.userTrackingMode = .followWithHeading
+        // Enable the permanent heading indicator, which will appear when the tracking mode is not `.followWithHeading`.
+        mapView.showsUserHeadingIndicator = true
+        mapView.resetNorth()
+        
+        
+        // Si AVANT ajout du marqueur, le pop up apparaitra sans devoir cliquer
+        mapView.delegate = self // NE PAS OUBLIER afin d'utiliser Custom Callout Annotation
         
         // Ajout du repere sur la carte
         let annotation = MGLPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2D(latitude: indexLatitude ?? -20.90180283795172, longitude: indexLongitude ?? 55.48438641154759)
-        annotation.title = "mon marqueur"
-        annotation.subtitle = "L'évènement se trouve ici"
+        annotation.title = listPlanning[indexPath.row].nom + "\n" +  listPlanning[indexPath.row].enseignant + "\n" +  listPlanning[indexPath.row].salle + "\n" +  listPlanning[indexPath.row].horaire
         mapView.addAnnotation(annotation)
+        
+        
+        // Select the annotation so the callout will appear.
+        mapView.selectAnnotation(annotation, animated: false, completionHandler: nil)
+        
+        
+        
+        // Si APRES ajout du marqueur, on devra appuyer sur le marqueur afin d'afficher pop up
+        //mapView.delegate = self // NE PAS OUBLIER afin d'utiliser Custom Callout Annotation
     }
     
+    
+    
+    
+    
+    
+    
+    
+    // ======================================== User Location ===================================================
+    
+    func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
+        // Substitute our custom view for the user location annotation. This custom view is defined below.
+        if annotation is MGLUserLocation && mapView.userLocation != nil {
+            return CustomUserLocationAnnotationView()
+        }
+        return nil
+    }
+     
+    // Optional: tap the user location annotation to toggle heading tracking mode.
+    func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
+        if annotation is MGLUserLocation {
+            if mapView.userTrackingMode != .followWithHeading {
+                mapView.userTrackingMode = .followWithHeading
+            } else {
+                mapView.resetNorth()
+            }
+            // We're borrowing this method as a gesture recognizer, so reset selection state.
+            mapView.deselectAnnotation(annotation, animated: false)
+        }
+    }
+    
+    // ======================================== Custom annotation ===================================================
+    
+    func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+        return true
+    }
+     
+    func mapView(_ mapView: MGLMapView, calloutViewFor annotation: MGLAnnotation) -> MGLCalloutView? {
+        // Instantiate and return our custom callout view.
+        return CustomCalloutView(representedObject: annotation)
+    }
+     
+    func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
+        // Optionally handle taps on the callout.
+        print("Tapped the callout for: \(annotation)")
+     
+        // Hide the callout.
+        mapView.deselectAnnotation(annotation, animated: true)
+    }
     
 }
