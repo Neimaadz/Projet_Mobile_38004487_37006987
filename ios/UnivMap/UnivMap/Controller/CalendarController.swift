@@ -16,7 +16,7 @@ class CalendarController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     
     
-    var listPlanning = [Planning]()    //une listes d'étudiants
+    var listPlanning = [Planning]()    //une listes d'objet Planning
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,12 +36,18 @@ class CalendarController: UIViewController, UITableViewDelegate, UITableViewData
                     if let nom = document.data()["nom"] as? String,         //recup data selon clé
                         let filiere = document.data()["filiere"] as? String,
                         let enseignant = document.data()["enseignant"] as? String,
-                        let horaire = document.data()["horaire"] as? String,
+                        let hDebut = document.data()["hDebut"] as? String,
+                        let hFin = document.data()["hFin"] as? String,
+                        let mDebut = document.data()["mDebut"] as? String,
+                        let mFin = document.data()["mFin"] as? String,
                         let salle = document.data()["salle"] as? String,
                         let latitude = document.data()["latitude"] as? String,
                         let longitude = document.data()["longitude"] as? String{
-                    
-                        self.listPlanning.append(Planning(nom: nom, filiere: filiere, enseignant: enseignant, horaire: horaire, salle: salle, latitude: latitude, longitude: longitude ))
+                        
+                        self.listPlanning.append(Planning(nom: nom, filiere: filiere, enseignant: enseignant, hDebut: hDebut, hFin: hFin, mDebut: mDebut, mFin: mFin, salle: salle, latitude: latitude, longitude: longitude ))
+                        
+                        self.listPlanning.sort(by: self.sortList)
+                        
                     }
                     
                 }
@@ -52,19 +58,29 @@ class CalendarController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
+    
+    
+    
+    func sortList(this:Planning, that:Planning) -> Bool {
+        return Int(this.hDebut)! < Int(that.hDebut)!
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listPlanning.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomCell
         
         cell.nomLabel.text = listPlanning[indexPath.row].nom
         cell.filiereLabel.text = listPlanning[indexPath.row].filiere
         //cell.enseignantLabel.isHidden = true    //pour cacher
         cell.enseignantLabel.text = listPlanning[indexPath.row].enseignant
-        cell.horaireLabel.text = listPlanning[indexPath.row].horaire
+        cell.hDebutLabel.text = listPlanning[indexPath.row].hDebut + "h" + listPlanning[indexPath.row].mDebut
+        cell.hFinLabel.text = listPlanning[indexPath.row].hFin + "h" + listPlanning[indexPath.row].mFin
         cell.salleLabel.text = listPlanning[indexPath.row].salle
         
         return cell
@@ -79,6 +95,9 @@ class CalendarController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //tabBarController?.selectedIndex = 0   retourne sur la carte de la tabBarController
         let otherMap = UIViewController()
+        
+        let horaire = listPlanning[indexPath.row].hDebut + "h" + listPlanning[indexPath.row].mDebut + " - " + listPlanning[indexPath.row].hFin + "h" + listPlanning[indexPath.row].mFin
+        
         let indexLatitude:Double? = Double(listPlanning[indexPath.row].latitude)    //convertir en double
         let indexLongitude:Double? = Double(listPlanning[indexPath.row].longitude)
         //print(type(of: indexLatitude))
@@ -105,7 +124,9 @@ class CalendarController: UIViewController, UITableViewDelegate, UITableViewData
         // Ajout du repere sur la carte
         let annotation = MGLPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2D(latitude: indexLatitude ?? -20.90180283795172, longitude: indexLongitude ?? 55.48438641154759)
-        annotation.title = listPlanning[indexPath.row].nom + "\n" +  listPlanning[indexPath.row].enseignant + "\n" +  listPlanning[indexPath.row].salle + "\n" +  listPlanning[indexPath.row].horaire
+        
+        annotation.title = listPlanning[indexPath.row].nom + "\n" +  listPlanning[indexPath.row].enseignant + "\n" +  listPlanning[indexPath.row].salle + "\n" + horaire
+        
         mapView.addAnnotation(annotation)
         
         

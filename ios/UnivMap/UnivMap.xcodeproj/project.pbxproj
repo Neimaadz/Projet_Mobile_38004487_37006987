@@ -21,6 +21,7 @@
 		6DDE55C22616FB970008322F /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDE55BE2616FB950008322F /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6DDE55C32616FB990008322F /* MapboxMobileEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDE55BD2616FB950008322F /* MapboxMobileEvents.framework */; };
 		6DDE55C42616FB990008322F /* MapboxMobileEvents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDE55BD2616FB950008322F /* MapboxMobileEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6DE16FCE2630CE810068E66D /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE16FCD2630CE810068E66D /* CustomAnnotationView.swift */; };
 		6DE2F910261F216400C46ADA /* Planning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2F90F261F216400C46ADA /* Planning.swift */; };
 		6DE2F912261F2F3100C46ADA /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2F911261F2F3100C46ADA /* CustomCell.swift */; };
 		6DF5D8A2261759AB0041E99C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DF5D8A1261759AB0041E99C /* GoogleService-Info.plist */; };
@@ -58,6 +59,7 @@
 		6DDE55A22616F9EB0008322F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DDE55BD2616FB950008322F /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapboxMobileEvents.framework; sourceTree = "<group>"; };
 		6DDE55BE2616FB950008322F /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
+		6DE16FCD2630CE810068E66D /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 		6DE2F90F261F216400C46ADA /* Planning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planning.swift; sourceTree = "<group>"; };
 		6DE2F911261F2F3100C46ADA /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		6DF5D8A1261759AB0041E99C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				6DE2F911261F2F3100C46ADA /* CustomCell.swift */,
 				6D1344FD262E2E1100D18306 /* CustomCalloutView.swift */,
 				6D1344FF262E2EFD00D18306 /* CustomUserLocationAnnotationView.swift */,
+				6DE16FCD2630CE810068E66D /* CustomAnnotationView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				6DDE55952616F9EA0008322F /* AppDelegate.swift in Sources */,
 				6DDE55972616F9EA0008322F /* SceneDelegate.swift in Sources */,
 				6DE2F912261F2F3100C46ADA /* CustomCell.swift in Sources */,
+				6DE16FCE2630CE810068E66D /* CustomAnnotationView.swift in Sources */,
 				6DE2F910261F216400C46ADA /* Planning.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
