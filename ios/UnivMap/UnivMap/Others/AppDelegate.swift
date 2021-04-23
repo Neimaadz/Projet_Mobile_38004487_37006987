@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("First launch")
             UserDefaults.standard.set(true, forKey: "switchState")
             //print(UserDefaults.standard.bool(forKey: "switchState"))
-            //UserDefaults.standard.setColor(color: color, forkey: "viewBackground")
+            UserDefaults.standard.setColor(color: color, forkey: "viewBackground")
             UserDefaults.standard.set(true, forKey: "firstLaunched")
         }
     }

@@ -65,10 +65,10 @@
             </objects>
             <point key="canvasLocation" x="-691.304347826087" y="910.71428571428567"/>
         </scene>
-        <!--View Controller-->
+        <!--Appearence Controller-->
         <scene sceneID="gaQ-Tl-a3z">
             <objects>
-                <viewController id="jqR-9Q-awn" sceneMemberID="viewController">
+                <viewController id="jqR-9Q-awn" customClass="AppearenceController" customModule="UnivMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iyH-bx-2uk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -103,6 +103,9 @@
                                                         <state key="normal" image="eyedropper.halffull" catalog="system">
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="15"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="tapToButtonBackgroundColor:" destination="jqR-9Q-awn" eventType="touchUpInside" id="Bo2-Ue-UVd"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="appearenceView.abstractFirstSubTitle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36g-Nl-FsR">
                                                         <rect key="frame" x="10" y="65" width="344" height="12"/>
@@ -159,6 +162,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="pmk-1u-IxX"/>
                     <navigationItem key="navigationItem" id="say-vm-gJB"/>
+                    <connections>
+                        <outlet property="abstractFirstSubTitle" destination="36g-Nl-FsR" id="NIg-ed-0cI"/>
+                        <outlet property="cellView" destination="e7j-yc-f85" id="5P2-Jf-4h9"/>
+                        <outlet property="colorBackground" destination="ra9-TI-Qh9" id="tx9-Zi-kzv"/>
+                        <outlet property="firstSubTitle" destination="0ry-Nv-l8o" id="6Vo-is-fY3"/>
+                        <outlet property="titleView" destination="Nr1-ho-95m" id="xd4-ST-o1L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CIi-mx-HUW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

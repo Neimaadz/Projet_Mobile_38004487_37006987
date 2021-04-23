@@ -25,6 +25,7 @@
 		FC11B5DE26333BE700798A90 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11B5DD26333BE700798A90 /* SettingController.swift */; };
 		FC11B5E126333C3600798A90 /* LangagueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11B5E026333C3600798A90 /* LangagueController.swift */; };
 		FC11B5E426333F3700798A90 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11B5E326333F3700798A90 /* TabBarController.swift */; };
+		FC11B5E72633411900798A90 /* AppearenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11B5E62633411900798A90 /* AppearenceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		FC11B5DD26333BE700798A90 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		FC11B5E026333C3600798A90 /* LangagueController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LangagueController.swift; sourceTree = "<group>"; };
 		FC11B5E326333F3700798A90 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		FC11B5E62633411900798A90 /* AppearenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearenceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				FC11B5DD26333BE700798A90 /* SettingController.swift */,
 				FC11B5E026333C3600798A90 /* LangagueController.swift */,
 				FC11B5E326333F3700798A90 /* TabBarController.swift */,
+				FC11B5E62633411900798A90 /* AppearenceController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				6D90927C2617731700D6E9C3 /* CalendarController.swift in Sources */,
 				6D134500262E2EFD00D18306 /* CustomUserLocationAnnotationView.swift in Sources */,
 				6D1344FE262E2E1100D18306 /* CustomCalloutView.swift in Sources */,
+				FC11B5E72633411900798A90 /* AppearenceController.swift in Sources */,
 				6DDE55952616F9EA0008322F /* AppDelegate.swift in Sources */,
 				6DDE55972616F9EA0008322F /* SceneDelegate.swift in Sources */,
 				6DE2F912261F2F3100C46ADA /* CustomCell.swift in Sources */,

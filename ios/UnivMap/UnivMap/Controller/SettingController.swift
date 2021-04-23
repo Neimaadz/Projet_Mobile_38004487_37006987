@@ -17,7 +17,7 @@ class SettingController: UITableViewController {
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        //view.backgroundColor = UserDefaults.standard.color(key: "viewBackground")
+        view.backgroundColor = UserDefaults.standard.color(key: "viewBackground")
         self.navigationItem.title = "settings".localized(str: nil)
         
         tableView.delegate = self
@@ -29,7 +29,7 @@ class SettingController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //view.backgroundColor = UserDefaults.standard.color(key: "viewBackground")
+        view.backgroundColor = UserDefaults.standard.color(key: "viewBackground")
         
         self.navigationItem.title = "settings".localized(str: nil)
         self.tableView.reloadData()

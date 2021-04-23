@@ -28,7 +28,7 @@ class LangagueController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Theme
-        //view.backgroundColor = defaults.color(key: BACKROUND_COLOR)
+        view.backgroundColor = defaults.color(key: BACKROUND_COLOR)
         
         // State Button
         checkSwitchState()
