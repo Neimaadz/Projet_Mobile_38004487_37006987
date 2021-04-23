@@ -661,12 +661,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="c3D-Wy-nvd"/>
                     <connections>
-                        <segue destination="jqR-9Q-awn" kind="show" id="cvU-gI-yYt"/>
-                        <segue destination="sXG-gf-eyG" kind="show" id="5U8-yQ-abf"/>
-                        <segue destination="wXN-J4-kYz" kind="showDetail" id="VfF-nC-dDh"/>
-                        <segue destination="Rks-ay-Gbo" kind="show" id="j2h-i8-28Y"/>
-                        <segue destination="DdL-uK-swu" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="zlt-Jg-7v9"/>
-                        <segue destination="LgS-ku-Q3F" kind="showDetail" id="YRI-kU-HK8"/>
+                        <segue destination="jqR-9Q-awn" kind="show" identifier="segApparence" id="cvU-gI-yYt"/>
+                        <segue destination="sXG-gf-eyG" kind="show" identifier="segLanguage" id="5U8-yQ-abf"/>
+                        <segue destination="wXN-J4-kYz" kind="showDetail" identifier="segConfident" id="VfF-nC-dDh"/>
+                        <segue destination="Rks-ay-Gbo" kind="show" identifier="segUniv" id="j2h-i8-28Y"/>
+                        <segue destination="DdL-uK-swu" kind="presentation" identifier="segHelp" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="zlt-Jg-7v9"/>
+                        <segue destination="LgS-ku-Q3F" kind="showDetail" identifier="segRight" id="YRI-kU-HK8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VI7-lM-qld" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
