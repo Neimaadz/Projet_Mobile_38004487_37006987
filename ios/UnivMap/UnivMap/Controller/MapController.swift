@@ -114,17 +114,33 @@ class MapController: UIViewController, MGLMapViewDelegate {
         view.addSubview(buttonPosition)
         
         
-        
+        self.buttonCours.tintColor = UIColor.orange
         let nextCours = UITapGestureRecognizer(target: self, action: #selector(nextCours(tapGestureRecognizer:)))
         buttonCours.isUserInteractionEnabled = true
         buttonCours.addGestureRecognizer(nextCours)
         view.addSubview(buttonCours)
+        
         
         let parcoursCours = UITapGestureRecognizer(target: self, action: #selector(parcoursCours(tapGestureRecognizer:)))
         buttonNext.isUserInteractionEnabled = true
         buttonNext.addGestureRecognizer(parcoursCours)
         view.addSubview(buttonNext)
     }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.buttonCours.tintColor = UIColor.orange
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -215,6 +231,8 @@ class MapController: UIViewController, MGLMapViewDelegate {
         
     }
     
+    
+    
     //function permettant de centrer sur la position de l'utilisateur
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
         mapView.userTrackingMode = .follow
@@ -302,7 +320,6 @@ class MapController: UIViewController, MGLMapViewDelegate {
     }
      
     func mapView(_ mapView: MGLMapView, calloutViewFor annotation: MGLAnnotation) -> MGLCalloutView? {
-        self.buttonCours.tintColor = UIColor.orange
         // Instancie et on retourne l'annotation personnaliser
         return CustomCalloutView(representedObject: annotation)
     }

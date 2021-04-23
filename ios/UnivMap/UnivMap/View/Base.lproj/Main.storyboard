@@ -25,7 +25,6 @@
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="goY-vT-aEs">
                                 <rect key="frame" x="77" y="751" width="35" height="35"/>
-                                <color key="tintColor" red="0.98193878489999997" green="0.45209917929999999" blue="0.0021812810020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="LVz-vM-CiE"/>
                                     <constraint firstAttribute="height" constant="35" id="Rcd-6X-1Qo"/>
