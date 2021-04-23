@@ -298,10 +298,10 @@
             </objects>
             <point key="canvasLocation" x="-388.40579710144931" y="2387.9464285714284"/>
         </scene>
-        <!--View Controller-->
+        <!--Confidentiality Controller-->
         <scene sceneID="KrJ-LL-OX6">
             <objects>
-                <viewController id="wXN-J4-kYz" sceneMemberID="viewController">
+                <viewController id="wXN-J4-kYz" customClass="ConfidentialityController" customModule="UnivMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a7e-Se-dnW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -352,6 +352,9 @@
                                 <state key="normal" title="back" image="chevron.down" catalog="system">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="dismissButton:" destination="wXN-J4-kYz" eventType="touchUpInside" id="IdD-3R-GzI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="enj-I8-Bel"/>
@@ -369,15 +372,20 @@
                             <constraint firstItem="enj-I8-Bel" firstAttribute="trailing" secondItem="Jlk-Vh-Qd2" secondAttribute="trailing" constant="20" id="ybB-on-rfI"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="0qG-bS-H7k" id="lGj-v5-IrM"/>
+                        <outlet property="textConfident" destination="5AZ-9g-2fO" id="P38-NB-FVo"/>
+                        <outlet property="titleViewText" destination="kYO-As-1GZ" id="dD2-yp-ea5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X3M-O1-4aA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="392.75362318840581" y="2387.9464285714284"/>
         </scene>
-        <!--View Controller-->
+        <!--Univ Map Controller-->
         <scene sceneID="Qfh-px-hgX">
             <objects>
-                <viewController id="Rks-ay-Gbo" sceneMemberID="viewController">
+                <viewController id="Rks-ay-Gbo" customClass="UnivMapController" customModule="UnivMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Azj-8Z-uUF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -513,10 +521,10 @@
             </objects>
             <point key="canvasLocation" x="1186.9565217391305" y="2387.9464285714284"/>
         </scene>
-        <!--View Controller-->
+        <!--Assistance Controller-->
         <scene sceneID="ROx-TE-tIm">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" id="DdL-uK-swu" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="DdL-uK-swu" customClass="AssistanceController" customModule="UnivMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vz8-4v-AXa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -527,10 +535,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oep-aK-X69">
                                         <rect key="frame" x="20" y="85" width="110" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="dismissButton:" destination="DdL-uK-swu" eventType="touchUpInside" id="0qv-dd-7gU"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kho-YO-7Jz">
                                         <rect key="frame" x="150" y="85" width="110" height="30"/>
                                         <state key="normal" title="Button" image="paperplane.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="sendButton:" destination="DdL-uK-swu" eventType="touchUpInside" id="A5E-w6-rLn"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7E-rH-oqE">
                                         <rect key="frame" x="20" y="20" width="240" height="50"/>
@@ -564,15 +578,21 @@
                             <constraint firstItem="jWZ-Xv-5Wt" firstAttribute="centerX" secondItem="vz8-4v-AXa" secondAttribute="centerX" id="JCi-jT-y6K"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="oep-aK-X69" id="wgd-MF-nmQ"/>
+                        <outlet property="labelTitle" destination="x7E-rH-oqE" id="tlX-1q-Brr"/>
+                        <outlet property="mailButton" destination="kho-YO-7Jz" id="57W-K2-12A"/>
+                        <outlet property="subView" destination="jWZ-Xv-5Wt" id="fiQ-EF-uM2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OrH-Xl-A7U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1949" y="2389"/>
         </scene>
-        <!--View Controller-->
+        <!--Legal Notice Controller-->
         <scene sceneID="jlw-4V-srU">
             <objects>
-                <viewController id="LgS-ku-Q3F" sceneMemberID="viewController">
+                <viewController id="LgS-ku-Q3F" customClass="LegalNoticeController" customModule="UnivMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DlF-qf-RO4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -623,6 +643,9 @@
                                 <state key="normal" title="back" image="chevron.down" catalog="system">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="dismissbutton:" destination="LgS-ku-Q3F" eventType="touchUpInside" id="9zY-LK-rMc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="B6k-TZ-YLt"/>
@@ -640,6 +663,11 @@
                             <constraint firstItem="B6k-TZ-YLt" firstAttribute="trailing" secondItem="bS6-gN-mJt" secondAttribute="trailing" constant="50" id="wbE-gQ-f4K"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="eq1-Nc-E0D" id="NkJ-k1-hVO"/>
+                        <outlet property="textLegalNotice" destination="coc-PO-e4D" id="tHk-NH-G6u"/>
+                        <outlet property="titleViewText" destination="bS6-gN-mJt" id="Dzi-oT-nm3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="neS-TO-YvY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

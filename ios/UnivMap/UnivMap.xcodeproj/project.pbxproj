@@ -26,6 +26,10 @@
 		FC11B5E126333C3600798A90 /* LangagueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11B5E026333C3600798A90 /* LangagueController.swift */; };
 		FC11B5E426333F3700798A90 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11B5E326333F3700798A90 /* TabBarController.swift */; };
 		FC11B5E72633411900798A90 /* AppearenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11B5E62633411900798A90 /* AppearenceController.swift */; };
+		FC11B5EA2633441C00798A90 /* ConfidentialityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11B5E92633441C00798A90 /* ConfidentialityController.swift */; };
+		FC11B5ED2633450F00798A90 /* AssistanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11B5EC2633450F00798A90 /* AssistanceController.swift */; };
+		FC11B5F02633461800798A90 /* LegalNoticeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11B5EF2633461800798A90 /* LegalNoticeController.swift */; };
+		FC11B5F32633472C00798A90 /* UnivMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11B5F22633472C00798A90 /* UnivMapController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +57,10 @@
 		FC11B5E026333C3600798A90 /* LangagueController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LangagueController.swift; sourceTree = "<group>"; };
 		FC11B5E326333F3700798A90 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		FC11B5E62633411900798A90 /* AppearenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearenceController.swift; sourceTree = "<group>"; };
+		FC11B5E92633441C00798A90 /* ConfidentialityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfidentialityController.swift; sourceTree = "<group>"; };
+		FC11B5EC2633450F00798A90 /* AssistanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistanceController.swift; sourceTree = "<group>"; };
+		FC11B5EF2633461800798A90 /* LegalNoticeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalNoticeController.swift; sourceTree = "<group>"; };
+		FC11B5F22633472C00798A90 /* UnivMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnivMapController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +144,10 @@
 				FC11B5E026333C3600798A90 /* LangagueController.swift */,
 				FC11B5E326333F3700798A90 /* TabBarController.swift */,
 				FC11B5E62633411900798A90 /* AppearenceController.swift */,
+				FC11B5E92633441C00798A90 /* ConfidentialityController.swift */,
+				FC11B5EC2633450F00798A90 /* AssistanceController.swift */,
+				FC11B5EF2633461800798A90 /* LegalNoticeController.swift */,
+				FC11B5F22633472C00798A90 /* UnivMapController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -277,16 +289,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC11B5EA2633441C00798A90 /* ConfidentialityController.swift in Sources */,
+				FC11B5F02633461800798A90 /* LegalNoticeController.swift in Sources */,
 				FC11B5DE26333BE700798A90 /* SettingController.swift in Sources */,
 				6DDE55992616F9EA0008322F /* MapController.swift in Sources */,
 				6D90927C2617731700D6E9C3 /* CalendarController.swift in Sources */,
 				6D134500262E2EFD00D18306 /* CustomUserLocationAnnotationView.swift in Sources */,
 				6D1344FE262E2E1100D18306 /* CustomCalloutView.swift in Sources */,
 				FC11B5E72633411900798A90 /* AppearenceController.swift in Sources */,
+				FC11B5F32633472C00798A90 /* UnivMapController.swift in Sources */,
 				6DDE55952616F9EA0008322F /* AppDelegate.swift in Sources */,
 				6DDE55972616F9EA0008322F /* SceneDelegate.swift in Sources */,
 				6DE2F912261F2F3100C46ADA /* CustomCell.swift in Sources */,
 				6DE16FCE2630CE810068E66D /* CustomAnnotationView.swift in Sources */,
+				FC11B5ED2633450F00798A90 /* AssistanceController.swift in Sources */,
 				FC11B5E426333F3700798A90 /* TabBarController.swift in Sources */,
 				6DE2F910261F216400C46ADA /* Planning.swift in Sources */,
 				FC11B5E126333C3600798A90 /* LangagueController.swift in Sources */,
