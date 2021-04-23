@@ -164,10 +164,10 @@
             </objects>
             <point key="canvasLocation" x="-1171.0144927536232" y="2387.9464285714284"/>
         </scene>
-        <!--View Controller-->
+        <!--Langague Controller-->
         <scene sceneID="lyn-lL-e24">
             <objects>
-                <viewController id="sXG-gf-eyG" sceneMemberID="viewController">
+                <viewController id="sXG-gf-eyG" customClass="LangagueController" customModule="UnivMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J2m-9w-cFO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -192,6 +192,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sOr-Vp-l3L">
                                                 <rect key="frame" x="335" y="111" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="defaultLangague:" destination="sXG-gf-eyG" eventType="valueChanged" id="Trf-Bp-X4h"/>
+                                                </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="languageView.abstractFirstSubTitle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ku-bs-0fb">
                                                 <rect key="frame" x="50" y="152" width="324" height="12"/>
@@ -219,6 +222,9 @@
                                                     <segment title="languageView.french"/>
                                                 </segments>
                                                 <color key="selectedSegmentTintColor" systemColor="systemGray2Color"/>
+                                                <connections>
+                                                    <action selector="change:" destination="sXG-gf-eyG" eventType="valueChanged" id="n5A-es-x7O"/>
+                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                         <constraints>
@@ -268,6 +274,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hY8-jl-k1E"/>
+                    <connections>
+                        <outlet property="abstractFirstSubTitle" destination="9Ku-bs-0fb" id="E9Y-mX-5xd"/>
+                        <outlet property="abstractSecondSubTitle" destination="VGv-EU-QZ4" id="Tv3-kC-GvR"/>
+                        <outlet property="firstSubTitle" destination="mH5-G1-P9S" id="1aK-jN-GOu"/>
+                        <outlet property="languageSegment" destination="cTN-61-b4S" id="Vxb-uF-3ou"/>
+                        <outlet property="languageSwitch" destination="sOr-Vp-l3L" id="9RC-m5-lmx"/>
+                        <outlet property="secondSubTitle" destination="xXt-ak-dq1" id="mba-Lg-q4V"/>
+                        <outlet property="titleView" destination="Z2N-vq-2yX" id="h0f-Ba-AaE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gan-ra-q5n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -637,15 +652,15 @@
             </objects>
             <point key="canvasLocation" x="30" y="911"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Setting Controller-->
         <scene sceneID="GSm-KW-TAo">
             <objects>
-                <tableViewController id="lCo-1Z-Fsv" sceneMemberID="viewController">
+                <tableViewController id="lCo-1Z-Fsv" customClass="SettingController" customModule="UnivMap" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="awo-hR-TFo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="9Dv-Lx-Xtc">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="9Dv-Lx-Xtc">
                                 <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Dv-Lx-Xtc" id="llm-28-55D">
@@ -812,7 +827,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="By9-TY-aEr">
             <objects>
-                <tabBarController id="ROT-sZ-DiH" sceneMemberID="viewController">
+                <tabBarController id="ROT-sZ-DiH" customClass="TabBarController" customModule="UnivMap" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" alpha="0.80000000000000004" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oTf-hc-PTh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
