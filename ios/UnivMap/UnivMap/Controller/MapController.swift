@@ -107,6 +107,7 @@ class MapController: UIViewController, MGLMapViewDelegate {
             }
         }
         
+        
         let centerUserLocation = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         buttonPosition.isUserInteractionEnabled = true
         buttonPosition.addGestureRecognizer(centerUserLocation)
@@ -132,6 +133,14 @@ class MapController: UIViewController, MGLMapViewDelegate {
     // Fonction permettant de trier dans l'ordre croissant hDebut
     func sortList(this:Planning, that:Planning) -> Bool {
         return Int(this.hDebut)! < Int(that.hDebut)!
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        for i in self.pointAnnotations {
+            mapView.deselectAnnotation(i, animated: true)
+        }
     }
     
     

@@ -63,6 +63,7 @@ class CalendarController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidAppear(_ animated: Bool) {
         // title of navigationController
         self.navigationItem.title = "calendar".localized(str: nil)
+        self.tableView.reloadData()
     }
     
     
@@ -81,6 +82,7 @@ class CalendarController: UIViewController, UITableViewDelegate, UITableViewData
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomCell
         
+        cell.backgroundColor = UserDefaults.standard.color(key: "viewBackground")
         cell.nomLabel.text = listPlanning[indexPath.row].nom
         cell.filiereLabel.text = listPlanning[indexPath.row].filiere
         //cell.enseignantLabel.isHidden = true    //pour cacher

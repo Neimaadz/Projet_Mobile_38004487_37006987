@@ -45,7 +45,7 @@ class CustomCalloutView: UIView, MGLCalloutView {
 
         backgroundColor = .clear
 
-        mainBody.backgroundColor = .darkGray
+        mainBody.backgroundColor = UserDefaults.standard.color(key: "viewBackground")
         mainBody.tintColor = .white
         mainBody.contentEdgeInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         mainBody.layer.cornerRadius = 4.0
@@ -136,7 +136,7 @@ class CustomCalloutView: UIView, MGLCalloutView {
 
     override func draw(_ rect: CGRect) {
         // Draw the pointed tip at the bottom.
-        let fillColor: UIColor = .darkGray
+        let fillColor: UIColor = UserDefaults.standard.color(key: "viewBackground")!
 
         let tipLeft = rect.origin.x + (rect.size.width / 2.0) - (tipWidth / 2.0)
         let tipBottom = CGPoint(x: rect.origin.x + (rect.size.width / 2.0), y: rect.origin.y + rect.size.height)
