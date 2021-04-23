@@ -14,5 +14,6 @@ target 'UnivMap' do
 
 	pod 'Firebase/Firestore'
 	pod 'Firebase/Core'
+	pod 'Mapbox-iOS-SDK', '~> 6.3.0'
 
 end

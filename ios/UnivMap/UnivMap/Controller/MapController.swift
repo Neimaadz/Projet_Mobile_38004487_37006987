@@ -14,18 +14,31 @@ import FirebaseFirestore
 class MapController: UIViewController, MGLMapViewDelegate {
     
     var db: Firestore!
-    var listPlanning = [Planning]()
+    var listPlanning: [Planning] = []
+    var listCoursActuel: [Planning] = []
+    // Fill an array with point annotations and add it to the map.
+    var pointAnnotations = [MGLPointAnnotation]()
+    
+    
+    @IBOutlet var mapView: MGLMapView!
+    @IBOutlet weak var buttonPosition: UIImageView!
+    @IBOutlet weak var buttonCours: UIImageView!
+    @IBOutlet weak var buttonNext: UIImageView!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        
         let url = URL(string: "mapbox://styles/mapbox/streets-v11")
-        let mapView = MGLMapView(frame: view.bounds, styleURL: url)
+        mapView = MGLMapView(frame: view.bounds, styleURL: url)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.setCenter(CLLocationCoordinate2D(latitude: -20.90180283795172, longitude: 55.48438641154759), zoomLevel: 16, animated: false)
-        
         
         // Enable heading tracking mode so that the arrow will appear.
         mapView.userTrackingMode = .followWithHeading
@@ -33,17 +46,19 @@ class MapController: UIViewController, MGLMapViewDelegate {
         mapView.showsUserHeadingIndicator = true
         mapView.resetNorth()
         mapView.delegate = self
+        
+        mapView.logoView.isHidden = true    //hide lgoo "Mapbox"
+        mapView.attributionButton.isHidden = true   //hide button i
+        
         view.addSubview(mapView)
         
         
         db = Firestore.firestore()
         
-        db.collection("planning").getDocuments() { (querySnapshot, err) in
+        db.collection("planning").getDocuments() { [self] (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                // Fill an array with point annotations and add it to the map.
-                var pointAnnotations = [MGLPointAnnotation]()
                 
                 for document in querySnapshot!.documents {
                     if let nom = document.data()["nom"] as? String,         //recup data selon clé
@@ -59,6 +74,13 @@ class MapController: UIViewController, MGLMapViewDelegate {
                     
                         self.listPlanning.append(Planning(nom: nom, filiere: filiere, enseignant: enseignant, hDebut: hDebut, hFin: hFin, mDebut: mDebut, mFin: mFin, salle: salle, latitude: latitude, longitude: longitude ))
                         
+                        
+                        let hActuelConverted = (hour * 60 + minutes)
+                        let hDebutConverted = (Int(hDebut)! * 60 + Int(mDebut)!)
+                        
+                        if hActuelConverted <= hDebutConverted && hDebutConverted <= hActuelConverted+120{
+                            self.listCoursActuel.append(Planning(nom: nom, filiere: filiere, enseignant: enseignant, hDebut: hDebut, hFin: hFin, mDebut: mDebut, mFin: mFin, salle: salle, latitude: latitude, longitude: longitude ))
+                        }
                         
                         let horaire = hDebut + "h" + mDebut + " - " + hFin + "h" + mFin
                         
@@ -78,38 +100,128 @@ class MapController: UIViewController, MGLMapViewDelegate {
                     }
                     
                     // Add marker to the map.
-                    mapView.addAnnotations(pointAnnotations)
+                    self.mapView.addAnnotations(pointAnnotations)
                     
                 }
                 
             }
         }
         
+        let centerUserLocation = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        buttonPosition.isUserInteractionEnabled = true
+        buttonPosition.addGestureRecognizer(centerUserLocation)
+        view.addSubview(buttonPosition)
+        
+        
+        
+        let nextCours = UITapGestureRecognizer(target: self, action: #selector(nextCours(tapGestureRecognizer:)))
+        buttonCours.isUserInteractionEnabled = true
+        buttonCours.addGestureRecognizer(nextCours)
+        view.addSubview(buttonCours)
+        
+        let parcoursCours = UITapGestureRecognizer(target: self, action: #selector(parcoursCours(tapGestureRecognizer:)))
+        buttonNext.isUserInteractionEnabled = true
+        buttonNext.addGestureRecognizer(parcoursCours)
+        view.addSubview(buttonNext)
     }
     
     
     
     
     
-    
+    // Fonction permettant de trier dans l'ordre croissant hDebut
     func sortList(this:Planning, that:Planning) -> Bool {
         return Int(this.hDebut)! < Int(that.hDebut)!
     }
     
     
+    // ======================================== Fonction ===================================================
+
+    var indexParcours = 0
+    
+    @objc func parcoursCours(tapGestureRecognizer: UITapGestureRecognizer) {
+        listPlanning.sort(by: self.sortList)
+        
+        if(indexParcours == self.pointAnnotations.count){
+            indexParcours = 0
+        }
+        for point in self.pointAnnotations{
+            
+            let planningLatitude:Double? = Double(listPlanning[indexParcours].latitude)
+            let planningLongitude:Double? = Double(listPlanning[indexParcours].longitude)
+            let pointLatitude = point.coordinate.latitude
+            let pointLongitude = point.coordinate.longitude
+            
+            if planningLatitude == pointLatitude && planningLongitude == pointLongitude {
+                mapView.setCenter(CLLocationCoordinate2D(latitude: pointLatitude , longitude: pointLongitude ), zoomLevel: 18, animated: true)
+                mapView.selectAnnotation(point, animated: false, completionHandler: nil)
+                
+            }
+        }
+        indexParcours += 1  //incrémentation du compteur pour parcourir 1 par 1 tout les cours
+        
+    }
+    
+    var indexNext = 0
+    
+    @objc func nextCours(tapGestureRecognizer: UITapGestureRecognizer) {
+        listPlanning.sort(by: self.sortList)
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        //print(hour,minutes)
+        
+        if(indexNext == self.listCoursActuel.count){
+            indexNext = 0
+        }
+        for (indexPlanning, planning) in self.listPlanning.enumerated(){
+            for coursActuel in self.listCoursActuel{
+                for point in self.pointAnnotations{
+                    let hActuel = (hour * 60 + minutes)
+                    let hDebut = (Int(coursActuel.hDebut)! * 60 + Int(coursActuel.mDebut)!)
+                    
+                    let planningLatitude:Double? = Double(planning.latitude)
+                    let planningLongitude:Double? = Double(planning.longitude)
+                    let coursActuelLatitude:Double? = Double(listCoursActuel[indexNext].latitude)
+                    let coursActuelLongitude:Double? = Double(listCoursActuel[indexNext].longitude)
+                    let pointLatitude = point.coordinate.latitude
+                    let pointLongitude = point.coordinate.longitude
+                    
+                    if hActuel <= hDebut && hDebut <= hActuel+120 && coursActuelLatitude == pointLatitude && coursActuelLongitude == pointLongitude {
+                        
+                        mapView.setCenter(CLLocationCoordinate2D(latitude: pointLatitude , longitude: pointLongitude ), zoomLevel: 18, animated: true)
+                        mapView.selectAnnotation(point, animated: false, completionHandler: nil)
+                        
+                        if hActuel <= hDebut && hDebut <= hActuel+120 && planningLatitude == pointLatitude && planningLongitude == pointLongitude {
+                            indexParcours = indexPlanning+1     //on récupère l'index afin d'avoir le cours suivant
+                        }
+                    }
+                    
+                }
+            }
+        }
+        indexNext += 1
+        
+    }
+    
+    //function permettant de centrer sur la position de l'utilisateur
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
+        mapView.userTrackingMode = .follow
+    }
+    
+    
+    
+    
     
     // ======================================== User Location ===================================================
-    
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
-        // Substitute our custom view for the user location annotation. This custom view is defined below.
+        
         if annotation is MGLUserLocation && mapView.userLocation != nil {
             return CustomUserLocationAnnotationView()
         }
-        //return nil
         
-        
-        
-        //This example is only concerned with point annotations.
         guard annotation is MGLPointAnnotation else {
             return nil
         }
@@ -181,7 +293,8 @@ class MapController: UIViewController, MGLMapViewDelegate {
     }
      
     func mapView(_ mapView: MGLMapView, calloutViewFor annotation: MGLAnnotation) -> MGLCalloutView? {
-        // Instantiate and return our custom callout view.
+        self.buttonCours.tintColor = UIColor.orange
+        // Instancie et on retourne l'annotation personnaliser
         return CustomCalloutView(representedObject: annotation)
     }
      

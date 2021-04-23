@@ -89,7 +89,7 @@ class CustomCalloutView: UIView, MGLCalloutView {
         if animated {
             alpha = 0
 
-            UIView.animate(withDuration: 0.2) { [weak self] in  // animation apparition
+            UIView.animate(withDuration: 0.4) { [weak self] in  // animation apparition
                 guard let strongSelf = self else {
                     return
                 }
@@ -105,7 +105,7 @@ class CustomCalloutView: UIView, MGLCalloutView {
     func dismissCallout(animated: Bool) {
         if (superview != nil) {
             if animated {
-                UIView.animate(withDuration: 0.2, animations: { [weak self] in  // animation disapparition
+                UIView.animate(withDuration: 0.4, animations: { [weak self] in  // animation disapparition
                     self?.alpha = 0
                 }, completion: { [weak self] _ in
                     self?.removeFromSuperview()

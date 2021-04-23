@@ -108,6 +108,9 @@ class CalendarController: UIViewController, UITableViewDelegate, UITableViewData
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.setCenter(CLLocationCoordinate2D(latitude: indexLatitude ?? -20.90180283795172, longitude: indexLongitude ?? 55.48438641154759), zoomLevel: 18, animated: false)
         
+        mapView.logoView.isHidden = true    //hide lgoo "Mapbox"
+        mapView.attributionButton.isHidden = true   //hide button i
+        
         otherMap.view.addSubview(mapView)
         show(otherMap, sender: true)
         

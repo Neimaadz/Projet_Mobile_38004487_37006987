@@ -12,17 +12,58 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MapController" customModule="UnivMap" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="MGLMapView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="location.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="HmO-NT-Z46">
+                                <rect key="frame" x="189.5" y="751" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="QO5-iY-N9M"/>
+                                    <constraint firstAttribute="height" constant="36" id="VlG-j4-cgN"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="goY-vT-aEs">
+                                <rect key="frame" x="77" y="751" width="35" height="35"/>
+                                <color key="tintColor" red="0.98193878489999997" green="0.45209917929999999" blue="0.0021812810020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="LVz-vM-CiE"/>
+                                    <constraint firstAttribute="height" constant="35" id="Rcd-6X-1Qo"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="heavy"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="arrowshape.turn.up.right.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uW0-I7-mhM">
+                                <rect key="frame" x="290" y="751.5" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36.5" id="1GA-jv-dEn"/>
+                                    <constraint firstAttribute="width" constant="35" id="ZWg-f8-2rw"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="heavy"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uW0-I7-mhM" firstAttribute="leading" secondItem="HmO-NT-Z46" secondAttribute="trailing" constant="65.5" id="QjU-cA-r7Z"/>
+                            <constraint firstItem="HmO-NT-Z46" firstAttribute="leading" secondItem="goY-vT-aEs" secondAttribute="trailing" constant="77.5" id="Rw4-Jt-1iz"/>
+                            <constraint firstItem="HmO-NT-Z46" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S1u-xU-2hx"/>
+                            <constraint firstItem="HmO-NT-Z46" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="320" id="TWH-vh-uMv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uW0-I7-mhM" secondAttribute="bottom" constant="25.5" id="UrM-Ou-5ME"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HmO-NT-Z46" secondAttribute="bottom" constant="27" id="mRt-Yr-ffp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="goY-vT-aEs" secondAttribute="bottom" constant="27" id="x4u-e0-bMr"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Carte" image="map" catalog="system" landscapeImage="map" id="mOn-NB-vaq"/>
+                    <connections>
+                        <outlet property="buttonCours" destination="goY-vT-aEs" id="q1a-N5-Epu"/>
+                        <outlet property="buttonNext" destination="uW0-I7-mhM" id="6Jt-jS-Bxt"/>
+                        <outlet property="buttonPosition" destination="HmO-NT-Z46" id="6Yj-WE-I3m"/>
+                        <outlet property="mapView" destination="8bC-Xf-vdC" id="DLS-kR-EEJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-690" y="911"/>
+            <point key="canvasLocation" x="-691.304347826087" y="910.71428571428567"/>
         </scene>
         <!--Réglages-->
         <scene sceneID="gaQ-Tl-a3z">
@@ -197,8 +238,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="location.fill" catalog="system" width="128" height="121"/>
         <image name="map" catalog="system" width="128" height="110"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
