@@ -408,7 +408,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="univMap.secondTitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWE-qW-wIL">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="univMap.by" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWE-qW-wIL">
                                                 <rect key="frame" x="20" y="169" width="374" height="21"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -417,14 +417,17 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sgr-kZ-LjZ">
                                                 <rect key="frame" x="25" y="210" width="364" height="70"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHQ-xR-puX">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="yHQ-xR-puX">
                                                         <rect key="frame" x="244" y="20" width="100" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="7ah-3t-aD4"/>
                                                             <constraint firstAttribute="width" constant="100" id="kYd-k1-wEH"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                        <state key="normal" title="univMap.more"/>
+                                                        <state key="normal" title="univMap.about"/>
+                                                        <connections>
+                                                            <action selector="damienButton:" destination="Rks-ay-Gbo" eventType="touchUpInside" id="lc6-QJ-BDN"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="univMap.damien" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qId-Pd-oUS">
                                                         <rect key="frame" x="20" y="20" width="204" height="30"/>
@@ -447,14 +450,17 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hme-sY-UPr">
                                                 <rect key="frame" x="25" y="300" width="364" height="70"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOE-OV-5x6">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="FOE-OV-5x6">
                                                         <rect key="frame" x="244" y="20" width="100" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="MIH-u5-jMi"/>
                                                             <constraint firstAttribute="width" constant="100" id="b5b-Vd-8SQ"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                        <state key="normal" title="univMap.more"/>
+                                                        <state key="normal" title="univMap.about"/>
+                                                        <connections>
+                                                            <action selector="dylanButton:" destination="Rks-ay-Gbo" eventType="touchUpInside" id="IDb-59-OsG"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="univMap.dylan" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YlO-lS-gyQ">
                                                         <rect key="frame" x="20" y="20" width="204" height="30"/>
@@ -516,6 +522,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="12E-EE-k49"/>
+                    <connections>
+                        <outlet property="firstAbstract" destination="Ff0-B0-Rhx" id="myK-1Q-84f"/>
+                        <outlet property="firstSubView" destination="sgr-kZ-LjZ" id="WQK-WC-kuB"/>
+                        <outlet property="firstSubViewButton" destination="yHQ-xR-puX" id="OFv-w0-di6"/>
+                        <outlet property="firstSubViewLabel" destination="qId-Pd-oUS" id="L98-FN-r63"/>
+                        <outlet property="firstTitle" destination="7Vo-dN-4Cs" id="3VB-dW-RDo"/>
+                        <outlet property="secondSubView" destination="hme-sY-UPr" id="2nI-y8-jIP"/>
+                        <outlet property="secondSubViewButton" destination="FOE-OV-5x6" id="Kju-1n-kx0"/>
+                        <outlet property="secondSubViewLabel" destination="YlO-lS-gyQ" id="TZ6-sT-RKR"/>
+                        <outlet property="secondTitle" destination="vWE-qW-wIL" id="793-oq-bZU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yRc-QG-iTL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

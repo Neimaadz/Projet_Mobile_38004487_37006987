@@ -44,6 +44,15 @@
 //Mark: Assistance Controller
 "assistanceView.title" = "You can contact us by sending us an Email.";
 
+//MARk: UnivMapController
+"univMap.about" = "About me ...";
+"univMap.damien" = "Damien";
+"univMap.dylan" = "Dylan";
+"univMap.firstTitle" = "Why UnivMap";
+"univMap.firstAbstract" = "";
+"univMap.by" = "Created by :";
+
+
 //MARK: Others
 "send" = "Send !";
 "back" = "Back";

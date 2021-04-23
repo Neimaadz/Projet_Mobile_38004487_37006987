@@ -20,6 +20,9 @@ class CalendarController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // title of navigationController
+        self.navigationItem.title = "calendar".localized(str: nil)
+        
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
@@ -57,7 +60,10 @@ class CalendarController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        // title of navigationController
+        self.navigationItem.title = "calendar".localized(str: nil)
+    }
     
     
     
