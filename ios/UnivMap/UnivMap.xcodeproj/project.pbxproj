@@ -17,7 +17,16 @@
 		6DDE55C22616FB970008322F /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDE55BE2616FB950008322F /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6DDE55C32616FB990008322F /* MapboxMobileEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDE55BD2616FB950008322F /* MapboxMobileEvents.framework */; };
 		6DDE55C42616FB990008322F /* MapboxMobileEvents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDE55BD2616FB950008322F /* MapboxMobileEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6DDE55C62616FDC40008322F /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDE55C52616FDC40008322F /* test.swift */; };
+		FC11B593263290E900798A90 /* AssistanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11B592263290E900798A90 /* AssistanceController.swift */; };
+		FC11B5952632EAE400798A90 /* UnivMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11B5942632EAE400798A90 /* UnivMapController.swift */; };
+		FC735184261E188C00FA4A4B /* ThemeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC735183261E188C00FA4A4B /* ThemeController.swift */; };
+		FC735186261F1DB700FA4A4B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC735185261F1DB700FA4A4B /* TabBarController.swift */; };
+		FC73518826200FB400FA4A4B /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC73518726200FB400FA4A4B /* CalendarController.swift */; };
+		FC73518A262623AB00FA4A4B /* LegalNoticeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC735189262623AB00FA4A4B /* LegalNoticeController.swift */; };
+		FC8BD433261758D400B470A2 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8BD432261758D400B470A2 /* SettingController.swift */; };
+		FC8BD43526188C6E00B470A2 /* LangagueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8BD43426188C6E00B470A2 /* LangagueController.swift */; };
+		FC8BD43A26189A2800B470A2 /* localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FC8BD43C26189A2800B470A2 /* localizable.strings */; };
+		FC94FC76262E90210089C0C1 /* ConfidentialityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC94FC75262E90210089C0C1 /* ConfidentialityController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,7 +55,18 @@
 		6DDE55A22616F9EB0008322F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DDE55BD2616FB950008322F /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapboxMobileEvents.framework; sourceTree = "<group>"; };
 		6DDE55BE2616FB950008322F /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
-		6DDE55C52616FDC40008322F /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		FC11B592263290E900798A90 /* AssistanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistanceController.swift; sourceTree = "<group>"; };
+		FC11B5942632EAE400798A90 /* UnivMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnivMapController.swift; sourceTree = "<group>"; };
+		FC735183261E188C00FA4A4B /* ThemeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeController.swift; sourceTree = "<group>"; };
+		FC735185261F1DB700FA4A4B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		FC73518726200FB400FA4A4B /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
+		FC735189262623AB00FA4A4B /* LegalNoticeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalNoticeController.swift; sourceTree = "<group>"; };
+		FC8BD432261758D400B470A2 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
+		FC8BD43426188C6E00B470A2 /* LangagueController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LangagueController.swift; sourceTree = "<group>"; };
+		FC8BD43B26189A2800B470A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/localizable.strings; sourceTree = "<group>"; };
+		FC8BD43D26189A4200B470A2 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		FC8BD43E26189A4200B470A2 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/localizable.strings; sourceTree = "<group>"; };
+		FC94FC75262E90210089C0C1 /* ConfidentialityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfidentialityController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +115,6 @@
 		6DDE55B22616FA880008322F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6DDE55C52616FDC40008322F /* test.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -113,6 +132,15 @@
 			isa = PBXGroup;
 			children = (
 				6DDE55982616F9EA0008322F /* MapController.swift */,
+				FC8BD432261758D400B470A2 /* SettingController.swift */,
+				FC8BD43426188C6E00B470A2 /* LangagueController.swift */,
+				FC735183261E188C00FA4A4B /* ThemeController.swift */,
+				FC735185261F1DB700FA4A4B /* TabBarController.swift */,
+				FC73518726200FB400FA4A4B /* CalendarController.swift */,
+				FC735189262623AB00FA4A4B /* LegalNoticeController.swift */,
+				FC94FC75262E90210089C0C1 /* ConfidentialityController.swift */,
+				FC11B592263290E900798A90 /* AssistanceController.swift */,
+				FC11B5942632EAE400798A90 /* UnivMapController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -123,6 +151,7 @@
 				6DDE559D2616F9EB0008322F /* Assets.xcassets */,
 				6DDE55942616F9EA0008322F /* AppDelegate.swift */,
 				6DDE55962616F9EA0008322F /* SceneDelegate.swift */,
+				FC8BD43C26189A2800B470A2 /* localizable.strings */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -169,6 +198,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 6DDE55882616F9EA0008322F;
 			productRefGroup = 6DDE55922616F9EA0008322F /* Products */;
@@ -186,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DDE55A12616F9EB0008322F /* LaunchScreen.storyboard in Resources */,
+				FC8BD43A26189A2800B470A2 /* localizable.strings in Resources */,
 				6DDE559E2616F9EB0008322F /* Assets.xcassets in Resources */,
 				6DDE559C2616F9EA0008322F /* Main.storyboard in Resources */,
 			);
@@ -199,9 +230,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DDE55992616F9EA0008322F /* MapController.swift in Sources */,
-				6DDE55C62616FDC40008322F /* test.swift in Sources */,
+				FC11B5952632EAE400798A90 /* UnivMapController.swift in Sources */,
+				FC8BD43526188C6E00B470A2 /* LangagueController.swift in Sources */,
+				FC735186261F1DB700FA4A4B /* TabBarController.swift in Sources */,
+				FC8BD433261758D400B470A2 /* SettingController.swift in Sources */,
+				FC11B593263290E900798A90 /* AssistanceController.swift in Sources */,
 				6DDE55952616F9EA0008322F /* AppDelegate.swift in Sources */,
+				FC73518826200FB400FA4A4B /* CalendarController.swift in Sources */,
 				6DDE55972616F9EA0008322F /* SceneDelegate.swift in Sources */,
+				FC735184261E188C00FA4A4B /* ThemeController.swift in Sources */,
+				FC94FC76262E90210089C0C1 /* ConfidentialityController.swift in Sources */,
+				FC73518A262623AB00FA4A4B /* LegalNoticeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +251,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				6DDE559B2616F9EA0008322F /* Base */,
+				FC8BD43D26189A4200B470A2 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -224,6 +264,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		FC8BD43C26189A2800B470A2 /* localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC8BD43B26189A2800B470A2 /* en */,
+				FC8BD43E26189A4200B470A2 /* fr */,
+			);
+			name = localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -231,6 +280,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -292,6 +342,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -349,7 +400,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KUKXS8377D;
+				DEVELOPMENT_TEAM = B77729XLR5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UnivMap",
@@ -359,7 +410,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.CherrierLaoussing.UnivMap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CherrierLaoussing.UnivMapSetting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -373,7 +424,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KUKXS8377D;
+				DEVELOPMENT_TEAM = B77729XLR5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UnivMap",
@@ -383,7 +434,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.CherrierLaoussing.UnivMap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CherrierLaoussing.UnivMapSetting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

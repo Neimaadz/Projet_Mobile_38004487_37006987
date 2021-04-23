@@ -1,0 +1,57 @@
+
+/* Class = "UILabel"; text = "Confidentialité"; ObjectID = "0E0-hU-uXE"; */
+"0E0-hU-uXE.text" = "Confidentialité";
+
+/* Class = "UINavigationItem"; title = "Régalge"; ObjectID = "7uu-x2-NSe"; */
+"7uu-x2-NSe.title" = "Régalge";
+
+/* Class = "UILabel"; text = "Langues"; ObjectID = "BRr-KC-RQZ"; */
+"BRr-KC-RQZ.text" = "Langues";
+
+/* Class = "UINavigationItem"; title = "Langues"; ObjectID = "Ca5-xW-X02"; */
+"Ca5-xW-X02.title" = "Langues";
+
+/* Class = "UILabel"; text = "Choisir la langue d' UnivMap"; ObjectID = "HL9-U6-CXF"; */
+"HL9-U6-CXF.text" = "Choisir la langue d' UnivMap";
+
+/* Class = "UILabel"; text = "Non disponible...."; ObjectID = "Hcl-Yh-gEl"; */
+"Hcl-Yh-gEl.text" = "Non disponible....";
+
+/* Class = "UILabel"; text = "Apparence"; ObjectID = "KKi-md-l8p"; */
+"KKi-md-l8p.text" = "Apparence";
+
+/* Class = "UILabel"; text = "Confidentialité"; ObjectID = "Mov-qJ-fpK"; */
+"Mov-qJ-fpK.text" = "Confidentialité";
+
+/* Class = "UILabel"; text = "Mentions légales"; ObjectID = "RbW-wl-BbV"; */
+"RbW-wl-BbV.text" = "Mentions légales";
+
+/* Class = "UINavigationItem"; title = "UnivMap"; ObjectID = "Vgj-jf-G4s"; */
+"Vgj-jf-G4s.title" = "UnivMap";
+
+/* Class = "UINavigationItem"; title = "Assistance"; ObjectID = "XnP-Au-bne"; */
+"XnP-Au-bne.title" = "Assistance";
+
+/* Class = "UITabBarItem"; title = "Réglage"; ObjectID = "Y1n-Le-R4x"; */
+"Y1n-Le-R4x.title" = "Réglage";
+
+/* Class = "UITabBarItem"; title = "Calendrier"; ObjectID = "aO5-Tj-aIo"; */
+"aO5-Tj-aIo.title" = "Calendrier";
+
+/* Class = "UILabel"; text = "Langues par défaut"; ObjectID = "bK2-OH-FWL"; */
+"bK2-OH-FWL.text" = "Langues par défaut";
+
+/* Class = "UILabel"; text = "Assitance"; ObjectID = "ced-wR-7tx"; */
+"ced-wR-7tx.text" = "Assitance";
+
+/* Class = "UINavigationItem"; title = "Apparence"; ObjectID = "ejH-s4-kdx"; */
+"ejH-s4-kdx.title" = "Apparence";
+
+/* Class = "UITabBarItem"; title = "Carte"; ObjectID = "mOn-NB-vaq"; */
+"mOn-NB-vaq.title" = "Carte";
+
+/* Class = "UILabel"; text = "UnivMap"; ObjectID = "pnm-Nt-xBE"; */
+"pnm-Nt-xBE.text" = "UnivMap";
+
+/* Class = "UILabel"; text = "Langues par défaut - définit la langues de votre systeme comme la langues utiliser pour l'application UnivMap. Si vous voulez choisir une autre langue que la langue de votre systeme, veuillez dé-cocher cette option."; ObjectID = "u1v-lZ-DzV"; */
+"u1v-lZ-DzV.text" = "Langues par défaut - définit la langues de votre systeme comme la langues utiliser pour l'application UnivMap. Si vous voulez choisir une autre langue que la langue de votre systeme, veuillez dé-cocher cette option.";
