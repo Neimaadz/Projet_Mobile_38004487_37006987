@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1011142331448",
+    "firebase_url": "https://univmap-6f22d-default-rtdb.firebaseio.com",
+    "project_id": "univmap-6f22d",
+    "storage_bucket": "univmap-6f22d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011142331448:android:265d89f54406d6bec7aacd",
+        "android_client_info": {
+          "package_name": "com.cherrierlaoussing.univmap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1011142331448-m22khiessca6stvrth8dropmnqd9avnn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cherrierlaoussing.univmap",
+            "certificate_hash": "9741d531510d45278208a9c93330bce1dbbb6e3a"
+          }
+        },
+        {
+          "client_id": "1011142331448-ph4gp4rje7m45f1nesrblj1adq4fqvvn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBthni1x3cOxL59rQJtIgvhYuj77I5ZtM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1011142331448-ph4gp4rje7m45f1nesrblj1adq4fqvvn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1011142331448-cgnqdf4dhcdsfdv4b5kqvcvd3bpq77lr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.CherrierLaoussing.UnivMap"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
