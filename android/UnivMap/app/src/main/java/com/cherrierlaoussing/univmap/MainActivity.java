@@ -505,7 +505,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                                 mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 500);
 
-                                MarkerView markerView = annotations(nom, enseignant, salle, horaire, planningLatitude, planningLongitude);
+                                MarkerView markerView = annotations(nom, enseignant, salle, horaire, pointLatitude, pointLongitude);
                                 markerViewManager.addMarker(markerView);
 
                             }
@@ -566,13 +566,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                             double pointLatitude = circleIconList.get(k).getLatLng().getLatitude();
                                             double pointLongitude = circleIconList.get(k).getLatLng().getLongitude();
 
-                                            String nom = listNextCours.get(j).getNom();
-                                            String enseignant = listNextCours.get(j).getEnseignant();
-                                            String salle = listNextCours.get(j).getSalle();
-                                            String hDebut = listNextCours.get(j).getHdebut();
-                                            String hFin = listNextCours.get(j).getHfin();
-                                            String mDebut = listNextCours.get(j).getMdebut();
-                                            String mFin = listNextCours.get(j).getMfin();
+                                            String nom = listNextCours.get(indexNext).getNom();
+                                            String enseignant = listNextCours.get(indexNext).getEnseignant();
+                                            String salle = listNextCours.get(indexNext).getSalle();
+                                            String hDebut = listNextCours.get(indexNext).getHdebut();
+                                            String hFin = listNextCours.get(indexNext).getHfin();
+                                            String mDebut = listNextCours.get(indexNext).getMdebut();
+                                            String mFin = listNextCours.get(indexNext).getMfin();
                                             String horaire = hDebut + "h" + mDebut + " - " + hFin + "h" + mFin;
 
                                             if (hActuelConvert <= hDebutNextCours && hDebutNextCours <= hActuelConvert+120 && coursActuelLatitude == pointLatitude &&
@@ -586,13 +586,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                                                 mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 500);
 
-                                                MarkerView markerView = annotations(nom, enseignant, salle, horaire, coursActuelLatitude, coursActuelLongitude);
+                                                MarkerView markerView = annotations(nom, enseignant, salle, horaire, pointLatitude, pointLongitude);
                                                 markerViewManager.addMarker(markerView);
 
                                                 if (hActuelConvert <= hDebutNextCours && hDebutNextCours <= hActuelConvert+120 && planningLatitude == pointLatitude &&
                                                         planningLongitude == pointLongitude){
 
-                                                    indexParcours = i+1;
+                                                    indexParcours = j+1;
                                                 }
                                             }
 
