@@ -2,8 +2,6 @@ package com.cherrierlaoussing.univmap;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,20 +9,19 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity {
 
     BottomNavigationView navBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_settings);
 
         /// =============================== TabBar =============================
         navBar = findViewById(R.id.tabBar);
 
-        navBar.setSelectedItemId(R.id.map);
+        navBar.setSelectedItemId(R.id.settings);
 
         navBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -47,5 +44,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 }

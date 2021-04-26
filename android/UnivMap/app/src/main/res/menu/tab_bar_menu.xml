@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/mapFragment"
+        android:id="@+id/map"
         android:title="Map"
         android:icon="@drawable/ic_map"/>
     <item
-        android:id="@+id/calendarFragment"
+        android:id="@+id/calendar"
         android:title="Calendar"
         android:icon="@drawable/ic_calendar"/>
     <item
-        android:id="@+id/settingsFragment"
+        android:id="@+id/settings"
         android:title="Setting"
         android:icon="@drawable/ic_settings"/>
 </menu>
