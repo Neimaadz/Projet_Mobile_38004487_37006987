@@ -15,7 +15,7 @@ class MapController: UIViewController, MGLMapViewDelegate {
     
     var db: Firestore!
     var listPlanning: [Planning] = []
-    var listCoursActuel: [Planning] = []
+    var listNextCours: [Planning] = []
     // Fill an array with point annotations and add it to the map.
     var pointAnnotations = [MGLPointAnnotation]()
     
@@ -75,19 +75,21 @@ class MapController: UIViewController, MGLMapViewDelegate {
                         self.listPlanning.append(Planning(nom: nom, filiere: filiere, enseignant: enseignant, hDebut: hDebut, hFin: hFin, mDebut: mDebut, mFin: mFin, salle: salle, latitude: latitude, longitude: longitude ))
                         
                         
+                // =============== Récupère la liste des prochains cours =======================================
                         let hActuelConverted = (hour * 60 + minutes)
                         let hDebutConverted = (Int(hDebut)! * 60 + Int(mDebut)!)
                         
                         if hActuelConverted <= hDebutConverted && hDebutConverted <= hActuelConverted+120{
-                            self.listCoursActuel.append(Planning(nom: nom, filiere: filiere, enseignant: enseignant, hDebut: hDebut, hFin: hFin, mDebut: mDebut, mFin: mFin, salle: salle, latitude: latitude, longitude: longitude ))
+                            self.listNextCours.append(Planning(nom: nom, filiere: filiere, enseignant: enseignant, hDebut: hDebut, hFin: hFin, mDebut: mDebut, mFin: mFin, salle: salle, latitude: latitude, longitude: longitude ))
                         }
+                // =================================================================================================
+                        
                         
                         let horaire = hDebut + "h" + mDebut + " - " + hFin + "h" + mFin
                         
-                        let indexLatitude:Double? = Double(latitude)    //convertir en double
+                        let indexLatitude:Double? = Double(latitude)    // Convertir en double
                         let indexLongitude:Double? = Double(longitude)
-                        // Initialize and add the marker annotation.
-                        let marker = MGLPointAnnotation()
+                        let marker = MGLPointAnnotation()   // Initialisation et ajout de l'annotation
                         
                         marker.coordinate = CLLocationCoordinate2D(latitude: indexLatitude ?? -20.90180283795172, longitude: indexLongitude ?? 55.48438641154759)
                         marker.title = nom + "\n" +  enseignant + "\n" +  salle + "\n" +  horaire
@@ -99,7 +101,7 @@ class MapController: UIViewController, MGLMapViewDelegate {
                         pointAnnotations.append(marker)
                     }
                     
-                    // Add marker to the map.
+                    // Ajout du marqueur sur la map
                     self.mapView.addAnnotations(pointAnnotations)
                     
                 }
@@ -107,13 +109,14 @@ class MapController: UIViewController, MGLMapViewDelegate {
             }
         }
         
-        
+        // Bouton centrer sur la localisation de l'utilisateur
         let centerUserLocation = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         buttonPosition.isUserInteractionEnabled = true
         buttonPosition.addGestureRecognizer(centerUserLocation)
         view.addSubview(buttonPosition)
         
         
+        // Bouton pour switch sur le prochain cours qui va commencer
         self.buttonCours.tintColor = UIColor.orange
         let nextCours = UITapGestureRecognizer(target: self, action: #selector(nextCours(tapGestureRecognizer:)))
         buttonCours.isUserInteractionEnabled = true
@@ -121,6 +124,7 @@ class MapController: UIViewController, MGLMapViewDelegate {
         view.addSubview(buttonCours)
         
         
+        // Bouton pour switch entre tous les cours
         let parcoursCours = UITapGestureRecognizer(target: self, action: #selector(parcoursCours(tapGestureRecognizer:)))
         buttonNext.isUserInteractionEnabled = true
         buttonNext.addGestureRecognizer(parcoursCours)
@@ -131,9 +135,6 @@ class MapController: UIViewController, MGLMapViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         self.buttonCours.tintColor = UIColor.orange
     }
-    
-    
-    
     
     
     
@@ -160,35 +161,49 @@ class MapController: UIViewController, MGLMapViewDelegate {
     }
     
     
-    // ======================================== Fonction ===================================================
+    // =====================================================================================================
+    // ====================           Fonction Paroucrir TOUS les cours                 ====================
+    // =====================================================================================================
 
     var indexParcours = 0
     
+    // Fonction pour le parcours de TOUS les cours
     @objc func parcoursCours(tapGestureRecognizer: UITapGestureRecognizer) {
         listPlanning.sort(by: self.sortList)
         
         if(indexParcours == self.pointAnnotations.count){
             indexParcours = 0
         }
-        for point in self.pointAnnotations{
+        for point in self.pointAnnotations{ // On parcours les différents points des cours
             
             let planningLatitude:Double? = Double(listPlanning[indexParcours].latitude)
             let planningLongitude:Double? = Double(listPlanning[indexParcours].longitude)
             let pointLatitude = point.coordinate.latitude
             let pointLongitude = point.coordinate.longitude
             
-            if planningLatitude == pointLatitude && planningLongitude == pointLongitude {
+            if planningLatitude == pointLatitude && planningLongitude == pointLongitude {   // On test les coordonnées
+                
+                // On renvoie sur le points correspondant
                 mapView.setCenter(CLLocationCoordinate2D(latitude: pointLatitude , longitude: pointLongitude ), zoomLevel: 18, animated: true)
+                // Avec son annotation
                 mapView.selectAnnotation(point, animated: false, completionHandler: nil)
                 
             }
         }
-        indexParcours += 1  //incrémentation du compteur pour parcourir 1 par 1 tout les cours
+        indexParcours += 1  // Incrémentation du compteur pour parcourir 1 par 1 tout les cours
         
     }
     
+    
+    
+    
+    // =====================================================================================================
+    // ====================           Fonction Paroucrir les Prochains cours            ====================
+    // =====================================================================================================
+    
     var indexNext = 0
     
+    // Fonction pour parcourir les prochains cours qui vont commencer
     @objc func nextCours(tapGestureRecognizer: UITapGestureRecognizer) {
         listPlanning.sort(by: self.sortList)
         
@@ -198,29 +213,33 @@ class MapController: UIViewController, MGLMapViewDelegate {
         let minutes = calendar.component(.minute, from: date)
         //print(hour,minutes)
         
-        if(indexNext == self.listCoursActuel.count){
+        if(indexNext == self.listNextCours.count){
             indexNext = 0
         }
-        for (indexPlanning, planning) in self.listPlanning.enumerated(){
-            for coursActuel in self.listCoursActuel{
-                for point in self.pointAnnotations{
+        for (indexPlanning, planning) in self.listPlanning.enumerated(){    // On parcours la liste Planning
+            for nextCours in self.listNextCours{    // On parcours la liste des prochain cours qui vont commencer
+                for point in self.pointAnnotations{ // On parcours tous les points
+                    
                     let hActuel = (hour * 60 + minutes)
-                    let hDebut = (Int(coursActuel.hDebut)! * 60 + Int(coursActuel.mDebut)!)
+                    let hDebutNextCours = (Int(nextCours.hDebut)! * 60 + Int(nextCours.mDebut)!)
                     
                     let planningLatitude:Double? = Double(planning.latitude)
                     let planningLongitude:Double? = Double(planning.longitude)
-                    let coursActuelLatitude:Double? = Double(listCoursActuel[indexNext].latitude)
-                    let coursActuelLongitude:Double? = Double(listCoursActuel[indexNext].longitude)
+                    let nextCoursLatitude:Double? = Double(listNextCours[indexNext].latitude)
+                    let nextCoursLongitude:Double? = Double(listNextCours[indexNext].longitude)
                     let pointLatitude = point.coordinate.latitude
                     let pointLongitude = point.coordinate.longitude
                     
-                    if hActuel <= hDebut && hDebut <= hActuel+120 && coursActuelLatitude == pointLatitude && coursActuelLongitude == pointLongitude {
+                    // Si l'heure du début du prochain cours est dans moins de 2 heures par rapport à heure actuel
+                    // et que les coordoonées des prochains cours correspondent aux coordonnées des points
+                    if hActuel <= hDebutNextCours && hDebutNextCours <= hActuel+120 && nextCoursLatitude == pointLatitude && nextCoursLongitude == pointLongitude {
                         
                         mapView.setCenter(CLLocationCoordinate2D(latitude: pointLatitude , longitude: pointLongitude ), zoomLevel: 18, animated: true)
                         mapView.selectAnnotation(point, animated: false, completionHandler: nil)
                         
-                        if hActuel <= hDebut && hDebut <= hActuel+120 && planningLatitude == pointLatitude && planningLongitude == pointLongitude {
-                            indexParcours = indexPlanning+1     //on récupère l'index afin d'avoir le cours suivant
+                        // Récupère l'indice afin d'avoir le cours qui suit trier dans l'ordre croissant selon l'heure du début
+                        if hActuel <= hDebutNextCours && hDebutNextCours <= hActuel+120 && planningLatitude == pointLatitude && planningLongitude == pointLongitude {
+                            indexParcours = indexPlanning+1     //on récupère l'indice
                         }
                     }
                     
@@ -232,6 +251,9 @@ class MapController: UIViewController, MGLMapViewDelegate {
     }
     
     
+    // =====================================================================================================
+    // ====================           Fonction Center User Location                     ====================
+    // =====================================================================================================
     
     //function permettant de centrer sur la position de l'utilisateur
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
@@ -242,13 +264,19 @@ class MapController: UIViewController, MGLMapViewDelegate {
     
     
     
-    // ======================================== User Location ===================================================
+
+    // =====================================================================================================
+    // ====================                 Fonction Mapbox                             ====================
+    // =====================================================================================================
+    
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
         
+        // ======================= User Location =============================================
         if annotation is MGLUserLocation && mapView.userLocation != nil {
             return CustomUserLocationAnnotationView()
         }
         
+        // ======================= Annotation ============================================
         guard annotation is MGLPointAnnotation else {
             return nil
         }
@@ -261,15 +289,15 @@ class MapController: UIViewController, MGLMapViewDelegate {
         
         if annotationView == nil {
             annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
-            annotationView!.bounds = CGRect(x: 0, y: 0, width: 25, height: 25)
+            annotationView!.bounds = CGRect(x: 0, y: 0, width: 25, height: 25)  // création du cercle
             
             
             let date = Date()
             let calendar = Calendar.current
             let hour = calendar.component(.hour, from: date)
             let minutes = calendar.component(.minute, from: date)
-            //print(hour,minutes)
-
+            
+            // ============================= Couleur des points ===============================
             for planning in self.listPlanning{
                 
                 let hActuel = (hour * 60 + minutes)
