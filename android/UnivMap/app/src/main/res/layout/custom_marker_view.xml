@@ -2,13 +2,13 @@
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="300dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/cardview_dark_background"
     app:cardCornerRadius="10dp"
     app:cardElevation="5dp"
-    app:cardUseCompatPadding="true"
-    android:layout_height="wrap_content">
+    app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="wrap_content"
