@@ -1,9 +1,62 @@
 <resources>
-    <string name="app_name">UnivMap</string>
-    <string name="mapbox_access_token">pk.eyJ1IjoibmVpbWFkOTc0IiwiYSI6ImNrbXZ3NGV0dDA5NjMyb3FpZGMzbThjdG8ifQ.ufEW6Dp6jFI1RP6Zkpx-AQ</string>
+    <string name="app_name" translatable="false">UnivMap</string>
+
+    <!--========= MapBox ========-->
+    <string name="mapbox_access_token" translatable="false">pk.eyJ1IjoibmVpbWFkOTc0IiwiYSI6ImNrbXZ3NGV0dDA5NjMyb3FpZGMzbThjdG8ifQ.ufEW6Dp6jFI1RP6Zkpx-AQ</string>
 
     <string name="user_location_permission_explanation">Pour le bon fonctionnement de UnivMap, veuillez activez la géolocalisation.</string>
     <string name="user_location_permission_not_granted">Veuillez activez la géolocalisation.</string>
 
+    <!--========= title item tabbar & navBar ========-->
+    <string name="map">Map</string>
+    <string name="calendar">Calendar</string>
+    <string name="settings">Settings</string>
+
+    <!--========= Header Settings ========-->
+    <string name="account">Account</string>
+    <string name="general">General</string>
+    <string name="learnMore">Learn more</string>
+    <string name="none"></string>
+
+    <!--========= Cell in ListeViev ========-->
+    <string name="unavailable">Unavailable ...</string>
+    <string name="appearence">Appearence</string>
+    <string name="languages">Langagues</string>
+    <string name="confidentiality">Confidentiality</string>
+    <string name="univMap">UnivMap</string>
+    <string name="assistance">Assistance</string>
+    <string name="legalNotice">Legal notice</string>
+
+    <!--========= Language Activity ========-->
+    <string name="languageView.titleView">Choose UnivMap language</string>
+    <string name="languageView.firstSubTitle">Default languages</string>
+    <string name="languageView.abstractFirstSubTitle">Default Languages - set your system language as the language to use for the UnivMap application. If you want to choose another language than your system language, please uncheck this option.</string>
+    <string name="languageView.secondSubTitle">Other languages ...</string>
+    <string name="languageView.abstractSecondSubTitle">To access the languages below, please deactivate the option \"Default languages\" (above).</string>
+
+    <string name="languageView.english">English</string>
+    <string name="languageView.french">French</string>
+
+    <!--========= Appearence Activity ========-->
+    <string name="appearenceView.titleView">Theme customization</string>
+    <string name="appearenceView.firstSubTitle">Background color</string>
+    <string name="appearenceView.abstractFirstSubTitle">Choose the background color for the app.</string>
+    <string name="eyesPicker">Choose a color</string>
+
+    <!--========= Assistance Activity ========-->
+    <string name="assistanceView.title">You can contact us by sending us an Email.</string>
+
+    <!--========= UnivMap Activity ========-->
+    <string name="univMap.about">About me ...</string>
+    <string name="univMap.damien" translatable="false">Damien</string>
+    <string name="univMap.dylan" translatable="false">Dylan</string>
+    <string name="univMap.firstTitle">Why UnivMap</string>
+    <string name="univMap.firstAbstract"></string>
+    <string name="univMap.by">Created by :</string>
+
+    <!--========= Others ========-->
+    <string name="send">Send !</string>
+    <string name="back">Back</string>
+    <string name="lorem" translatable="false">Lorem ipsum dolor sit amet. Ut accusamus non quidem laborum cum consequatur nihil non officiis ipsum ut repudiandae voluptatem est ullam galisum harum asperiores. Non beatae dolores sed nemo quos cum nisi quia non optio voluptates ea ipsa laborum. Qui sapiente cupiditate est suscipit Quis qui corporis voluptates aut inventore eaque. Est voluptatem reprehenderit quo aperiam unde qui deserunt temporibus. Aut pariatur incidunt nam libero eum soluta quas et natus deleniti. Sit consequatur impedit aut magnam ut consequatur ipsa eos accusamus reprehenderit non omnis harum aut dolores iure qui molestiae doloremque. Qui saepe quod At voluptatem quam et voluptatibus quis vel iure velit. In odio vero sed sint natus ea reprehenderit alias ad doloribus dolores.\n\nIn corporis quis cum voluptas nesciunt aut odio tenetur et quas veniam non maiores quia ab ullam voluptatem est suscipit internos. Ut velit eligendi qui galisum quidem eos dolorum doloremque est sequi facere est nobis sunt ad voluptatem necessitatibus. Et sapiente sint aut iure repudiandae qui molestiae rerum ut cumque vitae non aperiam rerum ab quaerat possimus rem reprehenderit eaque! Qui odio facere qui tempora numquam sed fugiat ipsum non voluptatibus assumenda et repellendus sunt ab molestiae reprehenderit. Et numquam facere in praesentium voluptatem a voluptatem earum aut quaerat illum aut consequatur libero est sunt dolore. Ab fugit voluptatum aut consequatur voluptas aut illum quisquam. Et debitis dolorum aut dolorem veniam eos voluptatem omnis non iure repellendus eos officiis maxime et voluptas recusandae. Et laborum molestiae quo odit tenetur a eaque eius sed voluptatem tempora.\n\nUt ipsum similique ex aliquid eius cum iusto laudantium aut pariatur accusamus est laborum incidunt. Ut nisi dolor quo nihil veniam aut iusto velit est ipsa explicabo est minus omnis et quia nostrum aut sint praesentium. Aut assumenda dolorem eum eveniet enim est totam placeat sed quia commodi in veniam magnam non accusantium perspiciatis est incidunt quaerat. Id officia quidem et explicabo consequuntur non nulla enim est quae quas quia inventore et dicta delectus. Et vitae laboriosam qui aliquam dolore non voluptatem consequatur aut inventore sapiente. Sit dolores tempore qui assumenda recusandae et obcaecati incidunt et deserunt atque in accusantium numquam. Est sint obcaecati sit unde similique sed placeat aperiam est itaque quas. Et perferendis tempora et tempore laboriosam est numquam placeat! Vel explicabo cupiditate At eius repellat et voluptas quisquam aut esse enim ex porro veniam est ipsam modi eos totam assumenda. In officia cupiditate et dignissimos deleniti sit enim officia. Cum repudiandae dolor ad voluptates voluptates non Quis magni a nostrum dolores! At nulla quas ut consectetur aliquam in aliquid autem aut nihil facilis qui necessitatibus pariatur? Ut vitae suscipit cum molestiae minima aut voluptas nulla. In aspernatur iusto est odio vitae est autem consectetur et nostrum unde.</string>
 
 </resources>

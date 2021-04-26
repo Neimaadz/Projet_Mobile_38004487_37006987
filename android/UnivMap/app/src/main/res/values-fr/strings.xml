@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--========= MapBox ========-->
+
+    <string name="user_location_permission_explanation">Pour le bon fonctionnement de UnivMap, veuillez activez la géolocalisation.</string>
+    <string name="user_location_permission_not_granted">Veuillez activez la géolocalisation.</string>
+
+    <!--========= title item tabbar & navBar ========-->
+    <string name="map">Carte</string>
+    <string name="calendar">Calendrier</string>
+    <string name="settings">Réglages</string>
+
+    <!--========= Header Settings ========-->
+    <string name="account">Compte</string>
+    <string name="general">Général</string>
+    <string name="learnMore">En savoir plus</string>
+    <string name="none"></string>
+
+    <!--========= Cell in ListeViev ========-->
+    <string name="unavailable">Indisponible ...</string>
+    <string name="appearence">Apparence</string>
+    <string name="languages">Langues</string>
+    <string name="confidentiality">Confidentialité</string>
+    <string name="univMap">UnivMap</string>
+    <string name="assistance">Assistance</string>
+    <string name="legalNotice">Mentions légales</string>
+
+    <!--========= Language Activity ========-->
+    <string name="languageView.titleView">Choix de la langues d\'UnivMap</string>
+    <string name="languageView.firstSubTitle">Langues par défaut</string>
+    <string name="languageView.abstractFirstSubTitle">Langues par défaut - définit la langues de votre systeme comme la langues utiliser pour l\'application UnivMap. Si vous voulez choisir une autre langue que la langue de votre systeme, veuillez dé-cocher cette option.</string>
+    <string name="languageView.secondSubTitle">Autres langues ...</string>
+    <string name="languageView.abstractSecondSubTitle">Pour accéder au langues ci-dessous, veuillez désactiver l\'option "Langues par défaut" (ci-dessus).</string>
+
+    <string name="languageView.english">Anglais</string>
+    <string name="languageView.french">Français</string>
+
+    <!--========= Appearence Activity ========-->
+    <string name="appearenceView.titleView">Personnalisation du Thème</string>
+    <string name="appearenceView.firstSubTitle">Couleur d\'arrière plan</string>
+    <string name="appearenceView.abstractFirstSubTitle">Choisissez la couleur d\'arrière plan de l\'application.</string>
+    <string name="eyesPicker">Choisir une couleur</string>
+
+    <!--========= Assistance Activity ========-->
+    <string name="assistanceView.title">Vous pouvez nous contacter en nous envoyant un Email.</string>
+
+    <!--========= UnivMap Activity ========-->
+    <string name="univMap.about">À propos de moi ...</string>
+    <string name="univMap.firstTitle">Pourquoi UnivMap ?</string>
+    <string name="univMap.firstAbstract"></string>
+    <string name="univMap.by">Céer par :</string>
+
+    <!--========= Others ========-->
+    <string name="send">Envoyer !</string>
+    <string name="back">Retour</string>
+
+</resources>
