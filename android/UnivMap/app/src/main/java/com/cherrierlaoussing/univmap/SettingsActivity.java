@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -41,6 +43,41 @@ public class SettingsActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.listeSettings);
         listView.setAdapter(new ItemSettingsApdater(this,list));
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent newActivity;
+                switch(position){
+                    case 3:
+                        newActivity = new Intent(getApplicationContext(),AppearanceActivity.class);
+                        startActivity(newActivity);
+                        break;
+                    case 4:
+                        newActivity = new Intent(getApplicationContext(),LanguageActivity.class);
+                        startActivity(newActivity);
+                        break;
+                    case 5:
+                        newActivity = new Intent(getApplicationContext(),ConfidentialityActivity2.class);
+                        startActivity(newActivity);
+                        break;
+                    case 7:
+                        newActivity = new Intent(getApplicationContext(),UnivMapActivity.class);
+                        startActivity(newActivity);
+                        break;
+                    case 8:
+                        newActivity = new Intent(getApplicationContext(),MainActivity.class);
+                        startActivity(newActivity);
+                        break;
+                    case 10:
+                        newActivity = new Intent(getApplicationContext(),MainActivity.class);
+                        startActivity(newActivity);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
 
         /// =============================== TabBar =============================
         navBar = findViewById(R.id.tabBar);

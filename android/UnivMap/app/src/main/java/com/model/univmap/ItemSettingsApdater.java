@@ -73,22 +73,15 @@ public class ItemSettingsApdater extends BaseAdapter {
                 String nameItem = currentItem.getNameItem();
                 TextView itemView = convertView.findViewById(R.id.textView);
                 itemView.setText(nameItem);
+                if(position == 1) convertView.setEnabled(false);
                 break;
             case HEADER:
                 String headerName = (String) getItem(position);
                 TextView headerView = convertView.findViewById(R.id.headerList);
                 headerView.setText(headerName);
+                convertView.setEnabled(false);
                 break;
         }
-
-
-
-        convertView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });
-
         return convertView;
     }
 }
