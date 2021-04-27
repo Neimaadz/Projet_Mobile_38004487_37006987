@@ -13,8 +13,6 @@ public class Planning {
     private String Latitude;
     private String Longitude;
 
-    public Planning(){}
-
 
     public Planning(String nom, String filiere, String enseignant, String hDebut, String hFin, String mDebut, String mFin,
                     String salle, String latitude, String longitude){

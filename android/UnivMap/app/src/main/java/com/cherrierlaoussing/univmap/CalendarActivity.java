@@ -25,13 +25,14 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class CalendarActivity extends AppCompatActivity {
+public class CalendarActivity extends AppCompatActivity implements MyAdapter.OnNoteListener {
 
     BottomNavigationView navBar;
 
     private FirebaseFirestore db;
     private static final String TAG = "CalendarActivity";
     private Context context = this;
+    private MyAdapter.OnNoteListener thisOnNoteListener = this::onNoteClick;
 
     RecyclerView recyclerViewPlanning;
 
@@ -92,7 +93,7 @@ public class CalendarActivity extends AppCompatActivity {
                     String horaireDebut = hDebut + ":" + mDebut;
                     String horaireFin = hFin + ":" + mFin;
 
-                    nomPlanning = Arrays.copyOf(nomPlanning, nomPlanning.length+1);
+                    nomPlanning = Arrays.copyOf(nomPlanning, nomPlanning.length+1); // On ajoute au tableau nomPlanning
                     nomPlanning[nomPlanning.length-1] = nom;
 
                     enseignantPlanning = Arrays.copyOf(enseignantPlanning, enseignantPlanning.length+1);
@@ -110,8 +111,10 @@ public class CalendarActivity extends AppCompatActivity {
                     horaireFinPlanning = Arrays.copyOf(horaireFinPlanning, horaireFinPlanning.length+1);
                     horaireFinPlanning[horaireFinPlanning.length-1] = horaireFin;
 
-                    MyAdapter myAdapter = new MyAdapter(context, nomPlanning, filierePlanning, enseignantPlanning, sallePlanning, horaireDebutPlanning, horaireFinPlanning);
-                    recyclerViewPlanning.setAdapter((myAdapter));
+                    // Appel de la classe MyAdapter pour afficher et mettre "en forme" les infos des cours
+                    MyAdapter myAdapter = new MyAdapter(context, nomPlanning, filierePlanning, enseignantPlanning, sallePlanning,
+                            horaireDebutPlanning, horaireFinPlanning, thisOnNoteListener);
+                    recyclerViewPlanning.setAdapter(myAdapter);
                     recyclerViewPlanning.setLayoutManager(new LinearLayoutManager(context));
 
 
@@ -123,14 +126,23 @@ public class CalendarActivity extends AppCompatActivity {
 
 
 
-
-
     }
 
 
 
 
 
+
+
+    @Override
+    public void onNoteClick(int position) {
+        System.out.println(nomPlanning[position]);
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("indiceCalendar", position);
+        intent.putExtra("comeFromCalendar", 1); // permet de récuperer la valeur et comparer afin de savoir si on vient de calendar
+        startActivityForResult(intent, 0);
+
+    }
 
 
 
@@ -178,15 +190,11 @@ public class CalendarActivity extends AppCompatActivity {
                 });
 
     }
-
     public interface ListPlanningCallback {
         void onCallback(List<Planning> listPlanning);
     }
 
 
-    public static Context getAppContext() {
-        return CalendarActivity.getAppContext();
-    }
 
 
     /*

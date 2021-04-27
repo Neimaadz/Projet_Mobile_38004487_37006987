@@ -16,7 +16,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     String[] dataNom; String[] dataFiliere; String[] dataEnseignant  ; String[] dataSalle; String[] dataHoraireDebut; String[] dataHoraireFin;
     Context context;
 
-    public MyAdapter(Context ct, String[] nom, String[] filiere, String[] enseignant, String[] salle, String[] horaireDebut, String[] horaireFin){
+    private OnNoteListener mOnNoteListener;
+
+    // Constructeur
+    public MyAdapter(Context ct, String[] nom, String[] filiere, String[] enseignant, String[] salle, String[] horaireDebut, String[] horaireFin, OnNoteListener onNoteListener){
         context = ct;
         dataNom = nom;
         dataFiliere = filiere;
@@ -24,6 +27,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         dataSalle = salle;
         dataHoraireDebut = horaireDebut;
         dataHoraireFin = horaireFin;
+        mOnNoteListener = onNoteListener;
     }
 
 
@@ -31,12 +35,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.my_row, parent, false);
-        return new MyViewHolder(view);
+        View view = inflater.inflate(R.layout.my_row, parent, false);   // On récupère la vue
+        return new MyViewHolder(view, mOnNoteListener);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {  // Affichage des infos récupérer dans MyViewHolder (ci-dessous)
         holder.nom.setText(dataNom[position]);
         holder.filiere.setText(dataFiliere[position]);
         holder.enseignant.setText(dataEnseignant[position]);
@@ -49,13 +53,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public int getItemCount() {
         return dataNom.length;
-    }
+    }   // Le nombre total d'item
 
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView nom, filiere, enseignant, salle, horaireDebut, horaireFin;
+        OnNoteListener onNoteListener;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, OnNoteListener onNoteListener) {    // On récupère les id sur la vue
             super(itemView);
 
             nom = itemView.findViewById(R.id.row_planning_nom);
@@ -64,8 +69,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             salle = itemView.findViewById(R.id.row_planning_salle);
             horaireDebut = itemView.findViewById(R.id.row_planning_hDebut);
             horaireFin = itemView.findViewById(R.id.row_planning_hFin);
+            this.onNoteListener = onNoteListener;
+
+            itemView.setOnClickListener(this);  // Pour pouvoir cliquer sur une cellule
 
         }
+
+        @Override
+        public void onClick(View v) {
+            onNoteListener.onNoteClick(getAdapterPosition());
+
+        }
+    }
+
+    public interface OnNoteListener{
+        void onNoteClick(int position);
     }
 
 

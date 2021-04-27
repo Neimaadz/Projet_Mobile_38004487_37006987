@@ -129,6 +129,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(@NonNull final MapboxMap mapboxMap) {
         MainActivity.this.mapboxMap = mapboxMap;
+
+        // Affichage du style de la carte
         mapboxMap.setStyle(Style.MAPBOX_STREETS, new Style.OnStyleLoaded() {
 
             @Override
@@ -208,6 +210,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         } //[FIN BOUCLE for]
 
+
+
+
                     } //[FIN DATA CALLBACK]
                 }); //[FIN getAllDATA]
 
@@ -215,9 +220,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 buttonNextCours();
                 centerUserLocation();
 
+                int comeFromCalendar = getIntent().getIntExtra("comeFromCalendar", 0);  // Récupère la valeur depuis CalendarActivity
+
+                if(comeFromCalendar == 1){  // Si on vient de Calendar
+                    displayCoursFromCalendar();
+                }
+
 
             } //[FIN OnStyleLoad]
-
 
         });
 
@@ -287,7 +297,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     /*
     ===========================================================================================================================
-    ===============                  Récupération des données de firecore                                       ===============
+    ===============                       Fonction Récupération de TOUS les cours                               ===============
     ===========================================================================================================================
      */
 
@@ -337,7 +347,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     /*
    ===========================================================================================================================
-   ===============                      Fonction Récupérer TOUS les prochains cours                            ===============
+   ===============                       Fonction Récupération des prochains cours                             ===============
    ===========================================================================================================================
     */
 
@@ -422,6 +432,55 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 500);
             }
         });
+
+    }
+
+
+    /*
+   ===========================================================================================================================
+   ===============             Fonction Affichage du cours selectionner sur Calendar                           ===============
+   ===========================================================================================================================
+    */
+
+    public void displayCoursFromCalendar(){
+
+        getAllData(new ListPlanningCallback() {
+            @Override
+            public void onCallback(List<Planning> listPlanning) {
+                Collections.sort(listPlanning, new SortHdebut() );
+
+                int indexCalendar = getIntent().getIntExtra("indiceCalendar", 0);
+
+                for (int i = 0; i < listPlanning.size(); i++) {
+
+                    Double calendarLatitude = Double.parseDouble(listPlanning.get(indexCalendar).getLatitude());
+                    Double calendarLongitude = Double.parseDouble(listPlanning.get(indexCalendar).getLongitude());
+
+                    String nomCalendar = listPlanning.get(indexCalendar).getNom();
+                    String enseignantCalendar = listPlanning.get(indexCalendar).getEnseignant();
+                    String salleCalendar = listPlanning.get(indexCalendar).getSalle();
+                    String hDebutCalendar = listPlanning.get(indexCalendar).getHdebut();
+                    String hFinCalendar = listPlanning.get(indexCalendar).getHfin();
+                    String mDebutCalendar = listPlanning.get(indexCalendar).getMdebut();
+                    String mFinCalendar = listPlanning.get(indexCalendar).getMfin();
+                    String horaireCalendar = hDebutCalendar + "h" + mDebutCalendar + " - " + hFinCalendar + "h" + mFinCalendar;
+
+                    LatLng latLngCalendar = new LatLng(calendarLatitude, calendarLongitude);
+
+                    CameraPosition position = new CameraPosition.Builder()
+                            .target(latLngCalendar)
+                            .zoom(18)
+                            .tilt(0)   // inclinaison de la camera max:60
+                            .build();
+
+                    mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 500);
+
+                    markerView = annotations(nomCalendar, enseignantCalendar, salleCalendar, horaireCalendar, calendarLatitude, calendarLongitude);
+                    markerViewManager.addMarker(markerView);
+                }
+            }
+        });
+
 
     }
 
@@ -525,7 +584,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     public void onCallback(List<Planning> listPlanning) {
                         Collections.sort(listPlanning, new SortHdebut() );
 
-                        // On récupère la liste de tous les cours qui vont commencer
+                        // On récupère la liste des cours qui vont commencer
                         getAllNextCours(new ListNextCoursCallback() {
                             @Override
                             public void onCallback(List<Planning> listNextCours) {
