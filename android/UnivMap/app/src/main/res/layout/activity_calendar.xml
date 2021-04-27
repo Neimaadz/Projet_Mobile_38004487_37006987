@@ -6,13 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".CalendarActivity">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewPlanning"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Calendar"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/tabBar"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"/>
+
+
+
+
+
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/tabBar"
