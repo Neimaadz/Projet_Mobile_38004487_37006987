@@ -1,13 +1,8 @@
 
 
-
-
-
-
-
 IMPORTANT : l'application UnivMap utilise internet pour fonctionner (géolocalisation, requête données...)
 	
-	- iOS : il faut lancer le workspace de couleur blanc (UnivMap.xcworkspace)
+	- iOS : il faut lancer le WORKSPACE de couleur BLANC (UnivMap.xcworkspace)
 
 
 
