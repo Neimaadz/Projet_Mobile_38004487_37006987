@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -22,6 +21,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.mapboxsdk.Mapbox;
@@ -46,18 +46,22 @@ import com.mapbox.mapboxsdk.plugins.markerview.MarkerViewManager;
 import com.mapbox.mapboxsdk.utils.ColorUtils;
 import com.model.univmap.Planning;
 
+
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
+
+
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, PermissionsListener {
 
     BottomNavigationView navBar;
-
 
     private FirebaseFirestore db;
 
@@ -71,10 +75,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private PermissionsManager permissionsManager;
 
+
     int indexParcours = 0;
     int indexNext = 0;
 
     List<Circle> circleIconList = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 // Set up a SymbolManager instance
                                 circleManager = new CircleManager(mapView, mapboxMap, style);
 
-                                circle = CreateCircle(planningLatitude, planningLongitude, Color.RED);  // Applle de la fonction pour créer les points en couleur
+                                circle = CreateCircle(planningLatitude, planningLongitude, Color.RED);  // Appl de la fonction pour créer les points en couleur
                                 circleIconList.add(circle);
                             }
                             else if(hFinConvert < hActuelConvert){  //Si des cours sont finis
@@ -207,6 +213,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 buttonParcoursCours();
                 buttonNextCours();
+                centerUserLocation();
 
 
             } //[FIN OnStyleLoad]
@@ -275,7 +282,395 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
 
+
+
+
     /*
+    ===========================================================================================================================
+    ===============                  Récupération des données de firecore                                       ===============
+    ===========================================================================================================================
+     */
+
+    // Fonction pour récupéerer les données sur Firecore en Callback
+    public void getAllData(ListPlanningCallback listPlanningCallback) {
+        db.collection("planning")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            List<Planning> listLocal = new ArrayList<Planning>();
+
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                //Log.d(TAG, document.getId() + " => " + document.getData());
+
+                                String nom = document.getString("nom");
+                                String filiere = document.getString("filiere");
+                                String enseignant = document.getString("enseignant");
+                                String hDebut = document.getString("hDebut");
+                                String hFin = document.getString("hFin");
+                                String mDebut = document.getString("mDebut");
+                                String mFin = document.getString("mFin");
+                                String salle = document.getString("salle");
+                                String latitude = document.getString("latitude");
+                                String longitude = document.getString("longitude");
+
+                                Planning planning = new Planning(nom, filiere, enseignant, hDebut, hFin, mDebut, mFin, salle, latitude, longitude);
+                                listLocal.add(planning);
+
+                            }
+                            listPlanningCallback.onCallback(listLocal);
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+
+    }
+
+    public interface ListPlanningCallback {
+        void onCallback(List<Planning> listPlanning);
+    }
+
+
+
+
+    /*
+   ===========================================================================================================================
+   ===============                      Fonction Récupérer TOUS les prochains cours                            ===============
+   ===========================================================================================================================
+    */
+
+    // Fonction pour récupèrer sur Firecore les prochains cours qui vont commencer en Callback
+    public void getAllNextCours(ListNextCoursCallback listNextCoursCallback) {
+        db.collection("planning")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                        Date date = new Date();
+                        Calendar calendar = GregorianCalendar.getInstance();
+                        calendar.setTime(date);
+                        int hours = calendar.get(Calendar.HOUR_OF_DAY);
+                        int minutes = calendar.get(Calendar.MINUTE);
+
+                        if (task.isSuccessful()) {
+                            List<Planning> listLocal = new ArrayList<Planning>();
+
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                String nom = document.getString("nom");
+                                String filiere = document.getString("filiere");
+                                String enseignant = document.getString("enseignant");
+                                String hDebut = document.getString("hDebut");
+                                String hFin = document.getString("hFin");
+                                String mDebut = document.getString("mDebut");
+                                String mFin = document.getString("mFin");
+                                String salle = document.getString("salle");
+                                String latitude = document.getString("latitude");
+                                String longitude = document.getString("longitude");
+
+
+                                int hActuelConvert = (hours * 60 + minutes);
+                                int hDebutConvert = (Integer.parseInt(hDebut) * 60 + Integer.parseInt(mDebut));
+
+                                if(hActuelConvert <= hDebutConvert && hDebutConvert <= hActuelConvert+120){
+                                    Planning planning = new Planning(nom, filiere, enseignant, hDebut, hFin, mDebut, mFin, salle, latitude, longitude);
+                                    listLocal.add(planning);
+                                }
+
+                            }
+                            listNextCoursCallback.onCallback(listLocal);
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+
+    }
+
+    public interface ListNextCoursCallback {
+        void onCallback(List<Planning> listNextCours);
+    }
+
+
+
+
+
+    /*
+   ===========================================================================================================================
+   ===============                     Fonction Bouton pour centrer sur User Position                          ===============
+   ===========================================================================================================================
+    */
+
+    // Fonction pour centrer sur la position de l'utilisateur
+    public void centerUserLocation(){
+        ImageButton userLocation = (ImageButton) findViewById(R.id.userLocation);
+        LatLng latLngUser = new LatLng(mapboxMap.getLocationComponent().getLastKnownLocation().getLatitude(),
+                                        mapboxMap.getLocationComponent().getLastKnownLocation().getLongitude());
+
+        userLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CameraPosition position = new CameraPosition.Builder()
+                        .target(latLngUser)
+                        .zoom(18)
+                        .tilt(0)   // inclinaison de la camera max:60
+                        .build();
+
+                mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 500);
+            }
+        });
+
+    }
+
+
+
+
+    /*
+   ===========================================================================================================================
+   ===============                     Fonction Bouton pour parcours TOUS les cours                            ===============
+   ===========================================================================================================================
+    */
+
+    // Fonction pour parcourir tout les cours avec un Image Button
+    public void buttonParcoursCours(){
+        List <Circle> circleIconList = this.circleIconList;
+        ImageButton parcoursCours = (ImageButton) findViewById(R.id.parcoursCrous);
+        //System.out.println(circleIconList.size());
+
+        parcoursCours.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getAllData(new ListPlanningCallback() {
+                    @Override
+                    public void onCallback(List<Planning> listPlanning) {
+
+                        if(indexParcours == circleIconList.size()){
+                            indexParcours = 0;
+                        }
+                        for (int i=0 ; i<circleIconList.size(); i++){
+                            Collections.sort(listPlanning, new SortHdebut() );
+
+                            double pointLatitude = circleIconList.get(i).getLatLng().getLatitude();
+                            double pointLongitude = circleIconList.get(i).getLatLng().getLongitude();
+
+                            double planningLatitude = Double.parseDouble(listPlanning.get(indexParcours).getLatitude());
+                            double planningLongitude = Double.parseDouble(listPlanning.get(indexParcours).getLongitude());
+
+                            String nom = listPlanning.get(indexParcours).getNom();
+                            String enseignant = listPlanning.get(indexParcours).getEnseignant();
+                            String salle = listPlanning.get(indexParcours).getSalle();
+                            String hDebut = listPlanning.get(indexParcours).getHdebut();
+                            String hFin = listPlanning.get(indexParcours).getHfin();
+                            String mDebut = listPlanning.get(indexParcours).getMdebut();
+                            String mFin = listPlanning.get(indexParcours).getMfin();
+                            String horaire = hDebut + "h" + mDebut + " - " + hFin + "h" + mFin;
+
+                            if (planningLatitude == pointLatitude && planningLongitude == pointLongitude){
+
+                                CameraPosition position = new CameraPosition.Builder()
+                                        .target(circleIconList.get(i).getLatLng())
+                                        .zoom(18)
+                                        .tilt(0)   // inclinaison de la camera max:60
+                                        .build();
+
+                                mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 500);
+
+                                MarkerView markerView = annotations(nom, enseignant, salle, horaire, pointLatitude, pointLongitude);
+                                markerViewManager.addMarker(markerView);
+
+                            }
+                        } //[FIN boucle FOR]
+                        indexParcours += 1;
+
+                    }   //[FIN DATA CALLBACK]
+                }); //[FIN getAllDATA]
+
+
+            } //[FIN onClick]
+        });
+
+
+    }
+
+
+
+
+    /*
+   ===========================================================================================================================
+   ===============            Fonction Bouton parcours les PROCHAINS cours qui vont commencer                  ===============
+   ===========================================================================================================================
+    */
+
+    // Fonction pour aller à la position le prochain cours
+    public void buttonNextCours(){
+        List <Circle> circleIconList = this.circleIconList;
+        ImageButton nextCours = (ImageButton) findViewById(R.id.nextCours);
+
+        Date date = new Date();
+        Calendar calendar = GregorianCalendar.getInstance();
+        calendar.setTime(date);
+        int hours = calendar.get(Calendar.HOUR_OF_DAY);
+        int minutes = calendar.get(Calendar.MINUTE);
+
+        nextCours.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // On récupère la listes de tous les cours
+                getAllData(new ListPlanningCallback() {
+                    @Override
+                    public void onCallback(List<Planning> listPlanning) {
+                        Collections.sort(listPlanning, new SortHdebut() );
+
+                        // On récupère la liste de tous les cours qui vont commencer
+                        getAllNextCours(new ListNextCoursCallback() {
+                            @Override
+                            public void onCallback(List<Planning> listNextCours) {
+
+                                if(indexNext == listNextCours.size()){
+                                    indexNext = 0;
+                                }
+                                for(int i=0 ; i<listPlanning.size(); i++){
+                                    for(int j=0 ; j<listNextCours.size(); j++){
+                                        for (int k=0 ; k<circleIconList.size(); k++){
+
+                                            int hActuelConvert = (hours * 60 + minutes);
+                                            int hDebutNextCours = (Integer.parseInt(listNextCours.get(j).getHdebut()) * 60 + Integer.parseInt(listNextCours.get(j).getMdebut()) );
+
+                                            double planningLatitude = Double.parseDouble( listPlanning.get(i).getLatitude() );
+                                            double planningLongitude = Double.parseDouble(listPlanning.get(i).getLongitude() );
+                                            double coursActuelLatitude = Double.parseDouble( listNextCours.get(indexNext).getLatitude() );
+                                            double coursActuelLongitude = Double.parseDouble( listNextCours.get(indexNext).getLongitude() );
+                                            double pointLatitude = circleIconList.get(k).getLatLng().getLatitude();
+                                            double pointLongitude = circleIconList.get(k).getLatLng().getLongitude();
+
+                                            String nom = listNextCours.get(indexNext).getNom();
+                                            String enseignant = listNextCours.get(indexNext).getEnseignant();
+                                            String salle = listNextCours.get(indexNext).getSalle();
+                                            String hDebut = listNextCours.get(indexNext).getHdebut();
+                                            String hFin = listNextCours.get(indexNext).getHfin();
+                                            String mDebut = listNextCours.get(indexNext).getMdebut();
+                                            String mFin = listNextCours.get(indexNext).getMfin();
+                                            String horaire = hDebut + "h" + mDebut + " - " + hFin + "h" + mFin;
+
+                                            if (hActuelConvert <= hDebutNextCours && hDebutNextCours <= hActuelConvert+120 && coursActuelLatitude == pointLatitude &&
+                                            coursActuelLongitude == pointLongitude){
+
+                                                CameraPosition position = new CameraPosition.Builder()
+                                                        .target(circleIconList.get(k).getLatLng())
+                                                        .zoom(18)
+                                                        .tilt(0)   // inclinaison de la camera max:60
+                                                        .build();
+
+                                                mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 500);
+
+                                                MarkerView markerView = annotations(nom, enseignant, salle, horaire, pointLatitude, pointLongitude);
+                                                markerViewManager.addMarker(markerView);
+
+                                                if (hActuelConvert <= hDebutNextCours && hDebutNextCours <= hActuelConvert+120 && planningLatitude == pointLatitude &&
+                                                        planningLongitude == pointLongitude){
+
+                                                    indexParcours = i+1;
+                                                }
+                                            }
+
+
+
+                                        } //[FIN boucle FOR circleIconList]
+
+                                    } //[FIN boucle FOR listPlanningActuel]
+
+                                } //[FIN boucle FOR listPlanning]
+                                indexNext += 1;
+
+                            }
+                        });
+
+                    }   //[FIN DATA CALLBACK]
+                }); //[FIN getAllDATA]
+
+
+            } //[FIN onClick]
+        });
+
+
+    }
+
+
+
+
+    /*
+   ===========================================================================================================================
+   ===============                      Fonction Création des cercles                                          ===============
+   ===========================================================================================================================
+    */
+
+    // Fonction pour créer les points coloré en cercle
+    public Circle CreateCircle(double latitude, double longitude, int color ){
+
+        circle = circleManager.create(new CircleOptions()
+                .withLatLng(new LatLng(latitude, longitude))
+                .withCircleColor(ColorUtils.colorToRgbaString(color))
+                .withCircleRadius(10f)
+                .withCircleStrokeColor(ColorUtils.colorToRgbaString(Color.WHITE))
+                .withCircleStrokeWidth(3f)
+                .withDraggable(false)
+        );
+        return circle;
+    }
+
+
+
+
+    /*
+   ===========================================================================================================================
+   ===============               Fonction Création de View pour l'affichage de l'annotation                    ===============
+   ===========================================================================================================================
+    */
+
+    // Fonction pour ajouter les annotations des points avec les infos(nom, salle...)
+    public MarkerView annotations(String nom, String enseignant, String salle, String horaire, double planningLatitude, double planningLongitude){
+
+        // Supprime l'annotation à quand on clique sur un point différent
+        markerViewManager.removeMarker(markerView);
+
+        // Use an XML layout to create a View object
+        View customView = LayoutInflater.from(MainActivity.this).inflate(R.layout.custom_marker_view, null);
+        customView.setLayoutParams(new FrameLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT));
+
+        // Set the View's TextViews with content
+        TextView planningNom = customView.findViewById(R.id.planning_nom);
+        planningNom.setText(nom);
+
+        TextView planningEnseignant = customView.findViewById(R.id.planning_enseignant);
+        planningEnseignant.setText(enseignant);
+
+        TextView planningSalle = customView.findViewById(R.id.planning_salle);
+        planningSalle.setText(salle);
+
+        TextView planningHoraire = customView.findViewById(R.id.planning_horaire);
+        planningHoraire.setText(horaire);
+
+        // Use the View to create a MarkerView which will eventually be given to
+        // the plugin's MarkerViewManager class
+        markerView = new MarkerView(new LatLng(planningLatitude, planningLongitude), customView);
+
+        customView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                markerViewManager.removeMarker(markerView);
+            }
+        });
+        return markerView;
+    }
+
+
+
+
+     /*
     ===========================================================================================================================
     ===============                           Géolocalisation                                                   ===============
     ===========================================================================================================================
@@ -342,323 +737,46 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
 
+
+
+
+
+
+
+
     /*
     ===========================================================================================================================
-    ===============                  Récupération des données de firecore                                       ===============
+    ===============               Classe pour trier                                                             ===============
     ===========================================================================================================================
-     */
-
-    // Fonction pour récupéerer les données sur Firecore en Callback
-    public void getAllData(ListPlanningCallback listPlanningCallback) {
-        db.collection("planning")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            List<Planning> listLocal = new ArrayList<Planning>();
-
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                //Log.d(TAG, document.getId() + " => " + document.getData());
-
-                                String nom = document.getString("nom");
-                                String filiere = document.getString("filiere");
-                                String enseignant = document.getString("enseignant");
-                                String hDebut = document.getString("hDebut");
-                                String hFin = document.getString("hFin");
-                                String mDebut = document.getString("mDebut");
-                                String mFin = document.getString("mFin");
-                                String salle = document.getString("salle");
-                                String latitude = document.getString("latitude");
-                                String longitude = document.getString("longitude");
-
-                                Planning planning = new Planning(nom, filiere, enseignant, hDebut, hFin, mDebut, mFin, salle, latitude, longitude);
-                                listLocal.add(planning);
-
-                            }
-                            listPlanningCallback.onCallback(listLocal);
-                        } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
-                        }
-                    }
-                });
-
-    }
-
-    public interface ListPlanningCallback {
-        void onCallback(List<Planning> listPlanning);
-    }
-
-
-
-    // Fonction pour récupèrer sur Firecore les prochains cours qui vont commencer en Callback
-    public void getAllNextCours(ListNextCoursCallback listNextCoursCallback) {
-        db.collection("planning")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-
-                        Date date = new Date();
-                        Calendar calendar = GregorianCalendar.getInstance();
-                        calendar.setTime(date);
-                        int hours = calendar.get(Calendar.HOUR_OF_DAY);
-                        int minutes = calendar.get(Calendar.MINUTE);
-
-                        if (task.isSuccessful()) {
-                            List<Planning> listLocal = new ArrayList<Planning>();
-
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-
-                                String nom = document.getString("nom");
-                                String filiere = document.getString("filiere");
-                                String enseignant = document.getString("enseignant");
-                                String hDebut = document.getString("hDebut");
-                                String hFin = document.getString("hFin");
-                                String mDebut = document.getString("mDebut");
-                                String mFin = document.getString("mFin");
-                                String salle = document.getString("salle");
-                                String latitude = document.getString("latitude");
-                                String longitude = document.getString("longitude");
-
-
-                                int hActuelConvert = (hours * 60 + minutes);
-                                int hDebutConvert = (Integer.parseInt(hDebut) * 60 + Integer.parseInt(mDebut));
-
-                                if(hActuelConvert <= hDebutConvert && hDebutConvert <= hActuelConvert+120){
-                                    Planning planning = new Planning(nom, filiere, enseignant, hDebut, hFin, mDebut, mFin, salle, latitude, longitude);
-                                    listLocal.add(planning);
-                                }
-
-                            }
-                            listNextCoursCallback.onCallback(listLocal);
-                        } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
-                        }
-                    }
-                });
-
-    }
-
-    public interface ListNextCoursCallback {
-        void onCallback(List<Planning> listNextCours);
-    }
-
-
-
-    // Fonction pour créer les points coloré en cercle
-    public Circle CreateCircle(double latitude, double longitude, int color ){
-
-        circle = circleManager.create(new CircleOptions()
-                .withLatLng(new LatLng(latitude, longitude))
-                .withCircleColor(ColorUtils.colorToRgbaString(color))
-                .withCircleRadius(10f)
-                .withCircleStrokeColor(ColorUtils.colorToRgbaString(Color.WHITE))
-                .withCircleStrokeWidth(3f)
-                .withDraggable(false)
-        );
-        return circle;
-    }
-
-
-    // Fonction pour parcourir tout les cours avec un Image Button
-    public void buttonParcoursCours(){
-        List <Circle> circleIconList = this.circleIconList;
-        ImageButton suivant = (ImageButton) findViewById(R.id.parcoursCrous);
-        //System.out.println(circleIconList.size());
-
-        suivant.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getAllData(new ListPlanningCallback() {
-                    @Override
-                    public void onCallback(List<Planning> listPlanning) {
-
-                        if(indexParcours == circleIconList.size()){
-                            indexParcours = 0;
-                        }
-                        for (int i=0 ; i<circleIconList.size(); i++){
-                            double latitude = circleIconList.get(indexParcours).getLatLng().getLatitude();
-                            double longitude = circleIconList.get(indexParcours).getLatLng().getLongitude();
-                            double pointLatitude = circleIconList.get(i).getLatLng().getLatitude();
-                            double pointLongitude = circleIconList.get(i).getLatLng().getLongitude();
-
-                            double planningLatitude = Double.parseDouble(listPlanning.get(indexParcours).getLatitude());
-                            double planningLongitude = Double.parseDouble(listPlanning.get(indexParcours).getLongitude());
-
-                            String nom = listPlanning.get(indexParcours).getNom();
-                            String enseignant = listPlanning.get(indexParcours).getEnseignant();
-                            String salle = listPlanning.get(indexParcours).getSalle();
-                            String hDebut = listPlanning.get(indexParcours).getHdebut();
-                            String hFin = listPlanning.get(indexParcours).getHfin();
-                            String mDebut = listPlanning.get(indexParcours).getMdebut();
-                            String mFin = listPlanning.get(indexParcours).getMfin();
-                            String horaire = hDebut + "h" + mDebut + " - " + hFin + "h" + mFin;
-
-                            if (latitude == pointLatitude && longitude == pointLongitude){
-
-                                CameraPosition position = new CameraPosition.Builder()
-                                        .target(circleIconList.get(i).getLatLng())
-                                        .zoom(18)
-                                        .tilt(0)   // inclinaison de la camera max:60
-                                        .build();
-
-                                mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 500);
-
-                                MarkerView markerView = annotations(nom, enseignant, salle, horaire, pointLatitude, pointLongitude);
-                                markerViewManager.addMarker(markerView);
-
-                            }
-                        } //[FIN boucle FOR]
-                        indexParcours += 1;
-
-                    }   //[FIN DATA CALLBACK]
-                }); //[FIN getAllDATA]
-
-
-            } //[FIN onClick]
-        });
-
-
-    }
-
-
-
-    // Fonction pour aller à la position le prochain cours
-    public void buttonNextCours(){
-        List <Circle> circleIconList = this.circleIconList;
-        ImageButton nextCours = (ImageButton) findViewById(R.id.nextCours);
-
-        Date date = new Date();
-        Calendar calendar = GregorianCalendar.getInstance();
-        calendar.setTime(date);
-        int hours = calendar.get(Calendar.HOUR_OF_DAY);
-        int minutes = calendar.get(Calendar.MINUTE);
-
-        nextCours.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                // On récupère la listes de tous les cours
-                getAllData(new ListPlanningCallback() {
-                    @Override
-                    public void onCallback(List<Planning> listPlanning) {
-
-                        // On récupère la liste de tous les cours qui vont commencer
-                        getAllNextCours(new ListNextCoursCallback() {
-                            @Override
-                            public void onCallback(List<Planning> listNextCours) {
-
-                                if(indexNext == listNextCours.size()){
-                                    indexNext = 0;
-                                }
-                                for(int i=0 ; i<listPlanning.size(); i++){
-                                    for(int j=0 ; j<listNextCours.size(); j++){
-                                        for (int k=0 ; k<circleIconList.size(); k++){
-
-                                            int hActuelConvert = (hours * 60 + minutes);
-                                            int hDebutNextCours = (Integer.parseInt(listNextCours.get(j).getHdebut()) * 60 + Integer.parseInt(listNextCours.get(j).getMdebut()) );
-
-                                            double planningLatitude = Double.parseDouble( listPlanning.get(i).getLatitude() );
-                                            double planningLongitude = Double.parseDouble(listPlanning.get(i).getLongitude() );
-                                            double coursActuelLatitude = Double.parseDouble( listNextCours.get(indexNext).getLatitude() );
-                                            double coursActuelLongitude = Double.parseDouble( listNextCours.get(indexNext).getLongitude() );
-                                            double pointLatitude = circleIconList.get(k).getLatLng().getLatitude();
-                                            double pointLongitude = circleIconList.get(k).getLatLng().getLongitude();
-
-                                            String nom = listNextCours.get(indexNext).getNom();
-                                            String enseignant = listNextCours.get(indexNext).getEnseignant();
-                                            String salle = listNextCours.get(indexNext).getSalle();
-                                            String hDebut = listNextCours.get(indexNext).getHdebut();
-                                            String hFin = listNextCours.get(indexNext).getHfin();
-                                            String mDebut = listNextCours.get(indexNext).getMdebut();
-                                            String mFin = listNextCours.get(indexNext).getMfin();
-                                            String horaire = hDebut + "h" + mDebut + " - " + hFin + "h" + mFin;
-
-                                            if (hActuelConvert <= hDebutNextCours && hDebutNextCours <= hActuelConvert+120 && coursActuelLatitude == pointLatitude &&
-                                            coursActuelLongitude == pointLongitude){
-
-                                                CameraPosition position = new CameraPosition.Builder()
-                                                        .target(circleIconList.get(k).getLatLng())
-                                                        .zoom(18)
-                                                        .tilt(0)   // inclinaison de la camera max:60
-                                                        .build();
-
-                                                mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 500);
-
-                                                MarkerView markerView = annotations(nom, enseignant, salle, horaire, pointLatitude, pointLongitude);
-                                                markerViewManager.addMarker(markerView);
-
-                                                if (hActuelConvert <= hDebutNextCours && hDebutNextCours <= hActuelConvert+120 && planningLatitude == pointLatitude &&
-                                                        planningLongitude == pointLongitude){
-
-                                                    indexParcours = j+1;
-                                                }
-                                            }
-
-
-
-                                        } //[FIN boucle FOR circleIconList]
-
-                                    } //[FIN boucle FOR listPlanningActuel]
-
-                                } //[FIN boucle FOR listPlanning]
-                                indexNext += 1;
-
-                            }
-                        });
-
-                    }   //[FIN DATA CALLBACK]
-                }); //[FIN getAllDATA]
-
-
-            } //[FIN onClick]
-        });
-
-
+    */
+
+    private class SortHdebut implements Comparator<Planning> {
+        public int compare(Planning a, Planning b) {
+            return Integer.parseInt(a.getHdebut()) - Integer.parseInt(b.getHdebut());
+        }
     }
 
 
 
 
-    // Fonction pour ajouter les annotations des points avec les infos(nom, salle...)
-    public MarkerView annotations(String nom, String enseignant, String salle, String horaire, double planningLatitude, double planningLongitude){
-
-        // Supprime l'annotation à quand on clique sur un point différent
-        markerViewManager.removeMarker(markerView);
-
-        // Use an XML layout to create a View object
-        View customView = LayoutInflater.from(MainActivity.this).inflate(R.layout.custom_marker_view, null);
-        customView.setLayoutParams(new FrameLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT));
-
-        // Set the View's TextViews with content
-        TextView planningNom = customView.findViewById(R.id.planning_nom);
-        planningNom.setText(nom);
-
-        TextView planningEnseignant = customView.findViewById(R.id.planning_enseignant);
-        planningEnseignant.setText(enseignant);
-
-        TextView planningSalle = customView.findViewById(R.id.planning_salle);
-        planningSalle.setText(salle);
-
-        TextView planningHoraire = customView.findViewById(R.id.planning_horaire);
-        planningHoraire.setText(horaire);
-
-        // Use the View to create a MarkerView which will eventually be given to
-        // the plugin's MarkerViewManager class
-        markerView = new MarkerView(new LatLng(planningLatitude, planningLongitude), customView);
-
-        customView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                markerViewManager.removeMarker(markerView);
-            }
-        });
-        return markerView;
-    }
 
 
 
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
