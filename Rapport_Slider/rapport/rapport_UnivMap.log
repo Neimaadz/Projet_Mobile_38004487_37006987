@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.4.1)  28 APR 2021 01:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.4.1)  28 APR 2021 02:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -354,31 +354,53 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 25.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<Images/exo3_1_1.png, id=32, 301.125pt x 301.125pt>
-File: Images/exo3_1_1.png Graphic file (type png)
-<use Images/exo3_1_1.png>
-Package pdftex.def Info: Images/exo3_1_1.png  used on input line 43.
-(pdftex.def)             Requested size: 150.56212pt x 150.56212pt.
+<Images/allowUserLocation.png, id=32, 1288.815pt x 2788.4175pt>
+File: Images/allowUserLocation.png Graphic file (type png)
+<use Images/allowUserLocation.png>
+Package pdftex.def Info: Images/allowUserLocation.png  used on input line 46.
+(pdftex.def)             Requested size: 644.40593pt x 1394.20535pt.
+<Images/map.png, id=34, 1288.815pt x 2788.4175pt>
+File: Images/map.png Graphic file (type png)
+<use Images/map.png>
+Package pdftex.def Info: Images/map.png  used on input line 52.
+(pdftex.def)             Requested size: 644.40593pt x 1394.20535pt.
+<Images/pointAnnotation.png, id=35, 1288.815pt x 2788.4175pt>
+File: Images/pointAnnotation.png Graphic file (type png)
+<use Images/pointAnnotation.png>
+Package pdftex.def Info: Images/pointAnnotation.png  used on input line 53.
+(pdftex.def)             Requested size: 644.40593pt x 1394.20535pt.
+ [1
+
+{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </Users/damien/Documents/PROJET_MOBILE/Projet_Mobile_38004487_37006987/Rapport_Slider/rapport/Images/allowUserLocation.png>]
+<Images/calendar.png, id=50, 1288.815pt x 2788.4175pt>
+File: Images/calendar.png Graphic file (type png)
+<use Images/calendar.png>
+Package pdftex.def Info: Images/calendar.png  used on input line 58.
+(pdftex.def)             Requested size: 644.40593pt x 1394.20535pt.
+ [2 </Users/damien/Documents/PROJET_MOBILE/Projet_Mobile_38004487_37006987/Rapport_Slider/rapport/Images/map.png> </Users/damien/Documents/PROJET_MOBILE/Projet_Mobile_38004487_37006987/Rapport_Slider/rapport/Images/pointAnnotation.png> </Users/damien/Documents/PROJET_MOBILE/Projet_Mobile_38004487_37006987/Rapport_Slider/rapport/Images/calendar.png>]
+<Images/setting.png, id=59, 1288.815pt x 2788.4175pt>
+File: Images/setting.png Graphic file (type png)
+<use Images/setting.png>
+Package pdftex.def Info: Images/setting.png  used on input line 63.
+(pdftex.def)             Requested size: 644.40593pt x 1394.20535pt.
 
 
-LaTeX Warning: Citation `androidDoc' on page 1 undefined on input line 48.
+LaTeX Warning: Citation `androidDoc' on page 3 undefined on input line 73.
 
 
-LaTeX Warning: Citation `iosDoc' on page 1 undefined on input line 50.
+LaTeX Warning: Citation `iosDoc' on page 3 undefined on input line 75.
 
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 72.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 97.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [1
-
-{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </Users/damien/Documents/PROJET_MOBILE/Projet_Mobile_38004487_37006987/Rapport_Slider/rapport/Images/exo3_1_1.png>]
+)
 No file rapport_UnivMap.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 93.
-[2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 93.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 118.
+[3 </Users/damien/Documents/PROJET_MOBILE/Projet_Mobile_38004487_37006987/Rapport_Slider/rapport/Images/setting.png>] [4]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 118.
  (/Users/damien/Documents/PROJET_MOBILE/Projet_Mobile_38004487_37006987/Rapport_Slider/rapport/rapport_UnivMap.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 93.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 93.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 118.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 118.
 Package rerunfilecheck Info: File `rapport_UnivMap.out' has not changed.
 (rerunfilecheck)             Checksum: 37CCC008D305498387EFF69C06063903;411.
 
@@ -387,18 +409,18 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 8822 strings out of 480608
- 131194 string characters out of 5903631
- 415169 words of memory out of 5000000
- 24534 multiletter control sequences out of 15000+600000
+ 8852 strings out of 480608
+ 131766 string characters out of 5903631
+ 414169 words of memory out of 5000000
+ 24554 multiletter control sequences out of 15000+600000
  544913 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,6n,35p,918b,571s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,6n,35p,918b,596s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on /Users/damien/Documents/PROJET_MOBILE/Projet_Mobile_38004487_37006987/Rapport_Slider/rapport/rapport_UnivMap.pdf (2 pages, 169033 bytes).
+Output written on /Users/damien/Documents/PROJET_MOBILE/Projet_Mobile_38004487_37006987/Rapport_Slider/rapport/rapport_UnivMap.pdf (4 pages, 3625871 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
- 78 compressed objects within 1 object stream
- 12 named destinations out of 1000 (max. 500000)
- 62 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 116 PDF objects out of 1000 (max. 8388607)
+ 89 compressed objects within 1 object stream
+ 18 named destinations out of 1000 (max. 500000)
+ 82 words of extra memory for PDF output out of 10000 (max. 10000000)
 
