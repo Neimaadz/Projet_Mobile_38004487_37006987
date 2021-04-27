@@ -6,6 +6,8 @@
 
 
 IMPORTANT : l'application UnivMap utilise internet pour fonctionner (géolocalisation, requête données...)
+	
+	- iOS : il faut lancer le workspace de couleur blanc (UnivMap.xcworkspace)
 
 
 
@@ -50,5 +52,9 @@ compile quand même.
 *******											   *******
 ***********************************************************************************************
 
+
+********************* Fichier en doublon *********************
+
+Sur iOS, il est normal qu'on retrouve des fichiers en doublons, cela est du au 2 workspace différent.
 
 
