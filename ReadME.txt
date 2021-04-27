@@ -50,6 +50,12 @@ compile quand même.
 
 ********************* Fichier en doublon *********************
 
-Sur iOS, il est normal qu'on retrouve des fichiers en doublons, cela est du au 2 workspace différent.
+Sur iOS, il est normal qu'on retrouve des fichiers en doublons.
+
+
+
+********************* Temps de compilation *********************
+
+La compilation des fichiers peut prendre un certain temps !!!!
 
 
