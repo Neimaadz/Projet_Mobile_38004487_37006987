@@ -216,9 +216,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     } //[FIN DATA CALLBACK]
                 }); //[FIN getAllDATA]
 
+
+
                 buttonParcoursCours();
                 buttonNextCours();
-                centerUserLocation();
 
                 int comeFromCalendar = getIntent().getIntExtra("comeFromCalendar", 0);  // Récupère la valeur depuis CalendarActivity
 
@@ -763,6 +764,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             // Set the component's render mode
             locationComponent.setRenderMode(RenderMode.NORMAL);
+
+            centerUserLocation();   // Appel de la fonction permettant de centrer sur l'utilisateur
+
         } else {
             permissionsManager = new PermissionsManager(this);
             permissionsManager.requestLocationPermissions(this);
