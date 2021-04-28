@@ -11,13 +11,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UnivMap">
-        <activity android:name=".UnivMapActivity"></activity>
-        <activity android:name=".ConfidentialityActivity2" />
-        <activity android:name=".LanguageActivity" />
-        <activity android:name=".AppearanceActivity" />
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".CalendarActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LegalNoticeActivity"
+            android:parentActivityName=".SettingsActivity" />
+        <activity
+            android:name=".UnivMapActivity"
+            android:parentActivityName=".SettingsActivity" />
+        <activity
+            android:name=".ConfidentialityActivity"
+            android:parentActivityName=".SettingsActivity" />
+        <activity
+            android:name=".LanguageActivity"
+            android:parentActivityName=".SettingsActivity" />
+        <activity
+            android:name=".AppearanceActivity"
+            android:parentActivityName=".SettingsActivity" />
+        <activity
+            android:name=".SettingsActivity"
+            android:theme="@style/Theme.UnivMap.NoActionBar" />
+        <activity
+            android:name=".CalendarActivity"
+            android:theme="@style/Theme.UnivMap.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.UnivMap.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

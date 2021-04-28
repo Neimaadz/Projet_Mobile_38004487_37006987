@@ -58,7 +58,7 @@ public class SettingsActivity extends AppCompatActivity {
                         startActivity(newActivity);
                         break;
                     case 5:
-                        newActivity = new Intent(getApplicationContext(),ConfidentialityActivity2.class);
+                        newActivity = new Intent(getApplicationContext(), ConfidentialityActivity.class);
                         startActivity(newActivity);
                         break;
                     case 7:
@@ -70,7 +70,7 @@ public class SettingsActivity extends AppCompatActivity {
                         startActivity(newActivity);
                         break;
                     case 10:
-                        newActivity = new Intent(getApplicationContext(),MainActivity.class);
+                        newActivity = new Intent(getApplicationContext(), LegalNoticeActivity.class);
                         startActivity(newActivity);
                         break;
                     default:

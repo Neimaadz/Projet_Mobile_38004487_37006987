@@ -9,17 +9,17 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class LanguageActivity extends AppCompatActivity {
+public class LegalNoticeActivity extends AppCompatActivity {
 
     BottomNavigationView navBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_language);
+        setContentView(R.layout.activity_legal_notice);
 
         /// =============================== ActionBar =============================
-        getSupportActionBar().setTitle(getString(R.string.languages));
+        getSupportActionBar().setTitle(getString(R.string.legalNotice));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         /// =============================== TabBar =============================

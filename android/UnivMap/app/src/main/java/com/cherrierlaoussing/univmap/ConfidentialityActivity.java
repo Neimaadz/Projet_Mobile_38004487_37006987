@@ -9,14 +9,18 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class ConfidentialityActivity2 extends AppCompatActivity {
+public class ConfidentialityActivity extends AppCompatActivity {
 
     BottomNavigationView navBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_confidentiality2);
+        setContentView(R.layout.activity_confidentiality);
+
+        /// =============================== ActionBar =============================
+        getSupportActionBar().setTitle(getString(R.string.confidentiality));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         /// =============================== TabBar =============================
         navBar = findViewById(R.id.tabBar);

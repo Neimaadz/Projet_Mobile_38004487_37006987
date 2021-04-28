@@ -48,8 +48,8 @@
 
     <!--========= UnivMap Activity ========-->
     <string name="univMap.about">About me ...</string>
-    <string name="univMap.damien" translatable="false">Damien</string>
-    <string name="univMap.dylan" translatable="false">Dylan</string>
+    <string name="univMap.damien" translatable="false">LAOUSSING Damien</string>
+    <string name="univMap.dylan" translatable="false">CHERRIER Dylan</string>
     <string name="univMap.firstTitle">Why UnivMap</string>
     <string name="univMap.firstAbstract"></string>
     <string name="univMap.by">Created by :</string>

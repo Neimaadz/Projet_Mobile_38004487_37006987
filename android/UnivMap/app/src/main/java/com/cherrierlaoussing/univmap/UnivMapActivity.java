@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -17,6 +19,10 @@ public class UnivMapActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_univ_map);
+
+        /// =============================== ActionBar =============================
+        getSupportActionBar().setTitle(getString(R.string.univMap));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         /// =============================== TabBar =============================
         navBar = findViewById(R.id.tabBar);
@@ -44,4 +50,10 @@ public class UnivMapActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void goToWebSiteDamien(View v){
+        Intent browse = new Intent( Intent.ACTION_VIEW , Uri.parse("https://damienlaoussing.com/") );
+        startActivity( browse );
+    }
+
 }
