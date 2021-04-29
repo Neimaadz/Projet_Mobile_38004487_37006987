@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -54,6 +57,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Locale;
 
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
@@ -81,10 +85,34 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     List<Circle> circleIconList = new ArrayList<>();
 
+    //========================  Language App & Data Persist ========================
+    private SharedPreferences preferences;
+    private Boolean language;
+    private String currentLanguage, appLanguage;
 
+    //========================  Activity ========================
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //========================  Language App & Data Persist ========================
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        language = preferences.getBoolean("defaultLanguage", true);
+        currentLanguage = LanguageActivity.currentLanguage();
+        //System.out.println(language);     //test
+        if(language){
+            SharedPreferences.Editor editor = this.preferences.edit();
+            editor.putBoolean("defaultLanguage", true);
+            editor.putString("appLanguage",currentLanguage );
+            editor.commit();
+        }else{
+            appLanguage = preferences.getString("appLanguage", currentLanguage);
+            LanguageActivity.setLocale(this, appLanguage);
+        }
+        //System.out.println(preferences.getString("appLanguage", currentLanguage));        //test
+
+        //==============================================================================
 
         db = FirebaseFirestore.getInstance();
 

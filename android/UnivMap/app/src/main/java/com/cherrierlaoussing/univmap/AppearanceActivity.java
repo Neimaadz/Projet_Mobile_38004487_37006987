@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+//import com.google.firebase.firestore.core.View;
 
 public class AppearanceActivity extends AppCompatActivity {
 

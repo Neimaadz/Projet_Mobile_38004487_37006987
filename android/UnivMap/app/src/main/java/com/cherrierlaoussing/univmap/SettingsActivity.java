@@ -1,14 +1,18 @@
 package com.cherrierlaoussing.univmap;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.model.univmap.ItemSettings;
@@ -19,13 +23,17 @@ import java.util.List;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    BottomNavigationView navBar;
-    ListView listView;
+    private BottomNavigationView navBar;
+    private ListView listView;
+    private SettingsActivity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        // =============================== Assistance Popup =============================
+        this.activity = this;
 
         /// =============================== List Settings =============================
         List<Object> list = new ArrayList<Object>();
@@ -66,8 +74,29 @@ public class SettingsActivity extends AppCompatActivity {
                         startActivity(newActivity);
                         break;
                     case 8:
-                        newActivity = new Intent(getApplicationContext(),MainActivity.class);
-                        startActivity(newActivity);
+                        AlertDialog.Builder assistancePopUp = new AlertDialog.Builder(activity);
+                        assistancePopUp.setTitle(getString(R.string.assistance));
+                        assistancePopUp.setMessage(getString(R.string.assistanceView_title));
+                        assistancePopUp.setPositiveButton(getString(R.string.send), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent i = new Intent(Intent.ACTION_SEND);
+                                i.setType("message/rfc822");
+                                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"assistance@univMap.com"});
+                                try {
+                                    startActivity(Intent.createChooser(i, "Send mail..."));
+                                } catch (android.content.ActivityNotFoundException ex) {
+                                    Toast.makeText(activity, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                        assistancePopUp.setNegativeButton(getString(R.string.back), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        });
+                        assistancePopUp.show();
+
                         break;
                     case 10:
                         newActivity = new Intent(getApplicationContext(), LegalNoticeActivity.class);
