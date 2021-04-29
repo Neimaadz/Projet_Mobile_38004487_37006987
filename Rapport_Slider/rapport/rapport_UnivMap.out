@@ -1,7 +1,12 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{Description g\351n\351rale de l'application}{}% 2
-\BOOKMARK [1][-]{section.3}{Architecture du code}{}% 3
-\BOOKMARK [2][-]{subsection.3.1}{Android}{section.3}% 4
-\BOOKMARK [2][-]{subsection.3.2}{iOS}{section.3}% 5
-\BOOKMARK [1][-]{section.4}{Quelques points d\351licats/int\351ressants}{}% 6
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 7
+\BOOKMARK [2][-]{subsection.2.1}{Pr\351sentation de la carte et annoations des points}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Calendrier : la liste des cours}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Pr\351sentation des param\351trages}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Architecture du code}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{Android}{section.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Java : Ouverture \340 la base de donn\351e}{subsection.3.1}% 8
+\BOOKMARK [2][-]{subsection.3.2}{iOS}{section.3}% 9
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Swift : Ouverture \340 la base de donn\351e}{subsection.3.2}% 10
+\BOOKMARK [1][-]{section.4}{Quelques points d\351licats/int\351ressants}{}% 11
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 12

@@ -1,0 +1,19 @@
+\begin{thebibliography}{1}
+
+\bibitem{cocoapodsDoc}
+Cocoapods.
+\newblock \url{https://cocoapods.org/}.
+
+\bibitem{firebaseDoc}
+Firebase.
+\newblock \url{https://firebase.google.com/}.
+
+\bibitem{mapboxDoc}
+Mapbox.
+\newblock \url{https://www.mapbox.com/}.
+
+\bibitem{openstreetmapDoc}
+Openstreetmap.
+\newblock \url{https://www.openstreetmap.fr/}.
+
+\end{thebibliography}
