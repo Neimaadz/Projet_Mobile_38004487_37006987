@@ -47,7 +47,7 @@
     <!--========= UnivMap Activity ========-->
     <string name="univMap.about">À propos de moi ...</string>
     <string name="univMap.firstTitle">Pourquoi UnivMap ?</string>
-    <string name="univMap.firstAbstract"></string>
+    <string name="univMap.firstAbstract">UnivMap est une application mobile iOS et Android destinée aux nouveaux étudiants afin de les aider à se repérer au sein de l’Université de la Réunion.</string>
     <string name="univMap.by">Céer par :</string>
 
     <!--========= Others ========-->
