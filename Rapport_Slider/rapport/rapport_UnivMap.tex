@@ -26,7 +26,7 @@
 
 %% Le résumé:
 \begin{abstract}
-  UnivMap est une application mobile iOS et Android destinée au nouveau
+  UnivMap est une application mobile iOS et Android destinée aux nouveaux
   étudiant afin de les aider à se repérer au sein de l'Université de la Réunion.
 \end{abstract}
 
@@ -37,26 +37,31 @@
 Dans le cadre du projet de l'unité d'enseignement "Développement pour Mobiles", nous avons décidé de développer
 une application iOS et Android, visant les nouveaux étudiants de l'Université de la Réunion.
 
-Beaucoup d'étudiants découvrant leurs nouveau campus, sont souvent perdu pour retrouver leurs chemin. Par conséquent,
-ils arrivent souvent en retard dans leur cours et perdent ainsi leur qualité d'apprentissage.
-Aujourd'hui, afin de répondre aux besoin de ces nouveaux étudiants, nous allons vous présenter l'application UnivMap.
+Beaucoup d'étudiants découvrant leur nouveau campus, sont souvent perdu pour trouver leur cours. Par conséquent,
+ils arrivent généralement en retard et perdent ainsi leur qualité d'apprentissage.
+Aujourd'hui, afin de répondre au besoin de ces nouveaux étudiants, nous allons vous présenter l'application UnivMap.
 
-Dans un premier temps, nous allons voir une description générale de l'application, puis nous verrons
+Dans un premier temps, nous verrons une description générale de l'application, puis nous analyserons
 l'architecture du code. Ensuite, nous aborderons les difficultés rencontrés durant le développement
 du projet pour enfin terminer par une conclusion.
 
 \section{Description générale de l'application}
 
 
-L'application possèdes trois onglets : la carte de l'Université, le calendrier des cours ainsi que des options.
-La carte intègres des fonctionnalités permettant l'affichage des enseignements sous formes de cercle coloré, De plus,
+\begin{center}
+    \includegraphics[width=45mm, scale=0.5]{UnivMap-logo500x500.png}
+\end{center}
+
+
+L'application possède trois onglets : la carte de l'Université, le calendrier des cours ainsi que des options.
+La carte intègre des fonctionnalités permettant l'affichage des enseignements sous formes de cercle coloré, De plus,
 des boutons sont à la disposition de l'utilisateur afin de parcourir automatiquement ces cercles.
-Le calendrier permet d'afficher sous d'une liste le planning.
-Les options inclus la possibilité de changer la couleur du fond de l'application et de changer la langues.
+Le calendrier permet d'afficher sous forme d'une liste le planning de l'étudiant.
+Les options inclus la possibilité de changer la langue et la couleur du fond de l'application.
 
 L'application utilise principalement la carte de l'API \textit{Mapbox}~\cite{mapboxDoc} développé par l'entreprise
 du même nom sur les bases du logiciel libre et sur les données d'\textit{OpenStreetMap}~\cite{openstreetmapDoc}.
-La persistance de donné de notre application est gérer par le système interne mais aussi par la plateforme
+La persistance de donnée de notre application est gérer par le système interne, mais aussi par la plateforme
 de Google, \textit{Firebase}~\cite{firebaseDoc}.
 
 
@@ -68,14 +73,14 @@ de Google, \textit{Firebase}~\cite{firebaseDoc}.
 \subsection{Présentation de la carte et annoations des points}
 
 Tout d'abord, UnivMap requiert une connexion internet afin de géolocaliser son utilisateur mais aussi
-pour récupérer des données indispensables à son fonctionnement (map, liste des cours, ect...). Au lancement,
-l'utilisateur se retrouve sur l'onglet de la carte et voit tous les positions des cours. En cliquant sur l'un d'eux,
-un pop-up apparait affichant les informations essentielles du cours (nom du cours, nom de l'enseignant, salle et horaire).
+pour récupérer des données indispensables à son fonctionnement (carte, liste des cours, ect...). Au lancement,
+l'utilisateur se retrouve sur l'onglet de la carte et voit toutes les positions des cours. En cliquant sur l'un d'eux,
+un pop-up apparaît affichant les informations du cours (nom du cours, nom de l'enseignant, salle et horaire).\\
 
 \begin{itemize}
-    \item Point bleu : les marqueurs de couleur bleu représente la position des cours qui n'ont pas encore commencer.
+    \item Point bleu : les marqueurs de couleur bleus représente la position des cours qui n'ont pas encore commencé.
 
-    \item Point orange : le marqueur de couleur orange représente la position du cours qui commençera dans
+    \item Point orange : le marqueur de couleur orange représente la position du cours qui commencera dans
     moins de deux heures.
 
     \item Point rouge : le marqueur de couleur rouge représente la position du cours qui a déjà débuté.
@@ -91,14 +96,14 @@ un pop-up apparait affichant les informations essentielles du cours (nom du cour
     \includegraphics[width=45mm, scale=0.5]{point_bleu.png}
 \end{center}
 
-Les trois boutons du bas permet de changer la vue de la caméra.
+Les trois boutons du bas permet de changer la vue de la caméra :\\
 
 \begin{itemize}
-    \item Bouton de gauche : parcours les cours qui débuterons prochainement
+    \item Bouton de gauche : permet de parcourir les cours qui débuterons prochainement
 
-    \item Bouton du milieu : centre sur la position de l'utilisateur.
+    \item Bouton du milieu : permet de centrer sur la position de l'utilisateur.
 
-    \item Bouton de droite : permet de parcourir parmis tous les cours sur la map.
+    \item Bouton de droite : permet de parcourir parmis chaques cours.
 \end{itemize}
 
 
@@ -111,7 +116,7 @@ Les trois boutons du bas permet de changer la vue de la caméra.
 
 L'onglet calendrier permet l'affichage de tous les cours trier par ordre croissant selon l'heure. Pour récupérer ces
 données, l'application utilise \textit{Firebase}~\cite{firebaseDoc}, un service d'hébergement en NoSQL
-développer par Google. En selectionnant le cours, l'application nous redirige vers une nouvelle vue,
+développer par Google. En sélectionnant le cours, l'application nous redirige vers une nouvelle vue,
 affichant la position exacte de celui-ci.
 
 \vspace{10pt}   %espace
@@ -128,19 +133,27 @@ affichant la position exacte de celui-ci.
 
 
 \subsection{Présentation des paramétrages}
-Enfin l'onglet des paramétres de l'application, présenté sous forme de liste(générer dynamiquement), permet à l'utilisateur de mieux s'approprier l'application et d'en apprendre plus sur elle. À travers cette l'onglet, nous voulions encore une fois mettre en valeurs notre volonté d'aidée les utilisateurs, tout en leurs apportant le maximum de confort. Pour cela, nous avons choisi de mettre en avant, pour cette première version de UnivMap, les paramètres suivants:
+Enfin l'onglet des paramètres de l'application, présenté sous forme de liste (générer dynamiquement), permet à l'utilisateur
+de mieux s'approprier l'application et d'en apprendre plus sur elle. À travers cette onglet, nous voulions encore une fois
+mettre en valeur notre volonté d'aidée les utilisateurs, tout en leur apportant le maximum de confort. Pour cela, nous avons
+choisi de mettre en avant, pour cette première version d'UnivMap, les paramètres suivants :\\
 
 \begin{itemize}
-    \item Le choix de la langue : La possibilité de choisir la langues de l'application est une option, qui nous semble toujours indispensable. Cette option augmente le confort certe, mais surtout permet aux public de différentes nationalité de l'utiliser.
-    Pour cet option, l'utilisateur a le choix entre utiliser la même langue que son appareil, ou utiliser une des langues lister en-dessous.   
+    \item Le choix de la langue : la possibilitée de choisir la langue de l'application est une option, qui nous semble toujours indispensable.
+    Cette option augmente le confort certe, mais surtout permet aux publics de différentes nationalités de l'utiliser.
+    Pour cette option, l'utilisateur a le choix entre utiliser la même langue que son appareil, ou utiliser une des langues listées ci-dessous.   
 
-    \item Le choix du thème de l'application : le choix du thème de l'application permet à l'utilisateur de choisir la couleur de fonds, .
+    \item Le choix du thème de l'application : le choix du thème de l'application permet à l'utilisateur de choisir la couleur de fonds.
     
-    \item Ainsi que l'assistance : En cas de problème, l'utilisateur est invité à contacter l'assistance par mail. Ainsi en cliquant sur assistance, puis envoyer il est rediriger dans une application de mail pour envoyer un mail à l'adresse qui y préfigure. 
+    \item L'assistance : en cas de problème, l'utilisateur est invité à contacter l'assistance par mail. Ainsi en cliquant sur "assistance",
+    puis envoyer, il est redirigé dans une application de mail pour envoyer un mail à l'adresse qui y préfigure. 
     
-    \item Mais aussi le mentions légales et la Confidentialité : Ces deux options sont présent à titre informatif, et sont indispensable à tout application qui ce veut accessible aux public. Dans ces deux partie doivent paraître respectivement la charte de protection des données personnelles, etc... et les CGU(conditions générales d'utilisation), etc...
+    \item Mais aussi les mentions légales et la confidentialité : ces deux options sont présent à titre informatif, et sont indispensable à tout
+    application qui se veut accessible au public. Ces deux partie doivent paraître respectivement la charte de protection des données personnelles,
+    ainsi que les CGU(conditions générales d'utilisation), etc...
     
-    \item Et enfin, UnivMap : Cette option des paramétres est présente pour permet à l'utilisateur d'en apprendre plus sur UnivMap. Notamment, le but d'UnvMap, qui sont ses créateur, et suivre l'évolution de l'application. 
+    \item Et enfin, UnivMap : cette option est présente pour permettre l'utilisateur d'en apprendre d'avantage sur UnivMap. Notamment,
+    le but de l'application ainsi que les développeurs ayant contribué à sa création.
     
 \end{itemize}
 
@@ -185,6 +198,7 @@ une liste d'objet en Callback.
                             List<Planning> listLocal = new ArrayList<Planning>();
 
                             for (QueryDocumentSnapshot document : task.getResult()) {
+                                //Log.d(TAG, document.getId() + " => " + document.getData());
 
                                 String nom = document.getString("nom");
                                 String filiere = document.getString("filiere");
@@ -197,7 +211,9 @@ une liste d'objet en Callback.
                                 String latitude = document.getString("latitude");
                                 String longitude = document.getString("longitude");
 
-                                Planning planning = new Planning(nom, filiere, enseignant...);
+                                Planning planning = new Planning(nom, filiere, enseignant,
+                                hDebut, hFin, mDebut, mFin, salle, latitude, longitude);
+
                                 listLocal.add(planning);
 
                             }
@@ -209,14 +225,10 @@ une liste d'objet en Callback.
                 });
 
     }
-
-    public interface ListPlanningCallback {
-        void onCallback(List<Planning> listPlanning);
-    }
 \end{verbatim}
 
 \subsubsection{Java : Choix de la langue}
-La première fonction permet de modifier la langue d'une chaine de caractère et la deuxième de récupérer la langue de l'appareil :
+La première fonction permet de modifier la langue d'une chaîne de caractère et la seconde permet de récupérer la langue de l'appareil :
 
 \begin{verbatim}
    
@@ -249,48 +261,54 @@ La première fonction permet de modifier la langue d'une chaine de caractère et
 
 \subsubsection{Swift : Ouverture à la base de donnée}
 \label{subsubsection:Swift : Ouverture à la base de donnée} 
-Voici la même code en Swift que dans la section~\ref{subsubsection:Java : Ouverture à la base de donnée}.
-Ici, il faut juste ajouter à listPlanning (initialiser en variable global).
+Contrairement à la section~\ref{subsubsection:Java : Ouverture à la base de donnée}. Le code permettant de récupérer les données
+en Swift sont grandement simplifier. Il n'y a aucunement besoin d'une fonction Callback pour ajouter à une liste d'objet.
 
 \begin{verbatim}
-db.collection("planning").getDocuments() { [self] (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
+    db.collection("planning").getDocuments() { [self] (querySnapshot, err) in
+    if let err = err {
+        print("Error getting documents: \(err)")
+    } else {
+        
+        for document in querySnapshot!.documents {
+            if let nom = document.data()["nom"] as? String,         //recup data selon clé
+                let filiere = document.data()["filiere"] as? String,
+                let enseignant = document.data()["enseignant"] as? String,
+                let hDebut = document.data()["hDebut"] as? String,
+                let hFin = document.data()["hFin"] as? String,
+                let mDebut = document.data()["mDebut"] as? String,
+                let mFin = document.data()["mFin"] as? String,
+                let salle = document.data()["salle"] as? String,
+                let latitude = document.data()["latitude"] as? String,
+                let longitude = document.data()["longitude"] as? String{
+            
+                self.listPlanning.append(Planning(nom: nom, filiere: filiere,
+                enseignant: enseignant, hDebut: hDebut, hFin: hFin, mDebut: mDebut, mFin: mFin,
+                salle: salle, latitude: latitude, longitude: longitude ))
                 
-                for document in querySnapshot!.documents {
-                    if let nom = document.data()["nom"] as? String,         //recup data selon clé
-                        let filiere = document.data()["filiere"] as? String,
-                        let enseignant = document.data()["enseignant"] as? String,
-                        let hDebut = document.data()["hDebut"] as? String,
-                        let hFin = document.data()["hFin"] as? String,
-                        let mDebut = document.data()["mDebut"] as? String,
-                        let mFin = document.data()["mFin"] as? String,
-                        let salle = document.data()["salle"] as? String,
-                        let latitude = document.data()["latitude"] as? String,
-                        let longitude = document.data()["longitude"] as? String{
-                    
-                        self.listPlanning.append(Planning(nom: nom, filiere: filiere, ...))
-                        
-                        (...)
-                    
-                }
-                
+
+                (...)
             }
+            (...)
+
+            
         }
+        
+    }
+}
 
 
 \end{verbatim}
 
 \subsubsection{Swift : Choix de la langue}
-Cette fonction permet de modifier la langue d'une chaine de caractère de trois manière différente :
+Cette fonction permet de modifier la langue d'une chaîne de caractère de trois manières différentes :
 
 \begin{itemize}
-    \item Selon la langues passer en paramétre : Affiche toujours un texte dans une langue en particulier! 
+    \item Selon la langue passé en paramètre : affiche toujours un texte dans une langue en particulier ! 
 
-    \item Selon la langue par défaut : Affiche toujours un texte dans la langues par défaut, c'est-à-dire la langue de l'appareil.
+    \item Selon la langue par défaut : affiche toujours un texte dans la langue par défaut, c'est-à-dire la langue de l'appareil.
 
-    \item Selon le choix de l'utilisateur : Affiche le texte dans la langue choisit par l'utilisateur.
+    \item Selon le choix de l'utilisateur : affiche le texte dans la langue choisi par l'utilisateur.
 \end{itemize}
 
 \begin{verbatim}
@@ -299,18 +317,18 @@ Cette fonction permet de modifier la langue d'une chaine de caractère de trois 
         if let language = str{
             let path = Bundle.main.path(forResource: language, ofType: "lproj")
             let bundle = Bundle(path: path!)
-            return NSLocalizedString(self, tableName: "Localizable", bundle: bundle!, value: self,
-            		 comment: "nil")
+            return NSLocalizedString(self, tableName: "Localizable", bundle: bundle!,
+            value: self, comment: "nil")
         }
         if(UserDefaults.standard.bool(forKey: "switchState")){
-            return NSLocalizedString(self, tableName: "Localizable", bundle: .main, value: self,
-            		 comment: "nil")
+            return NSLocalizedString(self, tableName: "Localizable", bundle: .main,
+            value: self, comment: "nil")
         }
         let path = Bundle.main.path(forResource: UserDefaults.standard.string(forKey: "language"), 
-        				ofType: "lproj")
+        ofType: "lproj")
         let bundle = Bundle(path: path!)
         return NSLocalizedString(self, tableName: "Localizable", bundle: bundle!, value: self,
-        				 comment: "nil")
+        comment: "nil")
     }
 }  
 \end{verbatim}
@@ -322,35 +340,53 @@ Cette fonction permet de modifier la langue d'une chaine de caractère de trois 
 \section{Quelques points délicats/intéressants}
 
 Durant le développement de notre application, nous avons rencontrés des difficultés concernant la prise en main
-de nouveau outils de travail tels que Git.
+de nouveaux outils de travail tels que Git.
 De plus, l'implémentation de l'API Mapbox et de \textit{Firebase}~\cite{firebaseDoc} à beaucoup ralenti
 le développement sur iOS. En effet, \textit{Firebase}~\cite{firebaseDoc} étant développer par Google, son importation
-était une épreuve sur Xcode. Afin d'installer les dépendances requises sur iOS, nous avons du passé par
+était une épreuve sur Xcode. Afin d'installer les dépendances requises sur iOS, nous avons dû passé par
 le gestionnaire de dépendances \textit{CocoaPods}~\cite{cocoapodsDoc}.
-Malgré tous ces difficultés et après avoir pris en main, l'API Mapbox nous a permis de finir ce projet dans les temps.
-Mapbox étant très complet, possèdent ses propres classe permettant aux développeur de l'intégrer facilement dans leurs
-projets.
+Malgré toutes ces difficultés et après avoir pris en main, l'API Mapbox nous a permis de finir ce projet dans les temps.
+Mapbox étant très complet, possèdent ses propres classe permettant aux développeurs de l'intégrer facilement dans leurs projets.
 Concernant \textit{Firebase}~\cite{firebaseDoc}, son utilisation est plus aisé en Swift. En effet, Swift permet
 l'ajout de valeur dans une liste d'objet déclarer globalement. Contrairement à Java, ou il a fallu passé par une
 fonction callback (voir section~\ref{subsubsection:Java : Ouverture à la base de donnée}) pour récupérer les données.
-La traduction de l'application, en iOS révèle la puissance des extensions qui permet de rajouter des fonctions, structures, etc... Et cela même à des classes normalement inaccessibles (code sources) comme la classe String. Néanmoins, il était plus simple de gérer la traduction en java. La gestion de la traduction et de l'apparence de l'application, nous a confronté au cycle de vie (des view/activity) des différentes plateformes. Et l'utilisation des données persistances sous forme de couple clé, valeurs pour enregistrer des petit donnée (préférences utilisateurs), est remarquable.  Les données persistantes nous ont même permis de détecter la première utilisation de l'application, pour exécuter du code qu'une seule fois.
+
+La traduction de l'application, en iOS révèle la puissance des extensions qui permet de rajouter des fonctions, structures, etc...
+Et cela même à des classes normalement inaccessibles (code sources) comme la classe String. Néanmoins, il était plus simple de gérer la traduction en Java.
+La gestion de la traduction et de l'apparence de l'application, nous a confronté au cycle de vie (des view/activity) des différentes plateformes.
+Et l'utilisation des données persistances sous forme de couple (clé, valeur) pour enregistrer de petite donnée (préférences utilisateurs), est remarquable.
+Les données persistantes nous ont même permis de détecter la première fois que l'application, afin de récupérer des paramêtres et exécuter du code qu'une seule fois.
+
 
 \subsection{UnivMap 2.0 à suivre}
-À la fin du développement de notre application,  bien qu'elle soit fonctionnelle certains améliorations sont à venir, tel que :
+À la fin du développement de notre application,  bien qu'elle soit fonctionnelle, certaines améliorations sont à venir, telles que l'ajout :
 \begin{itemize}
-    \item l'ajout du choix de la fillière;
+    \item du choix du planning selon la fillière;
 
-    \item l'ajout de notification lorsque le calendrier est modifier;
+    \item de notification lorsque le calendrier est modifié;
 
-    \item l'ajout d'un onglet accueil avec des redirections vers les autres platforms de l'Université et l'affichage d'évèments;
+    \item d'un onglet accueil avec des redirections vers d'autres plateformes de l'Université et l'affichages d'évèments;
     
-    \item l'ajout de filtre sur la carte.
+    \item de filtre sur la carte.
     
 \end{itemize}
 
 
 
 \section{Conclusion}
+
+
+Enfin pour conclure le rapport, ce projet nous a beaucoup apporter en tant que développeur mobile
+que ce soit sur les connaissances basiques en passant par l'implémentation d'API. Le développement d'UnivMap
+à montré que le travail de groupe, l'entraide et la communication étaient primordial.
+Malgré quelque appréhension face à l'idée de l'application, notre binôme à su montré son ambition et
+sa persévérance d'atteindre l'objectif d'aider de nouveaux étudiants.
+
+
+%% - travail de groupe
+%% - l'implémentation d'API
+%% - solidifier nos connaissances en tant que développeur mobiles
+
 
 
 %%% La bibliographie:
