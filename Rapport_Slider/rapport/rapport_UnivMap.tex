@@ -131,7 +131,7 @@ affichant la position exacte de celui-ci.
 Enfin l'onglet des paramétres de l'application, présenté sous forme de liste(générer dynamiquement), permet à l'utilisateur de mieux s'approprier l'application et d'en apprendre plus sur elle. À travers cette l'onglet, nous voulions encore une fois mettre en valeurs notre volonté d'aidée les utilisateurs, tout en leurs apportant le maximum de confort. Pour cela, nous avons choisi de mettre en avant, pour cette première version de UnivMap, les paramètres suivants:
 
 \begin{itemize}
-    \item Le choix de la langue : La possibilité de choisir la langues de l'application est une option, qui nous semble toujours indispensable. Cette option augmente le confort certe, mais surtout nous assure de la bonne compréhension de l'application par l'utilisateur. 
+    \item Le choix de la langue : La possibilité de choisir la langues de l'application est une option, qui nous semble toujours indispensable. Cette option augmente le confort certe, mais surtout permet aux public de différentes nationalité de l'utiliser.
     Pour cet option, l'utilisateur a le choix entre utiliser la même langue que son appareil, ou utiliser une des langues lister en-dessous.   
 
     \item Le choix du thème de l'application : le choix du thème de l'application permet à l'utilisateur de choisir la couleur de fonds, .
@@ -215,6 +215,31 @@ une liste d'objet en Callback.
     }
 \end{verbatim}
 
+\subsubsection{Java : Choix de la langue}
+La première fonction permet de modifier la langue d'une chaine de caractère et la deuxième de récupérer la langue de l'appareil :
+
+\begin{verbatim}
+   
+    public static void setLocale(Activity activity, String languageCode) {
+        Locale locale = new Locale(languageCode);
+        Locale.setDefault(locale);
+        Resources resources = activity.getResources();
+        Configuration config = resources.getConfiguration();
+        
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            config.setLocale(locale);
+        } else {
+            config.locale = locale;
+        }
+        resources.updateConfiguration(config, resources.getDisplayMetrics());
+
+    }
+
+    public static String currentLanguage(){
+        return Resources.getSystem().getConfiguration().locale.getLanguage();
+    }
+
+}\end{verbatim}
 
 
 
@@ -256,6 +281,40 @@ db.collection("planning").getDocuments() { [self] (querySnapshot, err) in
 
 
 \end{verbatim}
+
+\subsubsection{Swift : Choix de la langue}
+Cette fonction permet de modifier la langue d'une chaine de caractère de trois manière différente :
+
+\begin{itemize}
+    \item Selon la langues passer en paramétre : Affiche toujours un texte dans une langue en particulier! 
+
+    \item Selon la langue par défaut : Affiche toujours un texte dans la langues par défaut, c'est-à-dire la langue de l'appareil.
+
+    \item Selon le choix de l'utilisateur : Affiche le texte dans la langue choisit par l'utilisateur.
+\end{itemize}
+
+\begin{verbatim}
+    extension String {
+    func localized(str:String?) -> String{
+        if let language = str{
+            let path = Bundle.main.path(forResource: language, ofType: "lproj")
+            let bundle = Bundle(path: path!)
+            return NSLocalizedString(self, tableName: "Localizable", bundle: bundle!, value: self,
+            		 comment: "nil")
+        }
+        if(UserDefaults.standard.bool(forKey: "switchState")){
+            return NSLocalizedString(self, tableName: "Localizable", bundle: .main, value: self,
+            		 comment: "nil")
+        }
+        let path = Bundle.main.path(forResource: UserDefaults.standard.string(forKey: "language"), 
+        				ofType: "lproj")
+        let bundle = Bundle(path: path!)
+        return NSLocalizedString(self, tableName: "Localizable", bundle: bundle!, value: self,
+        				 comment: "nil")
+    }
+}  
+\end{verbatim}
+
 
 \newpage %% Passer a une autre page
 
