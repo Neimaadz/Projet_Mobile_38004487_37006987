@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/teal_200"
+    android:backgroundTint="@color/teal_200"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+
+    <TextView
+        android:id="@+id/colorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/eyesPicker"
+        android:background="@drawable/shape_item_settings_background"
+        android:layout_margin="10dp"
+        android:padding="10dp"/>
+
+    <SeekBar
+        android:id="@+id/seekBarR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_item_settings_background"
+        android:progressTint="@color/red"
+        android:thumbTint="@color/red"
+        android:layout_margin="10dp"
+        android:padding="10dp"/>
+
+    <SeekBar
+        android:id="@+id/seekBarG"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:background="@drawable/shape_item_settings_background"
+        android:progressTint="@color/green"
+        android:thumbTint="@color/green"/>
+
+    <SeekBar
+        android:id="@+id/seekBarB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:background="@drawable/shape_item_settings_background"
+        android:progressTint="@color/blue"
+        android:thumbTint="@color/blue"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_margin="10dp">
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back"
+            android:layout_margin="10dp"/>
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:layout_margin="10dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
