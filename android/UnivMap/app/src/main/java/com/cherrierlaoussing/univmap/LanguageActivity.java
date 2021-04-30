@@ -86,29 +86,25 @@ public class LanguageActivity extends AppCompatActivity {
     /// =============================== Toggle Button Method =============================
 
     public void chooseDefaultLanguage(View v){
+        //final boolean isChecked = toggleButton.isChecked();
         if(toggleButton.isChecked()){
-            allButtonDeactivate();
+            enableOrDesactivate(!toggleButton.isChecked());
             saveDefaultLanguage(true);
-
             setLocale(this,currentLanguage());
-
-            overridePendingTransition(0, 0);
-            finish();
-            startActivity(getIntent());
-            overridePendingTransition(0, 0);
+            refreshActivity();
         }else{
-            allButtonEnable();
+            enableOrDesactivate(!toggleButton.isChecked());
             saveDefaultLanguage(false);
         }
     }
 
-    public void initToggleButton(){
+    private void initToggleButton(){
         if(defaultLanguage){
             toggleButton.setChecked(true);
-            allButtonDeactivate();
+            enableOrDesactivate(!defaultLanguage);
         }else{
             toggleButton.setChecked(false);
-            allButtonEnable();
+            enableOrDesactivate(!defaultLanguage);
         }
     }
 
@@ -117,10 +113,7 @@ public class LanguageActivity extends AppCompatActivity {
         // change language on French
         setLocale(this,"fr");
         // refresh the activity
-        overridePendingTransition(0, 0);
-        finish();
-        startActivity(getIntent());
-        overridePendingTransition(0, 0);
+        refreshActivity();
         // save data
         saveChoosedLanguage("fr");
     }
@@ -129,33 +122,32 @@ public class LanguageActivity extends AppCompatActivity {
         // change language on English
         setLocale(this,"en");
         // refresh the activity
-        overridePendingTransition(0, 0);
-        finish();
-        startActivity(getIntent());
-        overridePendingTransition(0, 0);
+        refreshActivity();
         // save data
         saveChoosedLanguage("en");
     }
 
-    public void allButtonEnable(){
-        englishButton.setEnabled(true);
-        frenchButton.setEnabled(true);
+    private void enableOrDesactivate(Boolean bool){
+        englishButton.setEnabled(bool);
+        frenchButton.setEnabled(bool);
     }
 
-    public void allButtonDeactivate(){
-        englishButton.setEnabled(false);
-        frenchButton.setEnabled(false);
+    private void refreshActivity(){
+        overridePendingTransition(0, 0);
+        finish();
+        startActivity(getIntent());
+        overridePendingTransition(0, 0);
     }
 
     /// =============================== Data Persist Methods =============================
 
-    public void saveDefaultLanguage(Boolean value){
+    private void saveDefaultLanguage(Boolean value){
         SharedPreferences.Editor editor = preferences.edit();
         editor.putBoolean(DEFAULT_LANGUAGE, value);
         editor.commit();
     }
 
-    public void saveChoosedLanguage(String language){
+    private void saveChoosedLanguage(String language){
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(APP_LANGUAGE, language);
         editor.commit();

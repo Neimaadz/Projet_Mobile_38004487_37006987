@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.model.univmap.ColorCustomPopUp;
 //import com.google.firebase.firestore.core.View;
 
 public class AppearanceActivity extends AppCompatActivity {
@@ -53,6 +54,19 @@ public class AppearanceActivity extends AppCompatActivity {
     }
 
     public void chooseColor(View v){
-        finish();
+        ColorCustomPopUp popup = new ColorCustomPopUp(this);
+        popup.getNoButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popup.dismiss();
+            }
+        });
+        popup.getYesButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popup.dismiss();
+            }
+        });
+        popup.build();
     }
 }
