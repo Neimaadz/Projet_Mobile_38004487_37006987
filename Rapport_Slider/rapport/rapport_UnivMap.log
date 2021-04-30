@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.4.30)  30 APR 2021 20:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.4.30)  30 APR 2021 22:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -435,53 +435,53 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<Images//allowUserLocation.png, id=78, 1174.3875pt x 2541.495pt>
+<Images//allowUserLocation.png, id=82, 1174.3875pt x 2541.495pt>
 File: Images//allowUserLocation.png Graphic file (type png)
 <use Images//allowUserLocation.png>
 Package pdftex.def Info: Images//allowUserLocation.png  used on input line 89.
 (pdftex.def)             Requested size: 587.19232pt x 1270.7444pt.
-<Images//map.png, id=80, 1174.3875pt x 2541.495pt>
+<Images//map.png, id=84, 1174.3875pt x 2541.495pt>
 File: Images//map.png Graphic file (type png)
 <use Images//map.png>
 Package pdftex.def Info: Images//map.png  used on input line 90.
 (pdftex.def)             Requested size: 587.19232pt x 1270.7444pt.
-<Images//point_bleu.png, id=81, 1174.3875pt x 2541.495pt>
+<Images//point_bleu.png, id=85, 1174.3875pt x 2541.495pt>
 File: Images//point_bleu.png Graphic file (type png)
 <use Images//point_bleu.png>
 Package pdftex.def Info: Images//point_bleu.png  used on input line 91.
 (pdftex.def)             Requested size: 587.19232pt x 1270.7444pt.
  [2 <./Images//allowUserLocation.png> <./Images//map.png> <./Images//point_bleu
 .png>]
-<Images//calendar.png, id=91, 1174.3875pt x 2541.495pt>
+<Images//calendar.png, id=95, 1174.3875pt x 2541.495pt>
 File: Images//calendar.png Graphic file (type png)
 <use Images//calendar.png>
 Package pdftex.def Info: Images//calendar.png  used on input line 120.
 (pdftex.def)             Requested size: 587.19232pt x 1270.7444pt.
-<Images//calendar_position.png, id=92, 1174.3875pt x 2541.495pt>
+<Images//calendar_position.png, id=96, 1174.3875pt x 2541.495pt>
 File: Images//calendar_position.png Graphic file (type png)
 <use Images//calendar_position.png>
 Package pdftex.def Info: Images//calendar_position.png  used on input line 121.
 
 (pdftex.def)             Requested size: 587.19232pt x 1270.7444pt.
  [3 <./Images//calendar.png> <./Images//calendar_position.png>]
-<Images//setting.png, id=99, 1174.3875pt x 2541.495pt>
+<Images//setting.png, id=103, 1174.3875pt x 2541.495pt>
 File: Images//setting.png Graphic file (type png)
 <use Images//setting.png>
 Package pdftex.def Info: Images//setting.png  used on input line 150.
 (pdftex.def)             Requested size: 587.19232pt x 1270.7444pt.
-<Images//setting_appearance.png, id=100, 1174.3875pt x 2541.495pt>
+<Images//setting_appearance.png, id=104, 1174.3875pt x 2541.495pt>
 File: Images//setting_appearance.png Graphic file (type png)
 <use Images//setting_appearance.png>
 Package pdftex.def Info: Images//setting_appearance.png  used on input line 151
 .
 (pdftex.def)             Requested size: 587.19232pt x 1270.7444pt.
-<Images//setting_languageOn.png, id=101, 1174.3875pt x 2541.495pt>
+<Images//setting_languageOn.png, id=105, 1174.3875pt x 2541.495pt>
 File: Images//setting_languageOn.png Graphic file (type png)
 <use Images//setting_languageOn.png>
 Package pdftex.def Info: Images//setting_languageOn.png  used on input line 152
 .
 (pdftex.def)             Requested size: 587.19232pt x 1270.7444pt.
-<Images//setting_languageOff.png, id=102, 1174.3875pt x 2541.495pt>
+<Images//setting_languageOff.png, id=106, 1174.3875pt x 2541.495pt>
 File: Images//setting_languageOff.png Graphic file (type png)
 <use Images//setting_languageOff.png>
 Package pdftex.def Info: Images//setting_languageOff.png  used on input line 15
@@ -580,16 +580,16 @@ e", bundle: bundle!, value: self,[]
 
 [7] (./rapport_UnivMap.bbl) [8] (./rapport_UnivMap.aux)
 Package rerunfilecheck Info: File `rapport_UnivMap.out' has not changed.
-(rerunfilecheck)             Checksum: 82BDB2AC580EA044DCA88EAEB80C2E6F;2736.
+(rerunfilecheck)             Checksum: F33B16DBFAC622871BEB9EDDA3BA55D0;2906.
  ) 
 Here is how much of TeX's memory you used:
- 11643 strings out of 478994
- 169142 string characters out of 5858184
- 509805 words of memory out of 5000000
- 28918 multiletter control sequences out of 15000+600000
+ 11647 strings out of 478994
+ 169195 string characters out of 5858184
+ 509808 words of memory out of 5000000
+ 28921 multiletter control sequences out of 15000+600000
  417704 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,6n,74p,517b,532s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,6n,74p,778b,532s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></
 usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></us
@@ -601,10 +601,10 @@ texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/te
 xlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texl
 ive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texliv
 e/2021/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on rapport_UnivMap.pdf (8 pages, 5004344 bytes).
+Output written on rapport_UnivMap.pdf (8 pages, 5008500 bytes).
 PDF statistics:
- 185 PDF objects out of 1000 (max. 8388607)
- 145 compressed objects within 2 object streams
- 28 named destinations out of 1000 (max. 500000)
- 158 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 189 PDF objects out of 1000 (max. 8388607)
+ 149 compressed objects within 2 object streams
+ 29 named destinations out of 1000 (max. 500000)
+ 166 words of extra memory for PDF output out of 10000 (max. 10000000)
 
