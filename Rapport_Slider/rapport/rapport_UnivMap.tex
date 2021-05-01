@@ -35,11 +35,12 @@
 \label{section:intro} % pour faire référence à la section ailleurs (\ref{...} voir plus bas)
 
 Dans le cadre du projet de l'unité d'enseignement "Développement pour Mobiles", nous avons décidé de développer
-une application iOS et Android, visant les nouveaux étudiants de l'Université de la Réunion.
+une application iOS et Android. Cette application a pour but d'aider nos utilisateurs à se repérer à l'Université de la Réunion.
 
-Beaucoup d'étudiants découvrant leur nouveau campus, sont souvent perdu pour trouver leur cours. Par conséquent,
-ils arrivent généralement en retard et perdent ainsi leur qualité d'apprentissage.
-Aujourd'hui, afin de répondre au besoin de ces nouveaux étudiants, nous allons vous présenter l'application UnivMap.
+Le changement peut-être difficile pour certains étudiants réunionnais ou étranger.
+Beaucoup de ces étudiants, découvrant leurs nouveau campus, sont souvent perdu pour trouver leur cours. Par conséquent,
+ils arrivent généralement en retard et perdent ainsi leurs qualités d'apprentissages.
+Aujourd'hui, afin de répondre au besoin de ces étudiants, nous allons vous présenter l'application UnivMap.
 
 Dans un premier temps, nous verrons une description générale de l'application, puis nous analyserons
 l'architecture du code. Ensuite, nous aborderons les difficultés rencontrés durant le développement
@@ -53,7 +54,7 @@ du projet pour enfin terminer par une conclusion.
 \end{center}
 
 
-L'application possède trois onglets : la carte de l'Université, le calendrier des cours ainsi que des options.
+L'application possède trois onglets : la carte de l'université, le calendrier des cours ainsi que des options.
 La carte intègre des fonctionnalités permettant l'affichage des enseignements sous formes de cercle coloré, De plus,
 des boutons sont à la disposition de l'utilisateur afin de les parcourir.
 Le calendrier permet d'afficher sous forme d'une liste le planning de l'étudiant.
@@ -139,7 +140,7 @@ mettre en valeur notre volonté d'aider les étudiants, tout en leur apportant l
 choisi de mettre en avant, pour cette première version d'UnivMap, les paramètres suivants :\\
 
 \begin{itemize}
-    \item Le choix de la langue : la possibilitée de choisir la langue de l'application est une option, qui nous semblent toujours indispensable.
+    \item Le choix de la langue : la possibilité de choisir la langue de l'application est une option, qui nous semblent toujours indispensable.
     Cette option augmente le confort certe, mais surtout permet au public de différentes nationalités de l'utiliser.
     Pour cette option, l'utilisateur a le choix entre utiliser la même langue que son appareil, ou utiliser une des langues listées ci-dessous.   
 
@@ -149,10 +150,10 @@ choisi de mettre en avant, pour cette première version d'UnivMap, les paramètr
     puis envoyer, il est redirigé vers une application de mail. 
     
     \item Mais aussi les mentions légales et la confidentialité : ces deux options sont présent à titre informatif et sont indispensables à tout
-    application. Ces deux partie doivent faire apparaître respectivement la charte de protection des données personnelles,
+    application. Ces deux parties doivent faire apparaître respectivement la charte de protection des données personnelles,
     ainsi que les CGU(conditions générales d'utilisation), etc...
     
-    \item Et enfin, UnivMap : cette option est présente pour permettre l'utilisateur d'en apprendre d'avantage sur UnivMap. Notamment,
+    \item Et enfin, UnivMap : cette option est présente pour permettre à l'utilisateur d'en apprendre d'avantage sur UnivMap. Notamment,
     le but de l'application ainsi que les développeurs ayant contribué à sa création.
     
 \end{itemize}
@@ -370,7 +371,7 @@ Concernant \textit{Firebase}~\cite{firebaseDoc}, son utilisation est plus aisé 
 l'ajout de valeur dans une liste d'objet déclarer globalement. Contrairement à Java, ou il a fallu passé par une
 fonction callback (voir section~\ref{subsubsection:Java : Ouverture à la base de donnée}) pour récupérer les données.
 
-La traduction de l'application, en iOS révèle la puissance des extensions qui permet de rajouter des fonctions, structures, etc...
+La traduction de l'application, en iOS, révèle la puissance des extensions permettant ainsi de rajouter des fonctions, structures, etc...
 Et cela même à des classes normalement inaccessibles (code source du langage de programmation) comme la classe String. Néanmoins, il était plus simple de gérer la traduction en Java.
 La gestion de la traduction et de l'apparence de l'application, nous a confronté au cycle de vie (des view/activity) des différentes plateformes.
 Et l'utilisation des données persistances sous forme de couple (clé, valeur), pour enregistrer des petites données (préférences utilisateurs), est remarquable.
@@ -382,7 +383,7 @@ Les données persistantes nous ont même permis de récupérer des paramètres i
 \begin{itemize}
     \item du choix du planning selon la fillière;
 
-    \item de notification lorsque le calendrier est modifié;
+    \item de notification lorsque l'emploi du temps est modifié;
 
     \item d'un onglet accueil avec des redirections vers d'autres plateformes de l'Université et l'affichages d'évèments;
     
@@ -395,7 +396,7 @@ Les données persistantes nous ont même permis de récupérer des paramètres i
 \section{Conclusion}
 
 
-Enfin pour conclure le rapport, ce projet nous a beaucoup apporter en tant que développeur mobile
+Enfin pour conclure le rapport, ce projet nous a beaucoup apporté en tant que développeur mobile
 que ce soit sur les connaissances basiques en passant par l'implémentation d'API. Le développement d'UnivMap
 à montré que le travail de groupe, l'entraide et la communication étaient primordial.
 Malgré quelque appréhension face à l'idée de l'application, notre binôme à su montré son ambition et
