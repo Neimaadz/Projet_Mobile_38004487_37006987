@@ -2,6 +2,7 @@ package com.cherrierlaoussing.univmap;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -47,6 +48,7 @@ import com.mapbox.mapboxsdk.plugins.annotation.OnCircleClickListener;
 import com.mapbox.mapboxsdk.plugins.markerview.MarkerView;
 import com.mapbox.mapboxsdk.plugins.markerview.MarkerViewManager;
 import com.mapbox.mapboxsdk.utils.ColorUtils;
+import com.model.univmap.ColorCustomPopUp;
 import com.model.univmap.Planning;
 
 
@@ -76,7 +78,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private MarkerViewManager markerViewManager;
     private CircleManager circleManager;
     private Circle circle;
-
     private PermissionsManager permissionsManager;
 
 
@@ -84,6 +85,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     int indexNext = 0;
 
     List<Circle> circleIconList = new ArrayList<>();
+
+    private int r,g,b;
 
     //========================  Language App & Data Persist ========================
     private SharedPreferences preferences;
@@ -111,6 +114,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             LanguageActivity.setLocale(this, appLanguage);
         }
         //System.out.println(preferences.getString("appLanguage", currentLanguage));        //test
+
+        //========================  Color Marker ========================
+        r = preferences.getInt("red",91);
+        g = preferences.getInt("green",107);
+        b = preferences.getInt("blue",128);
 
         //==============================================================================
 
@@ -732,15 +740,22 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         // Set the View's TextViews with content
         TextView planningNom = customView.findViewById(R.id.planning_nom);
         planningNom.setText(nom);
+        planningNom.setTextColor(ColorCustomPopUp.adaptativeColor(r,g,b));
 
         TextView planningEnseignant = customView.findViewById(R.id.planning_enseignant);
         planningEnseignant.setText(enseignant);
+        planningEnseignant.setTextColor(ColorCustomPopUp.adaptativeColor(r,g,b));
 
         TextView planningSalle = customView.findViewById(R.id.planning_salle);
         planningSalle.setText(salle);
+        planningSalle.setTextColor(ColorCustomPopUp.adaptativeColor(r,g,b));
 
         TextView planningHoraire = customView.findViewById(R.id.planning_horaire);
         planningHoraire.setText(horaire);
+        planningHoraire.setTextColor(ColorCustomPopUp.adaptativeColor(r,g,b));
+
+        CardView card = customView.findViewById(R.id.cardMarker);
+        card.setCardBackgroundColor(Color.argb(255,r,g,b));
 
         // Use the View to create a MarkerView which will eventually be given to
         // the plugin's MarkerViewManager class
