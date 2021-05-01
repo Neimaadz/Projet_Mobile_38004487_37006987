@@ -3,18 +3,24 @@ package com.cherrierlaoussing.univmap;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.model.univmap.ColorCustomPopUp;
 import com.model.univmap.ItemSettings;
 import com.model.univmap.ItemSettingsApdater;
 
@@ -26,11 +32,24 @@ public class SettingsActivity extends AppCompatActivity {
     private BottomNavigationView navBar;
     private ListView listView;
     private SettingsActivity activity;
+    private ConstraintLayout constraintLayout;
+
+    /// =============================== Data Persist =============================
+    private SharedPreferences preferences;
+    private int r,g,b;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        /// =============================== initialisation Data Persist =============================
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        constraintLayout = findViewById(R.id.settingsLayout);
+        r = preferences.getInt("red",91);
+        g = preferences.getInt("green",107);
+        b = preferences.getInt("blue",128);
+        constraintLayout.setBackgroundColor(Color.argb(255, r, g, b));
 
         // =============================== Assistance Popup =============================
         this.activity = this;

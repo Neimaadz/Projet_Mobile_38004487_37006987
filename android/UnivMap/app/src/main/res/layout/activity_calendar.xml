@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CalendarActivity">
+    tools:context=".CalendarActivity"
+    android:id="@+id/calendarLayout">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewPlanning"
@@ -13,21 +14,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tabBar"/>
-        <!--android:paddingTop="30dp"
-        android:paddingBottom="30dp"-->
-
-
-
-
-
-
+        app:layout_constraintBottom_toTopOf="@+id/tabBar"
+        />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/tabBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/purple_200"
+        android:background="@drawable/tab_bar_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -2,21 +2,25 @@ package com.cherrierlaoussing.univmap;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.model.univmap.ColorCustomPopUp;
 
 import java.util.Locale;
 
@@ -28,12 +32,15 @@ public class LanguageActivity extends AppCompatActivity {
     /// =============================== View and its content =============================
     ToggleButton toggleButton;
     Button englishButton, frenchButton;
+    private ConstraintLayout constraintLayout;
+    private TextView firstTitle;
 
     /// =============================== Data Persist =============================
     private SharedPreferences preferences;
     private Boolean defaultLanguage;
     private String  appLanguage;
     private final String DEFAULT_LANGUAGE = "defaultLanguage", APP_LANGUAGE = "appLanguage";
+    private int r,g,b;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +51,15 @@ public class LanguageActivity extends AppCompatActivity {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         defaultLanguage = preferences.getBoolean(DEFAULT_LANGUAGE, true);
         appLanguage = preferences.getString(APP_LANGUAGE, null);
+
+        /// =============================== Initialization Color =============================
+        constraintLayout = findViewById(R.id.languageLayout);
+        r = preferences.getInt("red",91);
+        g = preferences.getInt("green",107);
+        b = preferences.getInt("blue",128);
+        constraintLayout.setBackgroundColor(Color.argb(255, r, g, b));
+        firstTitle = findViewById(R.id.language_firstTitle);
+        firstTitle.setTextColor(ColorCustomPopUp.adaptativeColor(r,g,b));
 
         /// =============================== Initialization Button =============================
         toggleButton = findViewById(R.id.toggleButton);

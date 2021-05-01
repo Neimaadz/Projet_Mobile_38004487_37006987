@@ -3,9 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/shape_item_settings_background.xml" value="0.21770833333333334" />
+        <entry key="app/src/main/res/drawable/tab_bar_background.xml" value="0.21770833333333334" />
         <entry key="app/src/main/res/layout/activity_appearance.xml" value="0.4244791666666667" />
+        <entry key="app/src/main/res/layout/activity_calendar.xml" value="0.2015625" />
+        <entry key="app/src/main/res/layout/activity_confidentiality.xml" value="0.2015625" />
         <entry key="app/src/main/res/layout/activity_language.xml" value="0.38315217391304346" />
+        <entry key="app/src/main/res/layout/activity_legal_notice.xml" value="0.3609375" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3609375" />
+        <entry key="app/src/main/res/layout/activity_settings.xml" value="0.22071293638885583" />
+        <entry key="app/src/main/res/layout/activity_univ_map.xml" value="0.3609375" />
         <entry key="app/src/main/res/layout/color_popup_template.xml" value="0.3625" />
+        <entry key="app/src/main/res/layout/custom_marker_view.xml" value="0.3609375" />
+        <entry key="app/src/main/res/layout/header_list_settings.xml" value="0.3609375" />
+        <entry key="app/src/main/res/layout/item_setting_liste.xml" value="0.3609375" />
+        <entry key="app/src/main/res/layout/my_row.xml" value="0.3609375" />
+        <entry key="app/src/main/res/layout/tab_bar_background.xml" value="0.2015625" />
+        <entry key="app/src/main/res/menu/tab_bar_menu.xml" value="0.2015625" />
       </map>
     </option>
   </component>

@@ -33,7 +33,7 @@
             android:theme="@style/Theme.UnivMap.NoActionBar" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.UnivMap.NoActionBar">
+            android:theme="@style/Theme.UnivMap.map">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -2,21 +2,43 @@ package com.cherrierlaoussing.univmap;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.model.univmap.ColorCustomPopUp;
 
 public class ConfidentialityActivity extends AppCompatActivity {
 
-    BottomNavigationView navBar;
+    private BottomNavigationView navBar;
+    private ConstraintLayout constraintLayout;
+    private TextView text;
+
+    /// =============================== Data Persist =============================
+    private SharedPreferences preferences;
+    private int r,g,b;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confidentiality);
+
+        /// =============================== initialisation Data Persist =============================
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        constraintLayout = findViewById(R.id.confidentialityLayout);
+        r = preferences.getInt("red",91);
+        g = preferences.getInt("green",107);
+        b = preferences.getInt("blue",128);
+        constraintLayout.setBackgroundColor(Color.argb(255, r, g, b));
+        text = findViewById(R.id.confidentiality_text);
+        text.setTextColor(ColorCustomPopUp.adaptativeColor(r,g,b));
 
         /// =============================== ActionBar =============================
         getSupportActionBar().setTitle(getString(R.string.confidentiality));
