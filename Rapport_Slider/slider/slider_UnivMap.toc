@@ -1,7 +1,10 @@
 \babel@toc {french}{}
 \beamer@sectionintoc {1}{Introduction}{2}{0}{1}
 \beamer@sectionintoc {2}{Présentation d'UnivMap}{5}{0}{2}
-\beamer@sectionintoc {3}{Architecture du code}{8}{0}{3}
-\beamer@sectionintoc {4}{Quelques difficultés}{11}{0}{4}
-\beamer@sectionintoc {5}{UnivMap 2.0 : À Suivre}{14}{0}{5}
+\beamer@subsectionintoc {2}{1}{Comment cela fonctionne ?}{6}{0}{2}
+\beamer@sectionintoc {3}{Composantes utilisés}{9}{0}{3}
+\beamer@subsectionintoc {3}{1}{Mapbox}{10}{0}{3}
+\beamer@subsectionintoc {3}{2}{Firebase}{11}{0}{3}
+\beamer@sectionintoc {4}{Quelques difficultés}{13}{0}{4}
+\beamer@sectionintoc {5}{UnivMap 2.0 : À Suivre}{15}{0}{5}
 \beamer@sectionintoc {6}{Conclusion}{17}{0}{6}

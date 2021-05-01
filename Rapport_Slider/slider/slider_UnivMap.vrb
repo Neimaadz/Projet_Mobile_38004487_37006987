@@ -1,0 +1,34 @@
+\frametitle{iOS : récupération des données sur Firebase}
+
+    \begin{lstlisting}[basicstyle = \ttfamily\small]
+
+      db.collection("planning").getDocuments() { [self] (querySnapshot, err) in
+      if let err = err {
+          print("Error getting documents: \(err)")
+      } else {
+
+          for document in querySnapshot!.documents {
+              if let nom = document.data()["nom"] as? String,         //recup data selon clé
+                  let filiere = document.data()["filiere"] as? String,
+                  let enseignant = document.data()["enseignant"] as? String,
+                  let hDebut = document.data()["hDebut"] as? String,
+                  let hFin = document.data()["hFin"] as? String,
+                  let mDebut = document.data()["mDebut"] as? String,
+                  let mFin = document.data()["mFin"] as? String,
+                  let salle = document.data()["salle"] as? String,
+                  let latitude = document.data()["latitude"] as? String,
+                  let longitude = document.data()["longitude"] as? String{
+
+                  self.listPlanning.append(Planning(nom: nom, filiere: filiere,
+                  enseignant: enseignant, hDebut: hDebut, hFin: hFin, mDebut: mDebut, mFin: mFin,
+                  salle: salle, latitude: latitude, longitude: longitude ))
+
+
+                  (...)
+              }
+              (...)
+
+          }
+      }
+    \end{lstlisting}
+

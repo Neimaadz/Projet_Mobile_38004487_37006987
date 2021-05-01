@@ -9,6 +9,7 @@
 \usepackage{color}
 \usepackage{hyperref}
 \hypersetup{colorlinks,linkcolor=,urlcolor=blue}
+\usepackage{listings}
 
 
 \mode<presentation>
@@ -57,7 +58,7 @@
 
 % \AtBeginSubsection[]
 % {
-%   \begin{frame}<beamer>
+%    \begin{frame}<beamer>
 %     \frametitle{Plan}
 %     \tableofcontents[currentsection,currentsubsection]
 %   \end{frame}
@@ -91,13 +92,20 @@
 \end{frame}
 %
 %
+
 \begin{frame}
-  \frametitle{Introduction}
+  \frametitle{Introduction : pourquoi cette application ?}
+
   \begin{itemize}
-    \item 
-    \item
-    \item
+    \item Contribuer au développement de l'Université
+    \item Répondre aux besoins des nouveaux étudiants
+    \begin{itemize}
+      \item Généralement perdu
+      \item Par conséquent : retard en cours voir pire en examen !
+      \item Donc qualité d'apprentissage diminué
+    \end{itemize}
   \end{itemize}
+  
 \end{frame}
 %
 %
@@ -106,29 +114,90 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %
-\begin{frame}
-  \frametitle{Comment cela fonctionne ?}
-\end{frame}
-%
-%
-\begin{frame}
-  \frametitle{Machin}
-\end{frame}
+\subsection{Comment cela fonctionne ?}
+
+  \begin{frame}
+    \frametitle{Comment fontionne : la carte}
+    \begin{center}
+      \includegraphics[width=30mm, scale=0.5]{allowUserLocation.png}
+      \includegraphics[width=30mm, scale=0.5]{map.png}
+      \includegraphics[width=30mm, scale=0.5]{point_bleu.png}
+    \end{center}
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{Comment fontionne : le calendrier}
+    \begin{center}
+      \includegraphics[width=30mm, scale=0.5]{calendar.png}
+      \includegraphics[width=30mm, scale=0.5]{calendar_position.png}
+    \end{center}
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{Comment fontionne : les paramètres}
+    \begin{center}
+      \includegraphics[width=30mm, scale=0.5]{setting.png}
+      \includegraphics[width=30mm, scale=0.5]{setting_appearance.png}
+      \includegraphics[width=30mm, scale=0.5]{setting_languageOff.png}
+    \end{center}
+  \end{frame}
 %
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Architecture du code}
+\section{Composantes utilisés}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %
-\begin{frame}
-  \frametitle{Android}
-\end{frame}
-%
-%
-\begin{frame}
-  \frametitle{iOS}
-\end{frame}
+\subsection{Mapbox}
+  \begin{frame}
+    \frametitle{Mapbox : c'est quoi ?}
+
+    \begin{itemize}
+      \item Entreprise américaine spécialisée dans la cartographie en ligne
+      \item Mapbox reposent principalement sur le logiciel libre et sur les données d'OpenStreetMap
+      \item Fournis ses services notamment à :
+      \begin{itemize}
+        \item Pinterest
+        \item Le Monde
+        \item Snapchat
+        \item ...
+      \end{itemize}
+    \end{itemize}
+
+  \end{frame}
+
+    
+
+\subsection{Firebase}
+  \begin{frame}
+    \frametitle{Firebase : c'est quoi ?}
+
+    \begin{itemize}
+      \item Services d'hébergement pour tout type d'application
+      \item Racheté par Google en 2014
+      \item Firebase : NoSQL
+      \item Utilisé par plus de 110 000 développeurs :
+      \begin{itemize}
+        \item Shazam (iOS et Android)
+        \item Le Figaro (iOS et Android)
+        \item ...
+      \end{itemize}
+    \end{itemize}
+
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Firebase : c'est quoi ?}
+
+    \begin{center}
+      \includegraphics[width=120mm, scale=0.5]{firebase.png}
+    \end{center}
+
+  \end{frame}
+
+
 %
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -137,12 +206,13 @@
 %
 %
 \begin{frame}
-  \frametitle{De nouveaux outils de travail}
-\end{frame}
-%
-%
-\begin{frame}
-  \frametitle{Machin}
+  \frametitle{Quelques difficultés}
+  \begin{itemize}
+    \item Apprendre l'utilisation des API
+    \item Comprendre les documentations
+    \item Prise en main de Git
+    \item Changement de langues sur iOS
+  \end{itemize}
 \end{frame}
 %
 %
@@ -152,12 +222,16 @@
 %
 %
 \begin{frame}
-  \frametitle{Truc}
-\end{frame}
-%
-%
-\begin{frame}
-  \frametitle{Machin}
+  \frametitle{UnivMap 2.0 : À Suivre}
+
+  \begin{itemize}
+    \item Choix du planning selon une filière
+    \item Notification losque l'emploi du temps est modifié
+    \item Un onglet accueil afin d'être redirigé vers d'autres plateformes de l'Université
+    \item Ajout de filtre pour la carte pour n'afficher que le contenu voulu
+  \end{itemize}
+
+
 \end{frame}
 %
 %
@@ -168,10 +242,15 @@
 %
 \begin{frame}
   \frametitle{Conclusion}
+
+  \begin{center}
+    \includegraphics[width=35mm, scale=0.5]{UnivMap-logo500x500.png}
+  \end{center}
+
   \begin{itemize}
-    \item
-    \item
-    \item
+    \item Appréhension sur l'idée de l'application
+    \item Travail de groupe : communication, entraide étaient très important
+    \item L'ambition et la persévérance d'atteindre cette objectif
   \end{itemize}
 \end{frame}
 %
